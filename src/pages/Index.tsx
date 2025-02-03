@@ -5,6 +5,7 @@ import Work from "../components/Work";
 import Contact from "../components/Contact";
 import TechStack from "../components/TechStack";
 import Tools from "../components/Tools";
+import Blog from "../components/Blog";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <TechStack />
       <Tools />
       <Work />
+      <Blog />
       <Contact />
     </div>
   );
