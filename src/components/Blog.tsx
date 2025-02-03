@@ -15,7 +15,7 @@ const Blog = () => {
     queryFn: async () => {
       // Using a RSS to JSON API to fetch Medium posts
       const response = await fetch(
-        `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@yourusername`
+        `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@emmanuelchiefson`
       );
       const data = await response.json();
       return data.items as MediumPost[];
