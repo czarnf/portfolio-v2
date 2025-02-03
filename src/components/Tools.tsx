@@ -58,11 +58,13 @@ const Tools = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img
-                  src={tool.icon}
-                  alt={tool.name}
-                  className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform duration-300"
-                />
+                {tool.icon && (
+                  <img
+                    src={tool.icon}
+                    alt={tool.name}
+                    className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform duration-300"
+                  />
+                )}
                 <h3 className="text-xl font-semibold mb-2 text-primary dark:text-white group-hover:text-accent transition-colors duration-300">
                   {tool.name}
                 </h3>
