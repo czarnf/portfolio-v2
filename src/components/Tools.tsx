@@ -22,7 +22,8 @@ const tools = [
     icon: Code2,
     description: "Code Editor",
     className: "md:col-span-2 row-span-1",
-    bgColor: "from-blue-100 to-cyan-100",
+    bgColor: "from-[#0066b8] to-[#007acc]",
+    textColor: "text-white",
     link: "https://code.visualstudio.com"
   },
   {
@@ -30,7 +31,8 @@ const tools = [
     icon: MessageSquare,
     description: "Collaboration",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-purple-100 to-indigo-100",
+    bgColor: "from-[#464EB8] to-[#7B83EB]",
+    textColor: "text-white",
     link: "https://teams.microsoft.com"
   },
   {
@@ -38,7 +40,8 @@ const tools = [
     icon: Mail,
     description: "Productivity Suite",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-red-100 to-orange-100",
+    bgColor: "from-[#D83B01] to-[#FF5722]",
+    textColor: "text-white",
     link: "https://office.com"
   },
   {
@@ -46,7 +49,8 @@ const tools = [
     icon: Workflow,
     description: "Project Management",
     className: "md:col-span-2 row-span-1",
-    bgColor: "from-blue-100 to-indigo-100",
+    bgColor: "from-[#0052CC] to-[#2684FF]",
+    textColor: "text-white",
     link: "https://jira.atlassian.com"
   },
   {
@@ -54,7 +58,8 @@ const tools = [
     icon: Database,
     description: "Database",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-cyan-100 to-blue-100",
+    bgColor: "from-[#336791] to-[#4A90E2]",
+    textColor: "text-white",
     link: "https://postgresql.org"
   },
   {
@@ -62,7 +67,8 @@ const tools = [
     icon: GitBranch,
     description: "Version Control",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-orange-100 to-amber-100",
+    bgColor: "from-[#F1502F] to-[#F78166]",
+    textColor: "text-white",
     link: "https://git-scm.com"
   },
   {
@@ -70,7 +76,8 @@ const tools = [
     icon: Box,
     description: "Containerization",
     className: "md:col-span-2 row-span-1",
-    bgColor: "from-blue-100 to-cyan-100",
+    bgColor: "from-[#2496ED] to-[#51B7FF]",
+    textColor: "text-white",
     link: "https://www.docker.com"
   },
   {
@@ -78,7 +85,8 @@ const tools = [
     icon: Brain,
     description: "AI Integration",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-green-100 to-emerald-100",
+    bgColor: "from-[#10a37f] to-[#34d399]",
+    textColor: "text-white",
     link: "https://openai.com"
   },
   {
@@ -86,7 +94,8 @@ const tools = [
     icon: Cloud,
     description: "Deployment",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-slate-100 to-gray-100",
+    bgColor: "from-[#000000] to-[#333333]",
+    textColor: "text-white",
     link: "https://vercel.com"
   },
   {
@@ -94,7 +103,8 @@ const tools = [
     icon: Terminal,
     description: "Development Platform",
     className: "md:col-span-2 row-span-1",
-    bgColor: "from-purple-100 to-pink-100",
+    bgColor: "from-[#9b87f5] to-[#7E69AB]",
+    textColor: "text-white",
     link: "https://lovable.dev"
   },
   {
@@ -102,7 +112,8 @@ const tools = [
     icon: Keyboard,
     description: "AI-Powered Editor",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-indigo-100 to-violet-100",
+    bgColor: "from-[#1a1f2c] to-[#2d3748]",
+    textColor: "text-white",
     link: "https://cursor.sh"
   },
   {
@@ -110,7 +121,8 @@ const tools = [
     icon: Laptop,
     description: "AI Development",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-gray-100 to-slate-100",
+    bgColor: "from-[#171717] to-[#404040]",
+    textColor: "text-white",
     link: "https://v0.dev"
   }
 ];
@@ -131,17 +143,20 @@ const Tools = () => {
             >
               <Card
                 className={`h-full p-6 hover:scale-[1.02] transition-all duration-300 bg-gradient-to-br ${tool.bgColor} backdrop-blur-sm flex flex-col items-center justify-center group cursor-pointer animate-fadeIn overflow-hidden relative border`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                style={{ 
+                  animationDelay: `${index * 100}ms`,
+                  transform: `translateY(${Math.sin(index) * 5}px)` 
+                }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <tool.icon className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-300 text-primary/80" />
-                <h3 className="text-lg font-semibold mb-1 text-primary group-hover:text-accent transition-colors duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <tool.icon className={`w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-300 ${tool.textColor} group-hover:rotate-6`} />
+                <h3 className={`text-lg font-semibold mb-1 ${tool.textColor} group-hover:scale-105 transition-transform duration-300`}>
                   {tool.name}
                 </h3>
-                <p className="text-secondary text-sm group-hover:text-accent/90 transition-colors duration-300">
+                <p className={`${tool.textColor} text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300`}>
                   {tool.description}
                 </p>
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent/50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-white/30 to-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </Card>
             </a>
           ))}
