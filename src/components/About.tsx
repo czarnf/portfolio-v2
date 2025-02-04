@@ -11,15 +11,17 @@ const About = () => {
             My approach integrates strategic thinking with creative execution, ensuring that every project not only looks great but also delivers meaningful results for clients and users alike.
           </p>
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-primary">Skills</h3>
+            <h3 className="text-xl font-semibold text-primary">Core Competencies</h3>
             <div className="flex flex-wrap gap-2">
               {[
-                "UI/UX Design",
-                "Web Development",
-                "Brand Strategy",
-                "Motion Design",
-                "Responsive Design",
-                "Performance Optimization"
+                "Full Stack Development",
+                "IT Project Management",
+                "System Architecture",
+                "API Development",
+                "Database Design",
+                "Security Implementation",
+                "Performance Optimization",
+                "Cloud Infrastructure"
               ].map((skill) => (
                 <span
                   key={skill}
