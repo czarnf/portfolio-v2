@@ -1,66 +1,61 @@
 import { Card } from "@/components/ui/card";
 import { 
-  Figma, 
-  Code2, 
-  Palette, 
-  Image as ImageIcon,
-  Chrome,
+  Code2,
+  MessageSquare,
+  Bot,
+  Braces,
   Database,
-  Terminal,
   GitBranch,
-  Monitor,
+  Box,
   Cloud,
-  Box
+  Mail,
+  Terminal,
+  Workflow,
+  Brain,
+  Laptop,
+  Keyboard
 } from "lucide-react";
 
 const tools = [
   {
-    name: "Figma",
-    icon: Figma,
-    description: "UI/UX Design",
-    className: "md:col-span-2 row-span-1",
-    bgColor: "from-purple-100 to-pink-100",
-    link: "https://figma.com"
-  },
-  {
     name: "VS Code",
     icon: Code2,
     description: "Code Editor",
-    className: "md:col-span-1 row-span-2",
+    className: "md:col-span-2 row-span-1",
     bgColor: "from-blue-100 to-cyan-100",
     link: "https://code.visualstudio.com"
   },
   {
-    name: "Adobe XD",
-    icon: Palette,
-    description: "Prototyping",
+    name: "Teams",
+    icon: MessageSquare,
+    description: "Collaboration",
     className: "md:col-span-1 row-span-1",
-    bgColor: "from-pink-100 to-purple-100",
-    link: "https://adobe.com/xd"
+    bgColor: "from-purple-100 to-indigo-100",
+    link: "https://teams.microsoft.com"
   },
   {
-    name: "Photoshop",
-    icon: ImageIcon,
-    description: "Image Editing",
+    name: "Office 365",
+    icon: Mail,
+    description: "Productivity Suite",
+    className: "md:col-span-1 row-span-1",
+    bgColor: "from-red-100 to-orange-100",
+    link: "https://office.com"
+  },
+  {
+    name: "Jira",
+    icon: Workflow,
+    description: "Project Management",
     className: "md:col-span-2 row-span-1",
     bgColor: "from-blue-100 to-indigo-100",
-    link: "https://adobe.com/photoshop"
+    link: "https://jira.atlassian.com"
   },
   {
-    name: "Chrome DevTools",
-    icon: Chrome,
-    description: "Debugging & Testing",
-    className: "md:col-span-1 row-span-1",
-    bgColor: "from-green-100 to-emerald-100",
-    link: "https://developers.google.com/web/tools/chrome-devtools"
-  },
-  {
-    name: "MongoDB Compass",
+    name: "PostgreSQL",
     icon: Database,
-    description: "Database Management",
-    className: "md:col-span-2 row-span-1",
-    bgColor: "from-emerald-100 to-teal-100",
-    link: "https://www.mongodb.com/products/compass"
+    description: "Database",
+    className: "md:col-span-1 row-span-1",
+    bgColor: "from-cyan-100 to-blue-100",
+    link: "https://postgresql.org"
   },
   {
     name: "Git",
@@ -74,17 +69,49 @@ const tools = [
     name: "Docker",
     icon: Box,
     description: "Containerization",
-    className: "md:col-span-1 row-span-1",
-    bgColor: "from-cyan-100 to-blue-100",
+    className: "md:col-span-2 row-span-1",
+    bgColor: "from-blue-100 to-cyan-100",
     link: "https://www.docker.com"
+  },
+  {
+    name: "OpenAI",
+    icon: Brain,
+    description: "AI Integration",
+    className: "md:col-span-1 row-span-1",
+    bgColor: "from-green-100 to-emerald-100",
+    link: "https://openai.com"
   },
   {
     name: "Vercel",
     icon: Cloud,
     description: "Deployment",
-    className: "md:col-span-2 row-span-1",
+    className: "md:col-span-1 row-span-1",
     bgColor: "from-slate-100 to-gray-100",
     link: "https://vercel.com"
+  },
+  {
+    name: "Lovable",
+    icon: Terminal,
+    description: "Development Platform",
+    className: "md:col-span-2 row-span-1",
+    bgColor: "from-purple-100 to-pink-100",
+    link: "https://lovable.dev"
+  },
+  {
+    name: "Cursor",
+    icon: Keyboard,
+    description: "AI-Powered Editor",
+    className: "md:col-span-1 row-span-1",
+    bgColor: "from-indigo-100 to-violet-100",
+    link: "https://cursor.sh"
+  },
+  {
+    name: "v0 by Vercel",
+    icon: Laptop,
+    description: "AI Development",
+    className: "md:col-span-1 row-span-1",
+    bgColor: "from-gray-100 to-slate-100",
+    link: "https://v0.dev"
   }
 ];
 
