@@ -6,84 +6,72 @@ const tools = [
     name: "VS Code",
     icon: "/vscode-logo.svg",
     description: "Code Editor",
-    className: "md:col-span-2 row-span-2",
     link: "https://code.visualstudio.com"
   },
   {
     name: "Teams",
-    icon: "/brand-logos/teams-logo.svg",
+    icon: "/brand-logos/teams-logo.svg", 
     description: "Collaboration",
-    className: "md:col-span-1 row-span-1",
     link: "https://teams.microsoft.com"
   },
   {
     name: "Figma",
     icon: "/figma-logo.svg",
     description: "Design Tool",
-    className: "md:col-span-1 row-span-2",
     link: "https://figma.com"
   },
   {
     name: "Whimsical",
     icon: "/brand-logos/whimsical-logo.svg",
-    description: "Flowcharts & Diagrams",
-    className: "md:col-span-2 row-span-1",
+    description: "Flowcharts & Diagrams", 
     link: "https://whimsical.com"
   },
   {
     name: "Excel",
     icon: "/brand-logos/excel-logo.svg",
     description: "Spreadsheets",
-    className: "md:col-span-1 row-span-1",
     link: "https://office.com/excel"
   },
   {
     name: "Jira",
     icon: "/brand-logos/jira-logo.svg",
     description: "Project Management",
-    className: "md:col-span-2 row-span-2",
     link: "https://jira.atlassian.com"
   },
   {
     name: "Slack",
     icon: "/brand-logos/slack-logo.svg",
     description: "Team Communication",
-    className: "md:col-span-1 row-span-1",
     link: "https://slack.com"
   },
   {
     name: "PostgreSQL",
     icon: "/brand-logos/postgresql-logo.svg",
     description: "Database",
-    className: "md:col-span-2 row-span-1",
     link: "https://postgresql.org"
   },
   {
     name: "Git",
     icon: "/brand-logos/git-logo.svg",
     description: "Version Control",
-    className: "md:col-span-1 row-span-1",
     link: "https://git-scm.com"
   },
   {
     name: "Docker",
     icon: "/brand-logos/docker-logo.svg",
     description: "Containerization",
-    className: "md:col-span-2 row-span-1",
     link: "https://www.docker.com"
   },
   {
     name: "OpenAI",
     icon: "/brand-logos/openai-logo.svg",
     description: "AI Integration",
-    className: "md:col-span-1 row-span-2",
     link: "https://openai.com"
   },
   {
     name: "Lovable",
     icon: "/brand-logos/lovable-logo.svg",
     description: "Development Platform",
-    className: "md:col-span-2 row-span-1",
     link: "https://lovable.dev"
   }
 ];
@@ -93,14 +81,14 @@ const Tools = () => {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-primary mb-12">Tech Stack & Tools</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-[80px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {tools.map((tool, index) => (
             <motion.a
               href={tool.link}
               target="_blank"
               rel="noopener noreferrer"
               key={index}
-              className={`flex items-center justify-center ${tool.className}`}
+              className="flex flex-col items-center justify-center gap-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -121,6 +109,7 @@ const Tools = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               />
+              <span className="text-sm font-medium text-foreground">{tool.name}</span>
             </motion.a>
           ))}
         </div>
