@@ -73,6 +73,42 @@ const tools = [
     icon: "/brand-logos/lovable-logo.svg",
     description: "Development Platform",
     link: "https://lovable.dev"
+  },
+  {
+    name: "Supabase",
+    icon: "/brand-logos/supabase-logo.svg",
+    description: "Backend Platform",
+    link: "https://supabase.com"
+  },
+  {
+    name: "Cursor",
+    icon: "/brand-logos/cursor-logo.svg",
+    description: "AI Code Editor",
+    link: "https://cursor.sh"
+  },
+  {
+    name: "Power BI",
+    icon: "/brand-logos/powerbi-logo.svg",
+    description: "Business Intelligence",
+    link: "https://powerbi.microsoft.com"
+  },
+  {
+    name: "V0",
+    icon: "/brand-logos/v0-logo.svg",
+    description: "AI Design Tool",
+    link: "https://v0.dev"
+  },
+  {
+    name: "Firebase",
+    icon: "/brand-logos/firebase-logo.svg",
+    description: "Backend Platform",
+    link: "https://firebase.google.com"
+  },
+  {
+    name: "M365",
+    icon: "/brand-logos/m365-logo.svg",
+    description: "Productivity Suite",
+    link: "https://microsoft365.com"
   }
 ];
 
