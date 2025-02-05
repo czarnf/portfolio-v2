@@ -1,26 +1,10 @@
 import { Card } from "@/components/ui/card";
-import { 
-  Code2,
-  MessageSquare,
-  Bot,
-  Braces,
-  Database,
-  GitBranch,
-  Box,
-  Cloud,
-  Mail,
-  Terminal,
-  Workflow,
-  Brain,
-  Laptop,
-  Keyboard
-} from "lucide-react";
 import { motion } from "framer-motion";
 
 const tools = [
   {
     name: "VS Code",
-    icon: "/brand-logos/vscode-logo.svg",
+    icon: "/vscode-logo.svg",
     description: "Code Editor",
     className: "md:col-span-2 row-span-2",
     importance: "primary",
@@ -108,7 +92,7 @@ const tools = [
   },
   {
     name: "Lovable",
-    icon: Terminal,
+    icon: "/brand-logos/lovable-logo.svg",
     description: "Development Platform",
     className: "md:col-span-2 row-span-1",
     importance: "primary",
@@ -137,25 +121,26 @@ const Tools = () => {
                 type: "spring",
                 stiffness: 100
               }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
             >
               <Card
-                className={`h-full p-6 transition-all duration-300 flex flex-col items-center justify-center group cursor-pointer animate-fadeIn overflow-hidden relative border
+                className={`h-full p-6 transition-all duration-300 flex flex-col items-center justify-center group cursor-pointer overflow-hidden relative border
                   ${tool.importance === 'primary' ? 'bg-white shadow-lg' : 'bg-gray-50'}`}
               >
-                {typeof tool.icon === 'string' ? (
-                  <img 
-                    src={tool.icon} 
-                    alt={`${tool.name} logo`}
-                    className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-300"
-                  />
-                ) : (
-                  <tool.icon className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-300" />
-                )}
-                <h3 className={`text-lg font-semibold mb-1 group-hover:scale-105 transition-transform duration-300`}>
+                <motion.img 
+                  src={tool.icon} 
+                  alt={`${tool.name} logo`}
+                  className="w-8 h-8 mb-3"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                />
+                <h3 className="text-lg font-semibold mb-1 group-hover:text-accent transition-colors duration-300">
                   {tool.name}
                 </h3>
-                <p className="text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-sm text-muted-foreground text-center">
                   {tool.description}
                 </p>
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent/50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
