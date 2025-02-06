@@ -116,7 +116,7 @@ const Tools = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-primary mb-12">Tech Stack & Tools</h2>
+        <h2 className="text-3xl font-bold text-dark dark:text-light mb-12">Tech Stack & Tools</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {tools.map((tool, index) => (
             <motion.a
@@ -140,7 +140,7 @@ const Tools = () => {
                   }}
                 />
               </div>
-              <span className="text-sm font-medium text-foreground text-center">
+              <span className="text-sm font-medium text-dark dark:text-light text-center">
                 {tool.name}
               </span>
             </motion.a>
