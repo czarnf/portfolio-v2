@@ -120,32 +120,29 @@ const Tools = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {tools.map((tool, index) => (
             <motion.a
+              key={tool.name}
               href={tool.link}
               target="_blank"
               rel="noopener noreferrer"
-              key={index}
-              className="flex flex-col items-center justify-center gap-2"
+              className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg hover:bg-accent/10 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5,
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100
-              }}
-              whileHover={{ 
-                scale: 1.1,
-                transition: { duration: 0.2 }
-              }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
             >
-              <motion.img 
-                src={tool.icon} 
-                alt={`${tool.name} logo`}
-                className="w-12 h-12 object-contain"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              />
-              <span className="text-sm font-medium text-foreground">{tool.name}</span>
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img
+                  src={tool.icon}
+                  alt={`${tool.name} logo`}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = "/placeholder.svg";
+                  }}
+                />
+              </div>
+              <span className="text-sm font-medium text-foreground text-center">
+                {tool.name}
+              </span>
             </motion.a>
           ))}
         </div>
