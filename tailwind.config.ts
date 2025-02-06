@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -42,6 +43,14 @@ export default {
         muted: {
           DEFAULT: "#F1F1F1",
           foreground: "#666666",
+        },
+        dark: {
+          DEFAULT: "#1A1F2C",
+          foreground: "#FFFFFF",
+        },
+        light: {
+          DEFAULT: "#FFFFFF",
+          foreground: "#1A1F2C",
         },
       },
       keyframes: {
