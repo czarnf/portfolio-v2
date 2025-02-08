@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const tools = [
   {
@@ -117,33 +118,50 @@ const Tools = () => {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-dark dark:text-light mb-12">Tech Stack & Tools</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-8">
           {tools.map((tool, index) => (
-            <motion.a
-              key={tool.name}
-              href={tool.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg hover:bg-accent/10 transition-colors"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="w-12 h-12 flex items-center justify-center">
-                <img
-                  src={tool.icon}
-                  alt={`${tool.name} logo`}
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    e.currentTarget.src = "/placeholder.svg";
-                  }}
-                />
-              </div>
-              <span className="text-sm font-medium text-dark dark:text-light text-center">
-                {tool.name}
-              </span>
-            </motion.a>
+            <TooltipProvider key={tool.name}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <motion.a
+                    href={tool.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center gap-3 p-4 rounded-lg 
+                             bg-white/5 dark:bg-dark/5 backdrop-blur-sm
+                             hover:bg-accent/10 dark:hover:bg-accent/5
+                             active:scale-95
+                             transition-all duration-300 ease-in-out
+                             border border-transparent hover:border-accent/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <div className="relative w-12 h-12 flex items-center justify-center">
+                      <motion.img
+                        src={tool.icon}
+                        alt={`${tool.name} logo`}
+                        className="w-full h-full object-contain"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        onError={(e) => {
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-dark dark:text-light text-center">
+                      {tool.name}
+                    </span>
+                  </motion.a>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="bg-background/95 backdrop-blur-sm border-accent/20">
+                  <p>{tool.description}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           ))}
         </div>
       </div>
