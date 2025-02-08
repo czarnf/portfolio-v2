@@ -58,9 +58,9 @@ const Contact = () => {
             </p>
             <div className="flex space-x-4">
               {[
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Twitter, href: "#", label: "Twitter" },
+                { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+                { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
+                { icon: Twitter, href: "https://twitter.com/yourusername", label: "Twitter" },
                 { icon: Mail, href: "mailto:your@email.com", label: "Email" },
               ].map((social) => (
                 <a
