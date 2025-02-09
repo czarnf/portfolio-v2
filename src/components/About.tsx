@@ -42,8 +42,7 @@ const About = () => {
           <motion.p 
             className="text-secondary text-lg"
             variants={skillVariants}
-          >
-            With over 5 years of experience in digital design and development, I specialize in creating user-centered solutions that combine aesthetic appeal with functional excellence.
+          >As a versatile IT professional with many years of experience in digital design and development, I specialize in creating user-centered solutions that seamlessly integrate aesthetics with functionality. My expertise spans cloud services and migration planning, data analysis,IT porject and product management and the Internet of Things (IoT), enabling me to fuse hardware with software to deliver innovative, business-driven solutions. With a strong ability to leverage existing tools efficiently, I consistently achieve expected results while optimizing performance and user experience.
           </motion.p>
           <motion.p 
             className="text-secondary text-lg"
