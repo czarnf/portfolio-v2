@@ -1,69 +1,107 @@
-# Welcome to your portfolio project
 
-## Project info
+# Professional Portfolio Application
 
-**URL**: https://lovable.dev/projects/58a69697-e27f-4c55-905c-a1e6917b0cd9
+A modern, accessible portfolio application built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Responsive design that works across all devices
+- Dark/Light mode support
+- Animated UI components using Framer Motion
+- Accessible to keyboard navigation and screen readers
+- Contact form with validation
+- Project showcase with loading states
+- Blog section
+- Tech stack and tools display
+- Mobile-friendly navigation
 
-**Use Lovable**
+## Accessibility Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/58a69697-e27f-4c55-905c-a1e6917b0cd9) and start prompting.
+- ARIA labels and roles for interactive elements
+- Proper heading hierarchy
+- Keyboard navigation support
+- Focus management
+- Alternative text for images
+- Color contrast compliance
+- Skip links for keyboard users
+- Form labels and error messages
 
-Changes made via Lovable will be committed automatically to this repo.
+## Component Structure
 
-**Use your preferred IDE**
+```
+src/
+├── components/
+│   ├── About.tsx         # About section with skills
+│   ├── Blog.tsx          # Blog posts display
+│   ├── Contact.tsx       # Contact form with validation
+│   ├── Hero.tsx          # Landing hero section
+│   ├── Navbar.tsx        # Navigation with mobile support
+│   ├── TechStack.tsx     # Technology stack display
+│   ├── Tools.tsx         # Development tools showcase
+│   └── Work.tsx          # Project portfolio display
+└── pages/
+    └── Index.tsx         # Main page composition
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Best Practices
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Semantic HTML structure
+- Progressive enhancement
+- Mobile-first approach
+- Performance optimization
+- Error handling
+- Form validation
+- Loading states
+- Responsive images
 
-Follow these steps:
+## Development Setup
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Install dependencies:
+```bash
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+2. Start development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. Build for production:
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Accessibility Guidelines
 
-**Use GitHub Codespaces**
+1. Keyboard Navigation
+   - All interactive elements are focusable
+   - Focus order follows logical flow
+   - Focus styles are visible
+   - Skip links available
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+2. Screen Readers
+   - Proper ARIA labels
+   - Alternative text for images
+   - Meaningful headings
+   - Form labels and descriptions
 
-## What technologies are used for this project?
+3. Visual Accessibility
+   - Sufficient color contrast
+   - Responsive text sizing
+   - Clear visual hierarchy
+   - Consistent layout
 
-This project is built with .
+4. Error Handling
+   - Clear error messages
+   - Form validation feedback
+   - Loading state indicators
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Maintenance
 
-## How can I deploy this project?
+Regular updates and testing recommended for:
+- Dependency updates
+- Accessibility compliance
+- Performance optimization
+- Browser compatibility
+- Security patches
 
-Simply open [Lovable](https://lovable.dev/projects/58a69697-e27f-4c55-905c-a1e6917b0cd9) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
