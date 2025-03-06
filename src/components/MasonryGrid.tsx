@@ -25,6 +25,26 @@ const MasonryGrid = <T extends unknown>({
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [scrollHeight, setScrollHeight] = useState(600); // Default height
   const loaderRef = useRef<HTMLDivElement>(null);
+  const [columns, setColumns] = useState(1);
+  
+  // Determine optimal column count based on screen width
+  useEffect(() => {
+    const calculateColumns = () => {
+      const width = window.innerWidth;
+      if (width < 640) return 2; // mobile
+      if (width < 768) return 3; // small tablets
+      if (width < 1024) return 4; // tablets/small laptops
+      return 6; // desktops
+    };
+    
+    const handleResize = () => {
+      setColumns(calculateColumns());
+    };
+    
+    handleResize(); // Initial calculation
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Adjust grid height based on viewport
   useEffect(() => {
@@ -63,24 +83,49 @@ const MasonryGrid = <T extends unknown>({
     };
   }, [loadMoreItems, hasMore, loading]);
 
+  // Split items into column arrays
+  const getItemsInColumns = () => {
+    const columnArrays: T[][] = Array.from({ length: columns }, () => []);
+    
+    items.forEach((item, index) => {
+      // Distribute items evenly across columns using modulo
+      const columnIndex = index % columns;
+      columnArrays[columnIndex].push(item);
+    });
+    
+    return columnArrays;
+  };
+
+  const columnArrays = getItemsInColumns();
+
   return (
     <ScrollArea className={`h-[${scrollHeight}px] w-full rounded-md`}>
       <motion.div
         ref={gridRef}
-        className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-8 p-4 ${className}`}
+        className={`flex gap-4 md:gap-6 lg:gap-8 p-4 ${className}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {items.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: Math.min(index * 0.05, 1) }} // Cap delay to avoid excessive waits
+        {columnArrays.map((column, columnIndex) => (
+          <div 
+            key={`column-${columnIndex}`} 
+            className="flex flex-col gap-4 md:gap-6 lg:gap-8 flex-1"
           >
-            {renderItem(item, index)}
-          </motion.div>
+            {column.map((item, itemIndex) => {
+              const originalIndex = itemIndex * columns + columnIndex;
+              return (
+                <motion.div
+                  key={originalIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: Math.min(originalIndex * 0.05, 1) }} // Cap delay to avoid excessive waits
+                >
+                  {renderItem(item, originalIndex)}
+                </motion.div>
+              );
+            })}
+          </div>
         ))}
       </motion.div>
       
