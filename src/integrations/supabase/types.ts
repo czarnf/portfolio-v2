@@ -33,6 +33,72 @@ export type Database = {
         }
         Relationships: []
       }
+      exchanges: {
+        Row: {
+          api_key: string | null
+          api_secret: string | null
+          created_at: string | null
+          id: string
+          is_custom: boolean | null
+          name: string
+          price_variation: number | null
+          updated_at: string | null
+          url: string
+          volume_multiplier: number | null
+        }
+        Insert: {
+          api_key?: string | null
+          api_secret?: string | null
+          created_at?: string | null
+          id: string
+          is_custom?: boolean | null
+          name: string
+          price_variation?: number | null
+          updated_at?: string | null
+          url: string
+          volume_multiplier?: number | null
+        }
+        Update: {
+          api_key?: string | null
+          api_secret?: string | null
+          created_at?: string | null
+          id?: string
+          is_custom?: boolean | null
+          name?: string
+          price_variation?: number | null
+          updated_at?: string | null
+          url?: string
+          volume_multiplier?: number | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
