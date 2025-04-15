@@ -13,13 +13,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger({
-      // Enable latest Lovable features
-      enableSelectionAPI: true,
-      enableContextMenuAPI: true,
-      // Optional: Add performance monitoring
-      performanceMonitoring: true,
-    }),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
