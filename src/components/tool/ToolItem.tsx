@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   TooltipProvider, 
@@ -18,6 +18,12 @@ interface ToolItemProps {
 const ToolItem = ({ tool, index }: ToolItemProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  
+  // Reset state when tool changes
+  useEffect(() => {
+    setIsImageLoaded(false);
+    setImageError(false);
+  }, [tool.icon]);
 
   return (
     <TooltipProvider>
@@ -70,7 +76,6 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
                     console.error(`Failed to load image for ${tool.name}: ${tool.icon}`);
                     setImageError(true);
                     setIsImageLoaded(true);
-                    e.currentTarget.src = "/placeholder.svg";
                   }}
                 />
               )}
