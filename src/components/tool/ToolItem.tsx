@@ -17,6 +17,7 @@ interface ToolItemProps {
 
 const ToolItem = ({ tool, index }: ToolItemProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   return (
     <TooltipProvider>
@@ -42,25 +43,37 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
             tabIndex={0}
           >
             <div className="relative w-12 h-12 flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
-              {!isImageLoaded && (
+              {!isImageLoaded && !imageError && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Loader2 className="w-6 h-6 animate-spin text-accent" />
                 </div>
               )}
-              <motion.img
-                src={tool.icon}
-                alt={`${tool.name} logo`}
-                className={`w-full h-full object-contain transition-all duration-300 ${
-                  isImageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isImageLoaded ? 1 : 0 }}
-                onLoad={() => setIsImageLoaded(true)}
-                onError={(e) => {
-                  e.currentTarget.src = "/placeholder.svg";
-                  setIsImageLoaded(true);
-                }}
-              />
+              {imageError ? (
+                <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 rounded-md">
+                  <span className="text-xs text-gray-500 dark:text-gray-400">{tool.name[0]}</span>
+                </div>
+              ) : (
+                <motion.img
+                  src={tool.icon}
+                  alt={`${tool.name} logo`}
+                  className={`w-full h-full object-contain transition-all duration-300 ${
+                    isImageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isImageLoaded ? 1 : 0 }}
+                  onLoad={() => {
+                    setIsImageLoaded(true);
+                    setImageError(false);
+                    console.log(`Loaded image for ${tool.name}: ${tool.icon}`);
+                  }}
+                  onError={(e) => {
+                    console.error(`Failed to load image for ${tool.name}: ${tool.icon}`);
+                    setImageError(true);
+                    setIsImageLoaded(true);
+                    e.currentTarget.src = "/placeholder.svg";
+                  }}
+                />
+              )}
             </div>
             <span className="text-sm font-medium text-dark dark:text-light text-center group-hover:text-primary transition-colors duration-300">
               {tool.name}
