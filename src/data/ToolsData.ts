@@ -1,10 +1,4 @@
-
-export interface Tool {
-  name: string;
-  icon: string;
-  description: string;
-  link: string;
-}
+import { Tool } from "@/data/ToolsData";
 
 export const tools: Tool[] = [
   {
@@ -114,5 +108,23 @@ export const tools: Tool[] = [
     icon: "/brand-logos/m365-logo.svg",
     description: "Productivity Suite",
     link: "https://microsoft365.com"
+  },
+  {
+    name: "AWS",
+    icon: "/brand-logos/aws-logo.svg",
+    description: "Cloud Services",
+    link: "https://aws.amazon.com"
+  },
+  {
+    name: "Azure",
+    icon: "/brand-logos/azure-logo.svg",
+    description: "Cloud Platform",
+    link: "https://azure.microsoft.com"
+  },
+  {
+    name: "Google Cloud",
+    icon: "/brand-logos/gcp-logo.svg",
+    description: "Cloud Platform",
+    link: "https://cloud.google.com"
   }
 ];
