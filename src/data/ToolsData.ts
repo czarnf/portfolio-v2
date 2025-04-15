@@ -1,4 +1,10 @@
-import { Tool } from "@/data/ToolsData";
+
+export interface Tool {
+  name: string;
+  icon: string;
+  description: string;
+  link: string;
+}
 
 export const tools: Tool[] = [
   {
