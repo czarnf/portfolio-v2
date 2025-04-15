@@ -30,7 +30,7 @@ const technologies = [
   {
     name: "Cloud Services",
     icon: Cloud,
-    description: "Firebase, AWS, Cloud Storage"
+    description: "Firebase, AWS, Azure, Google Cloud Platform"
   },
 ];
 
