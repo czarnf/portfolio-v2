@@ -25,6 +25,14 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
     setImageError(false);
   }, [tool.icon]);
 
+  // Ensure image path has leading slash
+  const imagePath = tool.icon.startsWith('/') ? tool.icon : `/${tool.icon}`;
+  
+  // Log image path for debugging
+  useEffect(() => {
+    console.log(`Loading image for ${tool.name}: ${imagePath}`);
+  }, [tool.name, imagePath]);
+
   return (
     <TooltipProvider>
       <Tooltip>
@@ -60,7 +68,7 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
                 </div>
               ) : (
                 <motion.img
-                  src={tool.icon}
+                  src={imagePath}
                   alt={`${tool.name} logo`}
                   className={`w-full h-full object-contain transition-all duration-300 ${
                     isImageLoaded ? 'opacity-100' : 'opacity-0'
@@ -70,10 +78,10 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
                   onLoad={() => {
                     setIsImageLoaded(true);
                     setImageError(false);
-                    console.log(`Loaded image for ${tool.name}: ${tool.icon}`);
+                    console.log(`Successfully loaded image for ${tool.name}: ${imagePath}`);
                   }}
                   onError={(e) => {
-                    console.error(`Failed to load image for ${tool.name}: ${tool.icon}`);
+                    console.error(`Failed to load image for ${tool.name}: ${imagePath}`);
                     setImageError(true);
                     setIsImageLoaded(true);
                   }}
