@@ -1,29 +1,44 @@
-
-import { ExternalLink, Loader2 } from "lucide-react";
+import { ExternalLink, Github, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const projects = [
+interface Project {
+  title: string;
+  challenge: string;
+  solution: string;
+  image: string;
+  techStack: string[];
+  liveUrl: string;
+  githubUrl: string;
+}
+
+const projects: Project[] = [
   {
-    title: "Project One",
-    description: "Web Design & Development",
+    title: "Zinter Logistics Platform",
+    challenge: "A Dutch logistics startup needed to modernize their B2B2C platform to increase customer retention and streamline operations.",
+    solution: "Built an AI-enhanced platform with predictive analytics, reducing operational bottlenecks and improving retention by 70%.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    link: "#",
-    tags: ["Web Design", "React", "TypeScript"]
+    techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
+    liveUrl: "#",
+    githubUrl: "#"
   },
   {
-    title: "Project Two",
-    description: "Brand Identity",
-    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
-    link: "#",
-    tags: ["Branding", "Design", "Identity"]
+    title: "Healthcare Data Dashboard",
+    challenge: "NHS patient flow data was scattered across multiple systems, making real-time decisions difficult.",
+    solution: "Created a unified dashboard integrating multiple data sources for instant visibility into bed management and patient flow.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    techStack: ["TypeScript", "React", "D3.js", "Supabase"],
+    liveUrl: "#",
+    githubUrl: "#"
   },
   {
-    title: "Project Three",
-    description: "Mobile Application",
+    title: "E-Commerce Conversion Engine",
+    challenge: "Small businesses on Fiverr needed high-converting websites but lacked technical expertise.",
+    solution: "Developed a streamlined e-commerce solution with SEO optimization and conversion-focused UX, increasing client sales by 40%.",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-    link: "#",
-    tags: ["Mobile", "React Native", "UI/UX"]
+    techStack: ["Next.js", "Tailwind", "Stripe", "Vercel"],
+    liveUrl: "#",
+    githubUrl: "#"
   },
 ];
 
@@ -34,30 +49,53 @@ const Work = () => {
     setLoadedImages(prev => ({ ...prev, [index]: true }));
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
   return (
     <section 
       id="work" 
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-light dark:bg-dark"
+      className="py-32 px-4 sm:px-6 lg:px-8 bg-background"
       aria-label="Selected Work Section"
     >
       <motion.div 
         className="max-w-7xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
       >
-        <motion.h2 
-          className="text-3xl font-bold text-dark dark:text-light mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        {/* Section Header */}
+        <motion.div 
+          className="mb-16"
+          variants={cardVariants}
         >
-          Selected Work
-        </motion.h2>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Portfolio</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Selected Work
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl">
+            Projects where I've transformed complex challenges into elegant, user-focused solutions.
+          </p>
+        </motion.div>
+
+        {/* Project Cards */}
         <div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid lg:grid-cols-2 gap-8"
           role="list"
           aria-label="Projects grid"
         >
@@ -65,64 +103,89 @@ const Work = () => {
             <motion.article
               key={index}
               role="listitem"
-              aria-label={`${project.title} - ${project.description}`}
-              className="group relative overflow-hidden rounded-lg shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -5 }}
+              aria-label={project.title}
+              className="project-card group bg-card rounded-2xl border border-border overflow-hidden"
+              variants={cardVariants}
             >
-              <div className="relative aspect-video">
+              {/* Image */}
+              <div className="relative aspect-video overflow-hidden">
                 {!loadedImages[index] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted">
                     <Loader2 className="w-8 h-8 animate-spin text-accent" />
                   </div>
                 )}
-                <motion.img
+                <img
                   src={project.image}
                   alt={`${project.title} project thumbnail`}
-                  className={`w-full h-full object-cover transition-opacity duration-300 ${
+                  className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
                     loadedImages[index] ? 'opacity-100' : 'opacity-0'
                   }`}
                   onLoad={() => handleImageLoad(index)}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
               </div>
-              <motion.div 
-                className="absolute inset-0 bg-black/70 dark:bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center items-center text-white p-6 backdrop-blur-sm"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              >
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex}
-                      className="text-xs px-2 py-1 bg-white/10 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+
+              {/* Content */}
+              <div className="p-6 sm:p-8 space-y-6">
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+                  {project.title}
+                </h3>
+
+                {/* Challenge & Solution */}
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xs font-mono text-accent uppercase tracking-wider mb-1">The Challenge</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {project.challenge}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono text-accent uppercase tracking-wider mb-1">The Solution</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {project.solution}
+                    </p>
+                  </div>
                 </div>
-                <a
-                  href={project.link}
-                  className="group/link flex items-center gap-2 text-white/90 hover:text-white transition-colors"
-                  aria-label={`View ${project.title} project`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>View Project</span>
-                  <motion.div
-                    whileHover={{ rotate: 45 }}
-                    transition={{ duration: 0.3 }}
+
+                {/* Tech Stack */}
+                <div>
+                  <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">Key Tech</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="tech-badge"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-3 pt-2">
+                  <a
+                    href={project.githubUrl}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border text-foreground hover:border-accent hover:text-accent transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} code on GitHub`}
+                  >
+                    <Github className="w-4 h-4" />
+                    View Code
+                  </a>
+                  <a
+                    href={project.liveUrl}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} live demo`}
                   >
                     <ExternalLink className="w-4 h-4" />
-                  </motion.div>
-                </a>
-              </motion.div>
+                    Live Demo
+                  </a>
+                </div>
+              </div>
             </motion.article>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Globe, Code, Users, Award, Heart, ArrowRightLeft } from "lucide-react";
+import Philosophy from "./Philosophy";
 
 interface TimelineItem {
   period: string;
@@ -103,14 +104,12 @@ const About = () => {
     }
   };
 
-  const skillVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5
-      }
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -125,19 +124,19 @@ const About = () => {
   }) => (
     <div className="space-y-4">
       <motion.h3 
-        className="text-xl font-semibold text-primary flex items-center gap-2"
-        variants={skillVariants}
+        className="text-xl font-semibold text-foreground flex items-center gap-2"
+        variants={cardVariants}
       >
         {title === "Work Experience" ? (
-          <Briefcase className="w-5 h-5" />
+          <Briefcase className="w-5 h-5 text-accent" />
         ) : (
-          <GraduationCap className="w-5 h-5" />
+          <GraduationCap className="w-5 h-5 text-accent" />
         )}
         {title}
       </motion.h3>
       <div className="relative">
         <div className={`absolute left-4 top-0 bottom-0 w-0.5 ${
-          accentColor === "primary" ? "bg-primary/30" : "bg-accent/30"
+          accentColor === "primary" ? "bg-border" : "bg-accent/30"
         }`} />
         
         <div className="space-y-4">
@@ -149,26 +148,22 @@ const About = () => {
             >
               <div className={`absolute left-0 w-8 h-8 rounded-full flex items-center justify-center ${
                 item.highlight 
-                  ? accentColor === "primary" 
-                    ? "bg-primary text-primary-foreground ring-2 ring-primary/20" 
-                    : "bg-accent text-accent-foreground ring-2 ring-accent/20"
+                  ? "bg-accent text-accent-foreground ring-2 ring-accent/20" 
                   : "bg-muted text-muted-foreground border border-border"
               }`}>
                 <item.icon className="w-4 h-4" />
               </div>
               
-              <div className={`bg-background rounded-lg p-4 shadow-sm border transition-all duration-300 hover:shadow-md ${
-                item.highlight ? "border-primary/20" : "border-border"
+              <div className={`bg-card rounded-lg p-4 shadow-sm border transition-all duration-300 hover:shadow-md hover:border-accent/30 ${
+                item.highlight ? "border-accent/20" : "border-border"
               }`}>
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                <span className="text-xs font-mono text-accent uppercase tracking-wide">
                   {item.period}
                 </span>
                 <h4 className="font-semibold text-foreground mt-1">
                   {item.title}
                 </h4>
-                <p className={`text-sm font-medium ${
-                  accentColor === "primary" ? "text-primary" : "text-accent"
-                }`}>
+                <p className="text-sm font-medium text-muted-foreground">
                   {item.company}
                 </p>
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
@@ -183,82 +178,49 @@ const About = () => {
   );
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted">
+    <section id="about" className="py-32 px-4 sm:px-6 lg:px-8 bg-muted/50">
       <motion.div 
         className="max-w-7xl mx-auto"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
       >
-        <motion.h2 
-          className="text-3xl font-bold text-primary mb-8"
-          variants={skillVariants}
+        {/* Section Header */}
+        <motion.div 
+          className="mb-16"
+          variants={cardVariants}
         >
-          About Me
-        </motion.h2>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Background</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            About Me
+          </h2>
+        </motion.div>
         
         {/* Bio Section */}
-        <div className="mb-12 max-w-4xl">
+        <div className="mb-16 max-w-4xl">
           <motion.p 
-            className="text-secondary text-lg leading-relaxed mb-4"
-            variants={skillVariants}
+            className="text-muted-foreground text-lg leading-relaxed mb-4"
+            variants={cardVariants}
           >
             I am a technically astute and adaptable IT professional with a Master's in Information Technology and a growing track record of delivering impactful, data-informed digital solutions. My journey spans from freelance web development and marketing copywriting on Fiverr to leading digital transformation projects for European startups.
           </motion.p>
           <motion.p 
-            className="text-secondary text-lg leading-relaxed mb-4"
-            variants={skillVariants}
+            className="text-muted-foreground text-lg leading-relaxed mb-4"
+            variants={cardVariants}
           >
-            Currently, I'm making a deliberate transition from private sector to public service — working as a <span className="font-semibold text-primary">Patient Flow Coordinator at the NHS</span> while continuing as Project Lead for <span className="font-semibold text-primary">Zinter</span>, a Dutch logistics startup. This dual focus allows me to leverage my advanced IT skills in operational support within a government organization.
+            Currently, I'm making a deliberate transition from private sector to public service — working as a <span className="font-semibold text-foreground">Patient Flow Coordinator at the NHS</span> while continuing as Project Lead for <span className="font-semibold text-accent">Zinter</span>, a Dutch logistics startup. This dual focus allows me to leverage my advanced IT skills in operational support within a government organization.
           </motion.p>
           <motion.p 
-            className="text-secondary text-lg leading-relaxed"
-            variants={skillVariants}
+            className="text-muted-foreground text-lg leading-relaxed"
+            variants={cardVariants}
           >
             My career path reflects a strategic vision: combining technical expertise with frontline public service experience to drive meaningful change in healthcare and government digital transformation.
           </motion.p>
         </div>
 
-        {/* Skills */}
-        <motion.div 
-          className="mb-12"
-          variants={containerVariants}
-        >
-          <motion.h3 
-            className="text-xl font-semibold text-primary mb-4"
-            variants={skillVariants}
-          >
-            Core Competencies
-          </motion.h3>
-          <motion.div 
-            className="flex flex-wrap gap-2"
-            variants={containerVariants}
-          >
-            {[
-              "Product Management",
-              "Digital Transformation",
-              "Agile/Scrum",
-              "Cross-functional Leadership",
-              "Cloud Infrastructure (AWS, Azure, GCP)",
-              "API Design & Integration",
-              "Data Analytics",
-              "UX Strategy",
-              "Stakeholder Management",
-              "AI Integration"
-            ].map((skill) => (
-              <motion.span
-                key={skill}
-                className="px-4 py-2 bg-background rounded-full text-secondary text-sm hover:bg-primary hover:text-primary-foreground transition-colors duration-300 shadow-sm hover:shadow-md border border-border cursor-default"
-                variants={skillVariants}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </motion.div>
-        </motion.div>
+        {/* Development Philosophy */}
+        <Philosophy />
 
         {/* Timeline Grid */}
         <div className="grid lg:grid-cols-2 gap-12">

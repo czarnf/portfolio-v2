@@ -1,5 +1,5 @@
-
 import { motion } from "framer-motion";
+import { ArrowDown, FileText } from "lucide-react";
 
 const Hero = () => {
   const containerVariants = {
@@ -7,64 +7,127 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
+  const nameVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-accent/5">
+    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 pointer-events-none" />
+      
+      {/* Grid pattern overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+      
       <motion.div 
-        className="max-w-7xl w-full space-y-8"
+        className="max-w-7xl w-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="space-y-4">
-          <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
-            variants={itemVariants}
-          >
-            Creative Developer & Designer
-          </motion.h1>
+        <div className="space-y-8">
+          {/* Eyebrow text */}
           <motion.p 
-            className="text-lg sm:text-xl text-secondary max-w-2xl"
+            className="text-accent font-mono text-sm tracking-widest uppercase"
             variants={itemVariants}
           >
-            I craft beautiful and functional digital experiences, combining design and development to create impactful solutions.
+            Full Stack Developer
           </motion.p>
+          
+          {/* Massive Name */}
+          <motion.h1 
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-foreground tracking-tighter leading-[0.9]"
+            variants={nameVariants}
+          >
+            <span className="block">Okelola</span>
+            <span className="block text-accent">Oludamilare.</span>
+          </motion.h1>
+          
+          {/* Subtitle */}
+          <motion.p 
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed"
+            variants={itemVariants}
+          >
+            Building digital experiences that bridge{" "}
+            <span className="text-foreground font-medium">design</span> and{" "}
+            <span className="text-foreground font-medium">development</span>.
+            Currently shaping healthcare systems at the{" "}
+            <span className="text-accent font-medium">NHS</span>.
+          </motion.p>
+          
+          {/* CTA Buttons */}
+          <motion.div 
+            className="flex flex-wrap gap-4 pt-4"
+            variants={itemVariants}
+          >
+            <motion.a
+              href="#work"
+              className="cta-glow inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-semibold rounded-lg transition-all duration-300 hover:bg-accent/90"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              View Projects
+              <ArrowDown className="ml-2 w-4 h-4" />
+            </motion.a>
+            <motion.a
+              href="#contact"
+              className="inline-flex items-center px-8 py-4 border-2 border-border text-foreground text-base font-semibold rounded-lg transition-all duration-300 hover:border-accent hover:text-accent"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FileText className="mr-2 w-4 h-4" />
+              Get Resume
+            </motion.a>
+          </motion.div>
         </div>
+        
+        {/* Scroll indicator */}
         <motion.div 
-          className="flex space-x-4"
-          variants={itemVariants}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
         >
-          <motion.a
-            href="#work"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors duration-200"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2"
           >
-            View Work
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary hover:bg-primary hover:text-white transition-colors duration-200"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Me
-          </motion.a>
+            <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
