@@ -22,13 +22,6 @@ export default defineConfig(({ mode }) => ({
   },
   // Add build optimizations
   build: {
-    sourcemap: mode === 'development', // Generate sourcemaps only in dev
-    minify: 'terser', // Use terser for more efficient minification
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console logs in production
-        drop_debugger: true,
-      },
-    },
+    sourcemap: mode === 'development',
   },
 }));
