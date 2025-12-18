@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Globe, Code, Users, Award } from "lucide-react";
+import { Briefcase, GraduationCap, Globe, Code, Users, Award, Heart, ArrowRightLeft } from "lucide-react";
 
 interface TimelineItem {
   period: string;
@@ -12,12 +12,26 @@ interface TimelineItem {
 
 const workHistory: TimelineItem[] = [
   {
+    period: "Oct 2025 - Present",
+    title: "Patient Flow Coordinator",
+    company: "NHS",
+    description: "Coordinating patient flow and bed management across hospital departments. Applying IT and data skills to optimize operational efficiency in a high-pressure healthcare environment.",
+    icon: ArrowRightLeft,
+    highlight: true
+  },
+  {
+    period: "April 2025 - Oct 2025",
+    title: "Healthcare Support Worker",
+    company: "NHS",
+    description: "Delivered frontline patient care while transitioning career focus from private sector to public service. First step in aligning career with advanced IT degree in a government organization.",
+    icon: Heart
+  },
+  {
     period: "July 2023 - Present",
     title: "IT Project Manager / Acting Project Lead",
     company: "Bayside Consult → Zinter (Netherlands)",
     description: "Leading end-to-end product transformation for Zinter, a Dutch logistics startup. Managing a global cross-functional team to deliver an AI-enhanced B2B2C platform aimed at increasing customer retention by 70%.",
-    icon: Globe,
-    highlight: true
+    icon: Globe
   },
   {
     period: "Jan 2019 - July 2023",
@@ -193,10 +207,16 @@ const About = () => {
             I am a technically astute and adaptable IT professional with a Master's in Information Technology and a growing track record of delivering impactful, data-informed digital solutions. My journey spans from freelance web development and marketing copywriting on Fiverr to leading digital transformation projects for European startups.
           </motion.p>
           <motion.p 
+            className="text-secondary text-lg leading-relaxed mb-4"
+            variants={skillVariants}
+          >
+            Currently, I'm making a deliberate transition from private sector to public service — working as a <span className="font-semibold text-primary">Patient Flow Coordinator at the NHS</span> while continuing as Project Lead for <span className="font-semibold text-primary">Zinter</span>, a Dutch logistics startup. This dual focus allows me to leverage my advanced IT skills in operational support within a government organization.
+          </motion.p>
+          <motion.p 
             className="text-secondary text-lg leading-relaxed"
             variants={skillVariants}
           >
-            Currently, I'm the Project Lead for <span className="font-semibold text-primary">Zinter</span>, a Dutch logistics startup, at Bayside Consult — managing a global cross-functional team to deliver an AI-enhanced B2B2C platform. My approach integrates strategic thinking with creative execution, ensuring every project delivers meaningful results.
+            My career path reflects a strategic vision: combining technical expertise with frontline public service experience to drive meaningful change in healthcare and government digital transformation.
           </motion.p>
         </div>
 
