@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Globe, Code, Users } from "lucide-react";
+import { Briefcase, GraduationCap, Globe, Code, Users, Award } from "lucide-react";
 
 interface TimelineItem {
   period: string;
@@ -7,65 +7,63 @@ interface TimelineItem {
   company: string;
   description: string;
   icon: React.ElementType;
-  type: "work" | "education";
+  highlight?: boolean;
 }
 
-const timelineData: TimelineItem[] = [
+const workHistory: TimelineItem[] = [
   {
     period: "July 2023 - Present",
     title: "IT Project Manager / Acting Project Lead",
-    company: "Bayside Consult",
-    description: "Leading end-to-end product transformation for a Dutch logistics startup, managing a global cross-functional team to deliver AI-enhanced digital solutions aimed at increasing customer retention by 70%.",
+    company: "Bayside Consult → Zinter (Netherlands)",
+    description: "Leading end-to-end product transformation for Zinter, a Dutch logistics startup. Managing a global cross-functional team to deliver an AI-enhanced B2B2C platform aimed at increasing customer retention by 70%.",
     icon: Globe,
-    type: "work"
-  },
-  {
-    period: "2024",
-    title: "MSc Information Technology (Merit)",
-    company: "University of the West of England",
-    description: "Focused on IT systems, UI/UX design, digital transformation, cloud computing, and data analysis. Dissertation on human error and security breaches in healthcare.",
-    icon: GraduationCap,
-    type: "education"
+    highlight: true
   },
   {
     period: "Jan 2019 - July 2023",
     title: "Web Developer & Copywriter",
     company: "Freelance (Fiverr)",
     description: "Developed client websites with focus on usability, SEO, and conversion. Wrote marketing sales copy and built e-commerce platforms on no-code solutions. Consulted small businesses on product-market fit and UX design.",
-    icon: Code,
-    type: "work"
-  },
-  {
-    period: "2022",
-    title: "BSc Project Management",
-    company: "ESAE University",
-    description: "Developed practical knowledge in planning, executing, and managing complex projects including operations management, financial management, and stakeholder communication.",
-    icon: GraduationCap,
-    type: "education"
+    icon: Code
   },
   {
     period: "July 2022 - Oct 2023",
     title: "Community Outreach Support",
     company: "Nigerian Red Cross Society",
     description: "Designed IT awareness campaigns, conducted usability testing for educational tools, and served as first responder during the 2022 flooding disasters.",
-    icon: Users,
-    type: "work"
-  },
-  {
-    period: "2018",
-    title: "HND Architectural Technology",
-    company: "Plymouth University",
-    description: "Studied sustainable building design, environmental technology, and human-centred design principles.",
-    icon: GraduationCap,
-    type: "education"
+    icon: Users
   },
   {
     period: "May 2017 - Dec 2018",
     title: "Healthcare Assistant",
     company: "Nurseplus, Plymouth",
     description: "Delivered client-first care in fast-paced settings, managing sensitive information with GDPR compliance.",
-    icon: Briefcase,
-    type: "work"
+    icon: Briefcase
+  }
+];
+
+const education: TimelineItem[] = [
+  {
+    period: "2024",
+    title: "MSc Information Technology (Merit)",
+    company: "University of the West of England",
+    description: "Focused on IT systems, UI/UX design, digital transformation, cloud computing, and data analysis. Dissertation on human error and security breaches in healthcare.",
+    icon: GraduationCap,
+    highlight: true
+  },
+  {
+    period: "2022",
+    title: "BSc Project Management",
+    company: "ESAE University",
+    description: "Developed practical knowledge in planning, executing, and managing complex projects including operations management, financial management, and stakeholder communication.",
+    icon: GraduationCap
+  },
+  {
+    period: "2018",
+    title: "HND Architectural Technology",
+    company: "Plymouth University",
+    description: "Studied sustainable building design, environmental technology, and human-centred design principles.",
+    icon: Award
   }
 ];
 
@@ -102,6 +100,74 @@ const About = () => {
     }
   };
 
+  const TimelineSection = ({ 
+    items, 
+    title, 
+    accentColor 
+  }: { 
+    items: TimelineItem[]; 
+    title: string; 
+    accentColor: "primary" | "accent";
+  }) => (
+    <div className="space-y-4">
+      <motion.h3 
+        className="text-xl font-semibold text-primary flex items-center gap-2"
+        variants={skillVariants}
+      >
+        {title === "Work Experience" ? (
+          <Briefcase className="w-5 h-5" />
+        ) : (
+          <GraduationCap className="w-5 h-5" />
+        )}
+        {title}
+      </motion.h3>
+      <div className="relative">
+        <div className={`absolute left-4 top-0 bottom-0 w-0.5 ${
+          accentColor === "primary" ? "bg-primary/30" : "bg-accent/30"
+        }`} />
+        
+        <div className="space-y-4">
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative pl-12"
+              variants={itemVariants}
+            >
+              <div className={`absolute left-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                item.highlight 
+                  ? accentColor === "primary" 
+                    ? "bg-primary text-primary-foreground ring-2 ring-primary/20" 
+                    : "bg-accent text-accent-foreground ring-2 ring-accent/20"
+                  : "bg-muted text-muted-foreground border border-border"
+              }`}>
+                <item.icon className="w-4 h-4" />
+              </div>
+              
+              <div className={`bg-background rounded-lg p-4 shadow-sm border transition-all duration-300 hover:shadow-md ${
+                item.highlight ? "border-primary/20" : "border-border"
+              }`}>
+                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                  {item.period}
+                </span>
+                <h4 className="font-semibold text-foreground mt-1">
+                  {item.title}
+                </h4>
+                <p className={`text-sm font-medium ${
+                  accentColor === "primary" ? "text-primary" : "text-accent"
+                }`}>
+                  {item.company}
+                </p>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted">
       <motion.div 
@@ -118,107 +184,74 @@ const About = () => {
           About Me
         </motion.h2>
         
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left Column - Bio & Skills */}
-          <div className="space-y-6">
-            <motion.p 
-              className="text-secondary text-lg leading-relaxed"
-              variants={skillVariants}
-            >
-              I am a technically astute and adaptable IT professional with a Master's in Information Technology and a growing track record of delivering impactful, data-informed digital solutions. My journey spans from freelance web development and marketing copywriting to leading digital transformation projects for European startups.
-            </motion.p>
-            <motion.p 
-              className="text-secondary text-lg leading-relaxed"
-              variants={skillVariants}
-            >
-              Currently, I'm the Project Lead for a Dutch logistics startup at Bayside Consult, managing a global cross-functional team to deliver an AI-enhanced platform. My approach integrates strategic thinking with creative execution, ensuring every project delivers meaningful results.
-            </motion.p>
-            
-            <motion.div 
-              className="space-y-4 pt-4"
-              variants={containerVariants}
-            >
-              <motion.h3 
-                className="text-xl font-semibold text-primary"
-                variants={skillVariants}
-              >
-                Core Competencies
-              </motion.h3>
-              <motion.div 
-                className="flex flex-wrap gap-2"
-                variants={containerVariants}
-              >
-                {[
-                  "Product Management",
-                  "Digital Transformation",
-                  "Agile/Scrum",
-                  "Cross-functional Leadership",
-                  "Cloud Infrastructure",
-                  "API Design",
-                  "Data Analytics",
-                  "UX Strategy"
-                ].map((skill) => (
-                  <motion.span
-                    key={skill}
-                    className="px-4 py-2 bg-background rounded-full text-secondary text-sm hover:bg-accent hover:text-accent-foreground transition-colors duration-300 shadow-sm hover:shadow-md border border-border"
-                    variants={skillVariants}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
+        {/* Bio Section */}
+        <div className="mb-12 max-w-4xl">
+          <motion.p 
+            className="text-secondary text-lg leading-relaxed mb-4"
+            variants={skillVariants}
+          >
+            I am a technically astute and adaptable IT professional with a Master's in Information Technology and a growing track record of delivering impactful, data-informed digital solutions. My journey spans from freelance web development and marketing copywriting on Fiverr to leading digital transformation projects for European startups.
+          </motion.p>
+          <motion.p 
+            className="text-secondary text-lg leading-relaxed"
+            variants={skillVariants}
+          >
+            Currently, I'm the Project Lead for <span className="font-semibold text-primary">Zinter</span>, a Dutch logistics startup, at Bayside Consult — managing a global cross-functional team to deliver an AI-enhanced B2B2C platform. My approach integrates strategic thinking with creative execution, ensuring every project delivers meaningful results.
+          </motion.p>
+        </div>
 
-          {/* Right Column - Timeline */}
-          <div className="space-y-4">
-            <motion.h3 
-              className="text-xl font-semibold text-primary mb-6"
-              variants={skillVariants}
-            >
-              Career Journey
-            </motion.h3>
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border" />
-              
-              <div className="space-y-6">
-                {timelineData.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="relative pl-12"
-                    variants={itemVariants}
-                  >
-                    {/* Timeline dot */}
-                    <div className={`absolute left-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                      item.type === "education" 
-                        ? "bg-accent text-accent-foreground" 
-                        : "bg-primary text-primary-foreground"
-                    }`}>
-                      <item.icon className="w-4 h-4" />
-                    </div>
-                    
-                    <div className="bg-background rounded-lg p-4 shadow-sm border border-border hover:shadow-md transition-shadow duration-300">
-                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                        {item.period}
-                      </span>
-                      <h4 className="font-semibold text-foreground mt-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-accent font-medium">
-                        {item.company}
-                      </p>
-                      <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Skills */}
+        <motion.div 
+          className="mb-12"
+          variants={containerVariants}
+        >
+          <motion.h3 
+            className="text-xl font-semibold text-primary mb-4"
+            variants={skillVariants}
+          >
+            Core Competencies
+          </motion.h3>
+          <motion.div 
+            className="flex flex-wrap gap-2"
+            variants={containerVariants}
+          >
+            {[
+              "Product Management",
+              "Digital Transformation",
+              "Agile/Scrum",
+              "Cross-functional Leadership",
+              "Cloud Infrastructure (AWS, Azure, GCP)",
+              "API Design & Integration",
+              "Data Analytics",
+              "UX Strategy",
+              "Stakeholder Management",
+              "AI Integration"
+            ].map((skill) => (
+              <motion.span
+                key={skill}
+                className="px-4 py-2 bg-background rounded-full text-secondary text-sm hover:bg-primary hover:text-primary-foreground transition-colors duration-300 shadow-sm hover:shadow-md border border-border cursor-default"
+                variants={skillVariants}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Timeline Grid */}
+        <div className="grid lg:grid-cols-2 gap-12">
+          <TimelineSection 
+            items={workHistory} 
+            title="Work Experience" 
+            accentColor="primary" 
+          />
+          <TimelineSection 
+            items={education} 
+            title="Education" 
+            accentColor="accent" 
+          />
         </div>
       </motion.div>
     </section>
