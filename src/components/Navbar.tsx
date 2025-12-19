@@ -17,27 +17,27 @@ const Navbar = () => {
 
   const navItems = [
     { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Work", href: "#work" },
-    { name: "Blog", href: "#blog" },
+    { name: "Competencies", href: "#competencies" },
+    { name: "Case Studies", href: "#case-studies" },
+    { name: "Methodology", href: "#methodology" },
   ];
 
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-background/90 backdrop-blur-lg border-b border-border shadow-sm' 
+          ? 'bg-background/95 backdrop-blur-md border-b border-border' 
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <a 
             href="#" 
-            className="text-xl font-bold text-foreground hover:text-accent transition-colors"
+            className="text-lg font-semibold text-foreground hover:text-accent transition-colors"
           >
-            OO<span className="text-accent">.</span>
+            EC<span className="text-accent">.</span>
           </a>
           
           {/* Desktop Navigation */}
@@ -52,17 +52,17 @@ const Navbar = () => {
               </a>
             ))}
             
-            <div className="w-px h-6 bg-border mx-2" />
+            <div className="w-px h-5 bg-border mx-2" />
             
             <ModeToggle />
             
-            {/* CTA Button - Most prominent element */}
+            {/* CTA Button */}
             <a
               href="#contact"
-              className="cta-glow ml-2 inline-flex items-center gap-2 px-5 py-2 bg-accent text-accent-foreground text-sm font-semibold rounded-lg transition-all duration-300 hover:bg-accent/90"
+              className="cta-primary ml-2 inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-all duration-300 hover:bg-accent/90"
             >
               <FileText className="w-4 h-4" />
-              Resume
+              Contact
             </a>
           </div>
 
@@ -74,7 +74,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -103,10 +103,10 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                className="block px-4 py-3 mt-2 bg-accent text-accent-foreground rounded-lg font-semibold text-center"
+                className="block px-4 py-3 mt-2 bg-accent text-accent-foreground rounded-lg font-medium text-center"
                 onClick={() => setIsOpen(false)}
               >
-                Get Resume
+                Contact
               </a>
             </div>
           </motion.div>

@@ -1,79 +1,87 @@
-import { ExternalLink, Github, Loader2 } from "lucide-react";
+import { ExternalLink, FileText, TrendingUp, Target, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
-interface Project {
+interface CaseStudy {
   title: string;
+  organization: string;
   challenge: string;
   solution: string;
-  image: string;
-  techStack: string[];
-  liveUrl: string;
-  githubUrl: string;
+  impact: string[];
+  methodologies: string[];
+  icon: React.ElementType;
 }
 
-const projects: Project[] = [
+const caseStudies: CaseStudy[] = [
   {
-    title: "Zinter Logistics Platform",
-    challenge: "A Dutch logistics startup needed to modernize their B2B2C platform to increase customer retention and streamline operations.",
-    solution: "Built an AI-enhanced platform with predictive analytics, reducing operational bottlenecks and improving retention by 70%.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "B2B2C Platform Transformation",
+    organization: "Zinter (Netherlands)",
+    challenge: "A Dutch logistics startup faced declining customer retention due to fragmented systems, manual processes, and lack of real-time visibility across their supply chain operations.",
+    solution: "Led end-to-end digital transformation with a cross-functional global team. Implemented AI-enhanced analytics, unified customer data platforms, and automated workflow orchestration to create a seamless B2B2C experience.",
+    impact: [
+      "70% projected increase in customer retention",
+      "40% reduction in operational bottlenecks",
+      "Real-time visibility across supply chain",
+      "Scalable architecture for European expansion"
+    ],
+    methodologies: ["Agile/Scrum", "SDLC", "Cloud Migration", "Data Mapping"],
+    icon: TrendingUp
   },
   {
-    title: "Healthcare Data Dashboard",
-    challenge: "NHS patient flow data was scattered across multiple systems, making real-time decisions difficult.",
-    solution: "Created a unified dashboard integrating multiple data sources for instant visibility into bed management and patient flow.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-    techStack: ["TypeScript", "React", "D3.js", "Supabase"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Healthcare Operations Optimization",
+    organization: "NHS",
+    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation extremely challenging, impacting patient care efficiency.",
+    solution: "Applied IT systems knowledge to coordinate cross-departmental data flows. Developed standardized reporting procedures and identified integration opportunities to improve operational visibility.",
+    impact: [
+      "Improved cross-department coordination",
+      "Standardized data reporting procedures",
+      "Enhanced resource allocation visibility",
+      "Reduced manual data reconciliation"
+    ],
+    methodologies: ["Process Analysis", "ITIL", "Stakeholder Management", "Requirements Gathering"],
+    icon: Target
   },
   {
-    title: "E-Commerce Conversion Engine",
-    challenge: "Small businesses on Fiverr needed high-converting websites but lacked technical expertise.",
-    solution: "Developed a streamlined e-commerce solution with SEO optimization and conversion-focused UX, increasing client sales by 40%.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-    techStack: ["Next.js", "Tailwind", "Stripe", "Vercel"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Digital Strategy Consulting",
+    organization: "SME Clients (Fiverr)",
+    challenge: "Small businesses lacked technical expertise to develop effective digital presence, resulting in poor online conversion rates and missed growth opportunities.",
+    solution: "Delivered comprehensive digital strategy consulting including market positioning, user experience optimization, and technology stack recommendations aligned with business objectives.",
+    impact: [
+      "Average 40% increase in client conversions",
+      "Improved user engagement metrics",
+      "Scalable technology foundations",
+      "Clear digital roadmaps delivered"
+    ],
+    methodologies: ["Business Analysis", "UX Strategy", "Competitive Analysis", "Roadmap Planning"],
+    icon: Lightbulb
   },
 ];
 
 const Work = () => {
-  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
-
-  const handleImageLoad = (index: number) => {
-    setLoadedImages(prev => ({ ...prev, [index]: true }));
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
+      transition: { staggerChildren: 0.15 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   return (
     <section 
-      id="work" 
-      className="py-32 px-4 sm:px-6 lg:px-8 bg-background"
-      aria-label="Selected Work Section"
+      id="case-studies" 
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-background"
+      aria-label="Case Studies Section"
     >
       <motion.div 
-        className="max-w-7xl mx-auto"
+        className="max-w-6xl mx-auto"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -81,109 +89,92 @@ const Work = () => {
       >
         {/* Section Header */}
         <motion.div 
-          className="mb-16"
+          className="mb-14"
           variants={cardVariants}
         >
-          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Portfolio</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Selected Work
+          <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Portfolio</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
+            Case Studies
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Projects where I've transformed complex challenges into elegant, user-focused solutions.
+            Strategic initiatives where I've translated complex technical requirements 
+            into measurable business outcomes.
           </p>
         </motion.div>
 
-        {/* Project Cards */}
-        <div 
-          className="grid lg:grid-cols-2 gap-8"
-          role="list"
-          aria-label="Projects grid"
-        >
-          {projects.map((project, index) => (
+        {/* Case Study Cards */}
+        <div className="space-y-8">
+          {caseStudies.map((study, index) => (
             <motion.article
               key={index}
-              role="listitem"
-              aria-label={project.title}
-              className="project-card group bg-card rounded-2xl border border-border overflow-hidden"
+              className="case-study-card bg-card rounded-xl border border-border overflow-hidden"
               variants={cardVariants}
             >
-              {/* Image */}
-              <div className="relative aspect-video overflow-hidden">
-                {!loadedImages[index] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted">
-                    <Loader2 className="w-8 h-8 animate-spin text-accent" />
+              <div className="p-6 sm:p-8">
+                {/* Header */}
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <study.icon className="w-6 h-6 text-accent" />
                   </div>
-                )}
-                <img
-                  src={project.image}
-                  alt={`${project.title} project thumbnail`}
-                  className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
-                    loadedImages[index] ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  onLoad={() => handleImageLoad(index)}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
-              </div>
-
-              {/* Content */}
-              <div className="p-6 sm:p-8 space-y-6">
-                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Challenge & Solution */}
-                <div className="space-y-4">
                   <div>
-                    <p className="text-xs font-mono text-accent uppercase tracking-wider mb-1">The Challenge</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {project.challenge}
+                    <h3 className="text-xl font-semibold text-foreground mb-1">
+                      {study.title}
+                    </h3>
+                    <p className="text-accent text-sm font-medium">{study.organization}</p>
+                  </div>
+                </div>
+
+                {/* Content Grid */}
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  {/* Challenge */}
+                  <div>
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
+                      The Challenge
+                    </p>
+                    <p className="text-foreground text-sm leading-relaxed">
+                      {study.challenge}
                     </p>
                   </div>
+                  
+                  {/* Solution */}
                   <div>
-                    <p className="text-xs font-mono text-accent uppercase tracking-wider mb-1">The Solution</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {project.solution}
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
+                      The Strategic Solution
+                    </p>
+                    <p className="text-foreground text-sm leading-relaxed">
+                      {study.solution}
                     </p>
                   </div>
                 </div>
 
-                {/* Tech Stack */}
-                <div>
-                  <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">Key Tech</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="tech-badge"
+                {/* Impact */}
+                <div className="mb-6">
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
+                    Business Impact / ROI
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-2">
+                    {study.impact.map((item, impactIndex) => (
+                      <div 
+                        key={impactIndex}
+                        className="flex items-center gap-2 text-sm text-foreground"
                       >
-                        {tech}
-                      </span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        {item}
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-2">
-                  <a
-                    href={project.githubUrl}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border text-foreground hover:border-accent hover:text-accent transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} code on GitHub`}
-                  >
-                    <Github className="w-4 h-4" />
-                    View Code
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} live demo`}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
+                {/* Methodologies */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
+                  {study.methodologies.map((method, methodIndex) => (
+                    <span 
+                      key={methodIndex}
+                      className="competency-badge"
+                    >
+                      {method}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.article>

@@ -5,7 +5,7 @@ import Work from "../components/Work";
 import Contact from "../components/Contact";
 import Skills from "../components/Skills";
 import Testimonials from "../components/Testimonials";
-import Blog from "../components/Blog";
+import Methodology from "../components/Methodology";
 import SkipLink from "../components/SkipLink";
 
 const Index = () => {
@@ -21,13 +21,13 @@ const Index = () => {
           <About />
           <Skills />
           <Work />
+          <Methodology />
           <Testimonials />
-          <Blog />
           <Contact />
         </main>
-        <footer role="contentinfo" className="py-12 px-4 text-center bg-muted border-t border-border">
+        <footer role="contentinfo" className="py-10 px-4 text-center bg-muted border-t border-border">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Okelola Oludamilare. Crafted with precision in the UK.
+            © {new Date().getFullYear()} Emmanuel Chiefson. Strategic IT Leadership.
           </p>
         </footer>
       </div>

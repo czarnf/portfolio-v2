@@ -1,4 +1,7 @@
 import { createRoot } from 'react-dom/client'
+
+// Easter egg for fellow professionals
+console.log('👋 Hello! Thanks for taking a look under the hood. Open to connecting on strategic IT initiatives. Feel free to reach out!');
 import App from './App.tsx'
 import './index.css'
 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileText } from "lucide-react";
+import { ArrowDown, FileText, Linkedin } from "lucide-react";
 
 const Hero = () => {
   const containerVariants = {
@@ -7,31 +7,19 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.12,
+        delayChildren: 0.15
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
-
-  const nameVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: [0.22, 1, 0.36, 1]
       }
     }
@@ -39,53 +27,66 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 pointer-events-none" />
+      {/* Subtle geometric pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none">
+        <svg width="100%" height="100%">
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
       
-      {/* Grid pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
+      {/* Gradient accent */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/5 via-transparent to-transparent pointer-events-none" />
       
       <motion.div 
-        className="max-w-7xl w-full relative z-10"
+        className="max-w-5xl w-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <div className="space-y-8">
-          {/* Eyebrow text */}
+          {/* Role identifier */}
           <motion.p 
-            className="text-accent font-mono text-sm tracking-widest uppercase"
+            className="text-accent font-medium text-sm tracking-wide uppercase"
             variants={itemVariants}
           >
-            Full Stack Developer
+            IT Project Management & Transformation
           </motion.p>
           
-          {/* Massive Name */}
+          {/* Name */}
           <motion.h1 
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-foreground tracking-tighter leading-[0.9]"
-            variants={nameVariants}
-          >
-            <span className="block">Okelola</span>
-            <span className="block text-accent">Oludamilare.</span>
-          </motion.h1>
-          
-          {/* Subtitle */}
-          <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed"
+            className="text-5xl sm:text-6xl md:text-7xl font-semibold text-foreground tracking-tight leading-[1.1]"
             variants={itemVariants}
           >
-            Building digital experiences that bridge{" "}
-            <span className="text-foreground font-medium">design</span> and{" "}
-            <span className="text-foreground font-medium">development</span>.
-            Currently shaping healthcare systems at the{" "}
-            <span className="text-accent font-medium">NHS</span>.
+            Emmanuel<br />
+            <span className="text-accent">Chiefson.</span>
+          </motion.h1>
+          
+          {/* Strategic headline */}
+          <motion.div 
+            className="space-y-4 max-w-2xl"
+            variants={itemVariants}
+          >
+            <p className="text-xl sm:text-2xl text-foreground font-medium leading-relaxed">
+              Strategic IT Project Management & Transformation Lead
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Bridging the gap between technical architecture and business objectives 
+              through Information Analysis and Agile Governance.
+            </p>
+          </motion.div>
+
+          {/* Current role */}
+          <motion.p 
+            className="text-muted-foreground"
+            variants={itemVariants}
+          >
+            Currently driving operational efficiency at the{" "}
+            <span className="text-foreground font-medium">NHS</span> while leading 
+            digital transformation for{" "}
+            <span className="text-accent font-medium">Zinter</span>.
           </motion.p>
           
           {/* CTA Buttons */}
@@ -94,22 +95,33 @@ const Hero = () => {
             variants={itemVariants}
           >
             <motion.a
-              href="#work"
-              className="cta-glow inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-semibold rounded-lg transition-all duration-300 hover:bg-accent/90"
+              href="#case-studies"
+              className="cta-primary inline-flex items-center px-6 py-3 bg-accent text-accent-foreground text-sm font-medium rounded-lg"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              View Projects
+              View Case Studies
               <ArrowDown className="ml-2 w-4 h-4" />
             </motion.a>
             <motion.a
               href="#contact"
-              className="inline-flex items-center px-8 py-4 border-2 border-border text-foreground text-base font-semibold rounded-lg transition-all duration-300 hover:border-accent hover:text-accent"
+              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <FileText className="mr-2 w-4 h-4" />
-              Get Resume
+              Download CV
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Linkedin className="mr-2 w-4 h-4" />
+              Connect
             </motion.a>
           </motion.div>
         </div>
@@ -119,14 +131,14 @@ const Hero = () => {
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-5 h-8 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-1.5"
           >
-            <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+            <div className="w-1 h-1 bg-accent rounded-full" />
           </motion.div>
         </motion.div>
       </motion.div>
