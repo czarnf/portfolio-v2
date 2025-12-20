@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X, FileText, Github, Linkedin } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "About", href: "#about" },
     { name: "Competencies", href: "#competencies" },
     { name: "Case Studies", href: "#case-studies" },
+    { name: "Insights", href: "#insights" },
     { name: "Methodology", href: "#methodology" },
   ];
 
@@ -53,6 +54,27 @@ const Navbar = () => {
             ))}
             
             <div className="w-px h-5 bg-border mx-2" />
+            
+            {/* Social Links */}
+            <a
+              href="https://github.com/emmanuelchiefson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted"
+              aria-label="GitHub - Project Frameworks & AI Configurations"
+              title="Project Frameworks & AI Configurations"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <a
+              href="https://linkedin.com/in/emmanuelchiefson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
             
             <ModeToggle />
             
@@ -101,6 +123,31 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
+              
+              {/* Mobile Social Links */}
+              <div className="flex gap-4 px-4 py-3">
+                <a
+                  href="https://github.com/emmanuelchiefson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Github className="w-5 h-5" />
+                  <span className="text-sm">GitHub</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/emmanuelchiefson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span className="text-sm">LinkedIn</span>
+                </a>
+              </div>
+              
               <a
                 href="#contact"
                 className="block px-4 py-3 mt-2 bg-accent text-accent-foreground rounded-lg font-medium text-center"
