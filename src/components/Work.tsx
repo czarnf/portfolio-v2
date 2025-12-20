@@ -1,4 +1,4 @@
-import { ExternalLink, FileText, TrendingUp, Target, Lightbulb } from "lucide-react";
+import { TrendingUp, Target, Lightbulb, Shield, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface CaseStudy {
@@ -7,51 +7,70 @@ interface CaseStudy {
   challenge: string;
   solution: string;
   impact: string[];
-  methodologies: string[];
+  techStackManaged: string[];
+  kpiImpact: string;
   icon: React.ElementType;
 }
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "B2B2C Platform Transformation",
+    title: "AI Logistics Platform Delivery",
     organization: "Zinter (Netherlands)",
-    challenge: "A Dutch logistics startup faced declining customer retention due to fragmented systems, manual processes, and lack of real-time visibility across their supply chain operations.",
-    solution: "Led end-to-end digital transformation with a cross-functional global team. Implemented AI-enhanced analytics, unified customer data platforms, and automated workflow orchestration to create a seamless B2B2C experience.",
+    challenge: "A Dutch logistics startup required product management leadership for an AI Computer Vision solution to automate logistics estimation processes.",
+    solution: "Orchestrated the end-to-end delivery of an automated logistics estimation engine. Led cross-functional teams through Agile sprints, managed stakeholder expectations, and ensured alignment between technical development and business objectives.",
     impact: [
       "70% projected increase in customer retention",
       "40% reduction in operational bottlenecks",
       "Real-time visibility across supply chain",
       "Scalable architecture for European expansion"
     ],
-    methodologies: ["Agile/Scrum", "SDLC", "Cloud Migration", "Data Mapping"],
+    techStackManaged: ["Jira", "Agile/Scrum", "AWS", "AI/ML Pipelines", "Stakeholder Management"],
+    kpiImpact: "Delivered MVP within 12-week timeline; managed cross-functional team of 8",
     icon: TrendingUp
   },
   {
-    title: "Healthcare Operations Optimization",
+    title: "NHS Operational Resilience",
     organization: "NHS",
-    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation extremely challenging, impacting patient care efficiency.",
-    solution: "Applied IT systems knowledge to coordinate cross-departmental data flows. Developed standardized reporting procedures and identified integration opportunities to improve operational visibility.",
+    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation challenging, impacting clinical efficiency.",
+    solution: "Managed patient flow and clinical IT systems (Band 3). Served as Digital Link for ward-level IT governance and troubleshooting. Coordinated cross-departmental data flows and developed standardized reporting procedures.",
     impact: [
       "Improved cross-department coordination",
       "Standardized data reporting procedures",
       "Enhanced resource allocation visibility",
       "Reduced manual data reconciliation"
     ],
-    methodologies: ["Process Analysis", "ITIL", "Stakeholder Management", "Requirements Gathering"],
+    techStackManaged: ["NHS Digital Systems", "ITIL", "Information Governance", "Excel/Power BI", "Stakeholder Communication"],
+    kpiImpact: "Streamlined reporting across 3 clinical departments; reduced data reconciliation time by 30%",
     icon: Target
   },
   {
-    title: "Digital Strategy Consulting",
-    organization: "SME Clients (Fiverr)",
-    challenge: "Small businesses lacked technical expertise to develop effective digital presence, resulting in poor online conversion rates and missed growth opportunities.",
-    solution: "Delivered comprehensive digital strategy consulting including market positioning, user experience optimization, and technology stack recommendations aligned with business objectives.",
+    title: "MSc Research: Security & Human Factors",
+    organization: "MSc Information Technology",
+    challenge: "Healthcare organizations face increasing cybersecurity threats, with staff training gaps contributing to breach vulnerabilities.",
+    solution: "Investigated the intersection of staff training and cybersecurity breaches in healthcare settings. Produced high-level policy recommendations for risk reduction through comprehensive analysis of human factors in security incidents.",
     impact: [
-      "Average 40% increase in client conversions",
-      "Improved user engagement metrics",
-      "Scalable technology foundations",
-      "Clear digital roadmaps delivered"
+      "Comprehensive risk assessment framework",
+      "Policy recommendations for NHS Trusts",
+      "Human factors analysis methodology",
+      "Training program enhancement proposals"
     ],
-    methodologies: ["Business Analysis", "UX Strategy", "Competitive Analysis", "Roadmap Planning"],
+    techStackManaged: ["Research Methodology", "Risk Analysis", "Policy Development", "Academic Writing", "Data Analysis"],
+    kpiImpact: "Delivered actionable policy recommendations; presented findings to academic panel",
+    icon: Shield
+  },
+  {
+    title: "Financial Equity Analysis Framework",
+    organization: "Independent Research",
+    challenge: "Retail investors lack structured frameworks for evaluating equity investments, leading to inconsistent decision-making and suboptimal returns.",
+    solution: "Built a data-driven investment framework focusing on P/OCF ratios and volume trends to drive ROI. Developed systematic approaches for equity analysis combining quantitative metrics with market sentiment indicators.",
+    impact: [
+      "Systematic evaluation methodology",
+      "Data-driven investment decisions",
+      "Reproducible analysis framework",
+      "Clear documentation of investment thesis"
+    ],
+    techStackManaged: ["Power BI", "SQL", "Financial Modeling", "Data Visualization", "Excel"],
+    kpiImpact: "Created reusable framework for evaluating 50+ equity positions",
     icon: Lightbulb
   },
 ];
@@ -78,7 +97,7 @@ const Work = () => {
     <section 
       id="case-studies" 
       className="py-24 px-4 sm:px-6 lg:px-8 bg-background"
-      aria-label="Case Studies Section"
+      aria-label="Portfolio of Deliveries Section"
     >
       <motion.div 
         className="max-w-6xl mx-auto"
@@ -94,11 +113,11 @@ const Work = () => {
         >
           <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Portfolio</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-            Case Studies
+            Portfolio of Deliveries
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Strategic initiatives where I've translated complex technical requirements 
-            into measurable business outcomes.
+            Strategic initiatives demonstrating leadership in IT Project Management, 
+            translating complex technical requirements into measurable business outcomes.
           </p>
         </motion.div>
 
@@ -107,21 +126,41 @@ const Work = () => {
           {caseStudies.map((study, index) => (
             <motion.article
               key={index}
-              className="case-study-card bg-card rounded-xl border border-border overflow-hidden"
+              className="case-study-card bg-card rounded-xl border border-border overflow-hidden hover:border-accent/30 transition-colors"
               variants={cardVariants}
             >
               <div className="p-6 sm:p-8">
                 {/* Header */}
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <study.icon className="w-6 h-6 text-accent" />
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <study.icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-1">
+                        {study.title}
+                      </h3>
+                      <p className="text-accent text-sm font-medium">{study.organization}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      {study.title}
-                    </h3>
-                    <p className="text-accent text-sm font-medium">{study.organization}</p>
-                  </div>
+                  <motion.button
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent border border-accent/30 rounded-lg hover:bg-accent/10 transition-colors"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Case Study
+                  </motion.button>
+                </div>
+
+                {/* KPI Impact Highlight */}
+                <div className="mb-6 p-4 bg-accent/5 rounded-lg border border-accent/10">
+                  <p className="text-xs font-medium text-accent uppercase tracking-wide mb-1">
+                    Key Impact
+                  </p>
+                  <p className="text-foreground font-medium">
+                    {study.kpiImpact}
+                  </p>
                 </div>
 
                 {/* Content Grid */}
@@ -165,16 +204,21 @@ const Work = () => {
                   </div>
                 </div>
 
-                {/* Methodologies */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
-                  {study.methodologies.map((method, methodIndex) => (
-                    <span 
-                      key={methodIndex}
-                      className="competency-badge"
-                    >
-                      {method}
-                    </span>
-                  ))}
+                {/* Tech Stack Managed */}
+                <div className="pt-4 border-t border-border">
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
+                    Tech Stack Managed
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {study.techStackManaged.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground rounded-md border border-border"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.article>
