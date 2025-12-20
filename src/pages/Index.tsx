@@ -6,6 +6,8 @@ import Contact from "../components/Contact";
 import Skills from "../components/Skills";
 import Testimonials from "../components/Testimonials";
 import Methodology from "../components/Methodology";
+import Philosophy from "../components/Philosophy";
+import InsightsStrategy from "../components/InsightsStrategy";
 import SkipLink from "../components/SkipLink";
 
 const Index = () => {
@@ -21,7 +23,9 @@ const Index = () => {
           <About />
           <Skills />
           <Work />
+          <InsightsStrategy />
           <Methodology />
+          <Philosophy />
           <Testimonials />
           <Contact />
         </main>

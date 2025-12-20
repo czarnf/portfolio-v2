@@ -70,11 +70,12 @@ const Hero = () => {
             variants={itemVariants}
           >
             <p className="text-xl sm:text-2xl text-foreground font-medium leading-relaxed">
-              Strategic IT Project Management & Transformation Lead
+              Orchestrating IT Transformation & Strategic Systems Analysis
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Bridging the gap between technical architecture and business objectives 
-              through Information Analysis and Agile Governance.
+              Bridging the gap between technical architecture and operational reality. 
+              MSc IT professional with a background in NHS clinical flow, AI-driven logistics, 
+              and data governance.
             </p>
           </motion.div>
 
@@ -89,39 +90,39 @@ const Hero = () => {
             <span className="text-accent font-medium">Zinter</span>.
           </motion.p>
           
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Primary CTAs: LinkedIn & Resume */}
           <motion.div 
             className="flex flex-wrap gap-4 pt-4"
             variants={itemVariants}
           >
             <motion.a
-              href="#case-studies"
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-primary inline-flex items-center px-6 py-3 bg-accent text-accent-foreground text-sm font-medium rounded-lg"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Linkedin className="mr-2 w-4 h-4" />
+              Connect on LinkedIn
+            </motion.a>
+            <motion.a
+              href="#contact"
+              className="inline-flex items-center px-6 py-3 bg-foreground text-background text-sm font-medium rounded-lg transition-opacity hover:opacity-90"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FileText className="mr-2 w-4 h-4" />
+              Download Transformation Profile
+            </motion.a>
+            <motion.a
+              href="#case-studies"
+              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               View Case Studies
               <ArrowDown className="ml-2 w-4 h-4" />
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <FileText className="mr-2 w-4 h-4" />
-              Download CV
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Linkedin className="mr-2 w-4 h-4" />
-              Connect
             </motion.a>
           </motion.div>
         </div>
