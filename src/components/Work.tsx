@@ -1,4 +1,4 @@
-import { TrendingUp, Target, Lightbulb, Shield, ExternalLink } from "lucide-react";
+import { TrendingUp, Target, Lightbulb, Shield, ExternalLink, FileCode } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface CaseStudy {
@@ -7,9 +7,14 @@ interface CaseStudy {
   challenge: string;
   solution: string;
   impact: string[];
+  methodology: string;
+  toolsManaged: string[];
+  keyResult: string;
   techStackManaged: string[];
   kpiImpact: string;
   icon: React.ElementType;
+  projectSpecsLink?: string;
+  liveDemoLink?: string;
 }
 
 const caseStudies: CaseStudy[] = [
@@ -24,9 +29,13 @@ const caseStudies: CaseStudy[] = [
       "Real-time visibility across supply chain",
       "Scalable architecture for European expansion"
     ],
+    methodology: "Agile/Scrum",
+    toolsManaged: ["Jira", "AWS", "Python", "React"],
+    keyResult: "Delivered MVP 2 weeks ahead of schedule",
     techStackManaged: ["Jira", "Agile/Scrum", "AWS", "AI/ML Pipelines", "Stakeholder Management"],
     kpiImpact: "Delivered MVP within 12-week timeline; managed cross-functional team of 8",
-    icon: TrendingUp
+    icon: TrendingUp,
+    projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
   {
     title: "NHS Operational Resilience",
@@ -39,6 +48,9 @@ const caseStudies: CaseStudy[] = [
       "Enhanced resource allocation visibility",
       "Reduced manual data reconciliation"
     ],
+    methodology: "ITIL/Kanban",
+    toolsManaged: ["Power BI", "Excel", "NHS Systems"],
+    keyResult: "Reduced data reconciliation time by 30%",
     techStackManaged: ["NHS Digital Systems", "ITIL", "Information Governance", "Excel/Power BI", "Stakeholder Communication"],
     kpiImpact: "Streamlined reporting across 3 clinical departments; reduced data reconciliation time by 30%",
     icon: Target
@@ -54,9 +66,13 @@ const caseStudies: CaseStudy[] = [
       "Human factors analysis methodology",
       "Training program enhancement proposals"
     ],
+    methodology: "Waterfall/Research",
+    toolsManaged: ["SPSS", "NVivo", "MS Office"],
+    keyResult: "Actionable policy recommendations delivered",
     techStackManaged: ["Research Methodology", "Risk Analysis", "Policy Development", "Academic Writing", "Data Analysis"],
     kpiImpact: "Delivered actionable policy recommendations; presented findings to academic panel",
-    icon: Shield
+    icon: Shield,
+    projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
   {
     title: "Financial Equity Analysis Framework",
@@ -69,9 +85,13 @@ const caseStudies: CaseStudy[] = [
       "Reproducible analysis framework",
       "Clear documentation of investment thesis"
     ],
+    methodology: "Agile/Iterative",
+    toolsManaged: ["Power BI", "SQL", "Excel"],
+    keyResult: "Optimized resource allocation across 50+ positions",
     techStackManaged: ["Power BI", "SQL", "Financial Modeling", "Data Visualization", "Excel"],
     kpiImpact: "Created reusable framework for evaluating 50+ equity positions",
-    icon: Lightbulb
+    icon: Lightbulb,
+    projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
 ];
 
@@ -131,7 +151,7 @@ const Work = () => {
             >
               <div className="p-6 sm:p-8">
                 {/* Header */}
-                <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                       <study.icon className="w-6 h-6 text-accent" />
@@ -143,17 +163,43 @@ const Work = () => {
                       <p className="text-accent text-sm font-medium">{study.organization}</p>
                     </div>
                   </div>
-                  <motion.button
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent border border-accent/30 rounded-lg hover:bg-accent/10 transition-colors"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Case Study
-                  </motion.button>
+                  <div className="flex gap-2 flex-shrink-0">
+                    {study.projectSpecsLink && (
+                      <motion.a
+                        href={study.projectSpecsLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground border border-border rounded-lg hover:bg-muted transition-colors"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <FileCode className="w-4 h-4" />
+                        Project Specs
+                      </motion.a>
+                    )}
+                    <motion.button
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent border border-accent/30 rounded-lg hover:bg-accent/10 transition-colors"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Case Study
+                    </motion.button>
+                  </div>
                 </div>
 
-                {/* KPI Impact Highlight */}
+                {/* Methodology, Tools Managed, Key Result Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1.5 text-xs font-semibold bg-accent/15 text-accent rounded-md border border-accent/20">
+                    {study.methodology}
+                  </span>
+                  <span className="px-3 py-1.5 text-xs font-medium bg-muted text-foreground rounded-md border border-border">
+                    Tools: {study.toolsManaged.join(", ")}
+                  </span>
+                  <span className="px-3 py-1.5 text-xs font-semibold bg-green-500/10 text-green-600 dark:text-green-400 rounded-md border border-green-500/20">
+                    {study.keyResult}
+                  </span>
+                </div>
                 <div className="mb-6 p-4 bg-accent/5 rounded-lg border border-accent/10">
                   <p className="text-xs font-medium text-accent uppercase tracking-wide mb-1">
                     Key Impact
