@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Clock } from "lucide-react";
 
 interface Article {
   title: string;
   excerpt: string;
   strategicValue: string;
   date: string;
+  readTime: string;
   link: string;
   coverImage: string;
 }
@@ -13,25 +14,28 @@ interface Article {
 const articles: Article[] = [
   {
     title: "The Unstoppable Stream: How Netflix's $82.7B Power Play Just Rewrote Hollywood History",
-    excerpt: "The news broke with the force of a Hollywood blockbuster: Netflix is officially acquiring Warner Bros. Discovery in a deal valued at $82.7B.",
+    excerpt: "Strategic analysis of how digital transformation is reshaping entertainment industry economics and what it means for future-proofing business models.",
     strategicValue: "Business Transformation",
     date: "Dec 2024",
+    readTime: "6 min",
     link: "https://emmanuelchiefson.medium.com/the-unstoppable-stream-how-netflixs-82-7b-power-play-just-rewrote-hollywood-history-e48881f029d7",
     coverImage: "https://miro.medium.com/v2/resize:fill:320:214/1*We9FG08SCEi7V1_knS4arg.png"
   },
   {
     title: "Siemens Mobility Project Management Simulation: A Reflective Report on KPI Development",
-    excerpt: "I completed the Siemens Mobility Project Manager Simulation via Forage, offering valuable approximation of real-world PM challenges.",
-    strategicValue: "Project Methodology",
+    excerpt: "Practical insights on AI-assisted project management and how technical PMs can leverage simulations for continuous professional development.",
+    strategicValue: "AI Productivity",
     date: "Aug 2024",
+    readTime: "8 min",
     link: "https://emmanuelchiefson.medium.com/title-siemens-mobility-project-management-simulation-a-reflective-report-on-kpi-development-494f5f2cb158",
     coverImage: "https://miro.medium.com/v2/resize:fill:320:214/1*peQ5jxDQT6QmNEU7m1uIgA.png"
   },
   {
     title: "Strategic Considerations for AI Adoption in Construction: A Case Study of Mercury Construction Ltd",
-    excerpt: "The construction industry is on the verge of a revolutionary transformation, driven by the integration of artificial intelligence.",
-    strategicValue: "AI Integration",
+    excerpt: "Future-proofing technical skills through strategic AI adoption—a framework for industry transformation and competitive advantage.",
+    strategicValue: "Future-Proofing",
     date: "Feb 2024",
+    readTime: "10 min",
     link: "https://emmanuelchiefson.medium.com/strategic-considerations-for-ai-adoption-in-construction-a-case-study-of-mercury-construction-ltd-f8b3ac223613",
     coverImage: "https://miro.medium.com/v2/resize:fill:320:214/1*Rn_B4_qu5TQa4fNSSu3MTw.jpeg"
   }
@@ -106,10 +110,16 @@ const InsightsStrategy = () => {
 
               {/* Content */}
               <div className="p-5">
-                {/* Strategic Value Badge */}
-                <span className="inline-block px-2.5 py-1 text-xs font-medium bg-accent/10 text-accent rounded-md mb-3">
-                  {article.strategicValue}
-                </span>
+                {/* Strategic Value & Read Time Badges */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-block px-2.5 py-1 text-xs font-medium bg-accent/10 text-accent rounded-md">
+                    {article.strategicValue}
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-md">
+                    <Clock className="w-3 h-3" />
+                    {article.readTime}
+                  </span>
+                </div>
 
                 {/* Title */}
                 <h3 className="text-base font-semibold text-foreground mb-2 leading-snug group-hover:text-accent transition-colors line-clamp-2">

@@ -70,12 +70,11 @@ const Hero = () => {
             variants={itemVariants}
           >
             <p className="text-xl sm:text-2xl text-foreground font-medium leading-relaxed">
-              Orchestrating IT Transformation & Strategic Systems Analysis
+              Bridging the gap between complex technical development and strategic business delivery.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Bridging the gap between technical architecture and operational reality. 
               MSc IT professional with a background in NHS clinical flow, AI-driven logistics, 
-              and data governance.
+              and data governance. Orchestrating IT Transformation & Strategic Systems Analysis.
             </p>
           </motion.div>
 
@@ -90,13 +89,22 @@ const Hero = () => {
             <span className="text-accent font-medium">Zinter</span>.
           </motion.p>
           
-          {/* CTA Buttons - Primary CTAs: LinkedIn & Resume */}
+          {/* CTA Buttons - Primary CTAs: Contact/CV & LinkedIn */}
           <motion.div 
             className="flex flex-wrap gap-4 pt-4"
             variants={itemVariants}
           >
             <motion.a
-              href="https://linkedin.com"
+              href="#contact"
+              className="inline-flex items-center px-7 py-3.5 bg-foreground text-background text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FileText className="mr-2 w-4 h-4" />
+              Download CV
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/emmanuelchiefson"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-primary inline-flex items-center px-6 py-3 bg-accent text-accent-foreground text-sm font-medium rounded-lg"
@@ -105,15 +113,6 @@ const Hero = () => {
             >
               <Linkedin className="mr-2 w-4 h-4" />
               Connect on LinkedIn
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="inline-flex items-center px-6 py-3 bg-foreground text-background text-sm font-medium rounded-lg transition-opacity hover:opacity-90"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <FileText className="mr-2 w-4 h-4" />
-              Download Transformation Profile
             </motion.a>
             <motion.a
               href="#case-studies"
