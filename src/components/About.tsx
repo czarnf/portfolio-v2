@@ -78,9 +78,25 @@ const education: TimelineItem[] = [
     period: "2018",
     title: "HND Architectural Technology",
     company: "Plymouth University",
-    description: "Grounding in sustainable design principles, environmental technology, and human-centred design methodologies applicable to systems thinking.",
+    description: "Systems Design Logic foundation—Revit/AutoCAD expertise in visualizing complex infrastructures before building them. This architectural thinking translates directly to IT systems architecture.",
     icon: Award
+  },
+  {
+    period: "2014",
+    title: "A-Grade Distinction: Systems Design",
+    company: "Foundation Studies",
+    description: "Early mastery of structured systems thinking, data flow diagramming, and logical architecture design—the bedrock of my IT leadership approach.",
+    icon: Award,
+    highlight: true
   }
+];
+
+const cloudCertifications = [
+  "AWS Cloud Practitioner",
+  "AZ-900 (Azure Fundamentals)",
+  "GCP Foundations",
+  "Oracle Cloud",
+  "ITIL v4 Foundation"
 ];
 
 const About = () => {
@@ -198,33 +214,55 @@ const About = () => {
           </h2>
         </motion.div>
         
-        {/* Bio Section */}
+        {/* Bio Section - Systems Thinking Focus */}
         <div className="mb-12 max-w-4xl">
           <motion.p 
             className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            I am a strategically minded IT professional with a Master's degree in Information Technology 
-            and a proven track record of delivering impactful digital transformation initiatives. My career 
-            reflects a deliberate evolution—from private sector consulting to public service leadership—designed 
-            to leverage advanced technical knowledge within mission-critical government operations.
+            My <span className="font-semibold text-foreground">10+ years of experience</span> represents a deliberate evolution in 
+            <span className="font-medium text-accent"> Systems Thinking</span>—starting from A-grade distinctions in Systems Design, 
+            moving through Architectural Technology (Revit/AutoCAD), and culminating in MSc IT leadership. This foundation enables me 
+            to visualize complex infrastructures before building them.
           </motion.p>
           <motion.p 
             className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            Currently serving as <span className="font-medium text-foreground">Patient Flow Coordinator at the NHS</span>, 
-            I apply analytical approach to decision-making in supporting healthcare operations while continuing as 
-            <span className="font-medium text-accent"> Project Lead for Zinter</span>, where I manage 
-            cross-functional teams across 3 time zones delivering enterprise-scale digital transformation to solve bussiness problems.
+            <span className="font-semibold text-foreground">The Value I Bring:</span> I combine 
+            <span className="font-medium text-accent"> Technical Cloud/Data Rigor</span> with 
+            <span className="font-medium text-accent"> Strategic Stakeholder Communication</span>—a unique blend rooted in 
+            my marketing and copywriting background. This means I don't just architect systems; I translate technical complexity 
+            into business value that executives understand.
           </motion.p>
           <motion.p 
-            className="text-muted-foreground text-lg leading-relaxed"
+            className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            My approach combines rigorous project governance with stakeholder-centric communication, 
-            ensuring technical initiatives align with organizational objectives and deliver measurable outcomes.
+            Currently driving dual impact: <span className="font-semibold text-foreground">AI/Cloud Transformation at Zinter</span> (achieving 
+            <span className="font-bold text-accent"> 70%</span> retention improvement, MVP delivered 
+            <span className="font-bold text-accent"> 2 weeks</span> early) and 
+            <span className="font-semibold text-foreground"> Operational Resilience at NHS</span> (
+            <span className="font-bold text-accent">30%</span> reduction in reconciliation time, standardized clinical reporting).
           </motion.p>
+
+          {/* Cloud Multi-Literacy Badge */}
+          <motion.div 
+            className="mt-6 p-4 bg-accent/5 rounded-lg border border-accent/20"
+            variants={cardVariants}
+          >
+            <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-3">Cloud Multi-Literacy</p>
+            <div className="flex flex-wrap gap-2">
+              {cloudCertifications.map((cert, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1.5 text-xs font-medium bg-card text-foreground rounded-md border border-border"
+                >
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Management Philosophy */}
