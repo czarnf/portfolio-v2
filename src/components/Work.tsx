@@ -19,40 +19,40 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "AI Logistics Platform Delivery",
+    title: "AI Adoption & Cloud Migration",
     organization: "Zinter (Netherlands)",
-    challenge: "A Dutch logistics startup required product management leadership for an AI Computer Vision solution to automate logistics estimation processes.",
-    solution: "Orchestrated the end-to-end delivery of an automated logistics estimation engine. Led cross-functional teams through Agile sprints, managed stakeholder expectations, and ensured alignment between technical development and business objectives.",
+    challenge: "A Dutch logistics startup required strategic IT leadership to architect and deliver an AI Computer Vision platform for automated logistics estimation—demanding multi-cloud infrastructure and cross-timezone team coordination.",
+    solution: "Led end-to-end cloud migration and AI platform delivery. Architected scalable AWS infrastructure, managed global cross-functional teams through Agile sprints, and aligned technical development with business objectives across 3 time zones.",
     impact: [
       "70% projected increase in customer retention",
-      "40% reduction in operational bottlenecks",
+      "MVP delivered 2 weeks ahead of schedule",
       "Real-time visibility across supply chain",
       "Scalable architecture for European expansion"
     ],
     methodology: "Agile/Scrum",
     toolsManaged: ["Jira", "AWS", "Python", "React"],
     keyResult: "Delivered MVP 2 weeks ahead of schedule",
-    techStackManaged: ["Jira", "Agile/Scrum", "AWS", "AI/ML Pipelines", "Stakeholder Management"],
-    kpiImpact: "Delivered MVP within 12-week timeline; managed cross-functional team of 8",
+    techStackManaged: ["AWS", "Jira (Admin)", "AI/ML Pipelines", "Agile Governance", "Multi-Cloud Architecture"],
+    kpiImpact: "70% retention improvement | MVP 2 weeks early | 8-person global team managed",
     icon: TrendingUp,
     projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
   {
-    title: "NHS Operational Resilience",
+    title: "Operational Resilience & Data Governance",
     organization: "NHS",
-    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation challenging, impacting clinical efficiency.",
-    solution: "Managed patient flow and clinical IT systems (Band 3). Served as Digital Link for ward-level IT governance and troubleshooting. Coordinated cross-departmental data flows and developed standardized reporting procedures.",
+    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation challenging, impacting clinical efficiency and data integrity.",
+    solution: "Implemented data governance frameworks for clinical IT systems. Served as Digital Link for ward-level IT troubleshooting, standardized reporting procedures across departments, and established data reconciliation protocols.",
     impact: [
-      "Improved cross-department coordination",
-      "Standardized data reporting procedures",
+      "30% reduction in data reconciliation time",
+      "Standardized clinical reporting across 3 departments",
       "Enhanced resource allocation visibility",
-      "Reduced manual data reconciliation"
+      "Improved cross-department coordination"
     ],
     methodology: "ITIL/Kanban",
     toolsManaged: ["Power BI", "Excel", "NHS Systems"],
-    keyResult: "Reduced data reconciliation time by 30%",
-    techStackManaged: ["NHS Digital Systems", "ITIL", "Information Governance", "Excel/Power BI", "Stakeholder Communication"],
-    kpiImpact: "Streamlined reporting across 3 clinical departments; reduced data reconciliation time by 30%",
+    keyResult: "Reduced reconciliation time by 30%",
+    techStackManaged: ["NHS Digital Systems", "ITIL Frameworks", "Power BI", "Data Governance", "Stakeholder Communication"],
+    kpiImpact: "30% reconciliation reduction | 3 departments standardized | Clinical reporting optimized",
     icon: Target
   },
   {
