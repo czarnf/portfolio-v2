@@ -31,7 +31,7 @@ const workHistory: TimelineItem[] = [
     period: "July 2023 - Present",
     title: "IT Project Manager / Acting Project Lead",
     company: "Bayside Consult → Zinter (Netherlands)",
-    description: "Leading end-to-end digital transformation for a Dutch logistics startup. Managing cross-functional global teams across SDLC phases, stakeholder alignment, and AI-enhanced platform delivery targeting 70% customer retention improvement.",
+    description: "Leading end-to-end digital transformation for a Dutch startup using AI to solve logistic challenges. Managing a cross-functional global teams across SDLC phases, stakeholder alignment, and AI-enhanced platform delivery targeting 70% customer retention improvement.",
     icon: Globe,
     highlight: true
   },
@@ -214,9 +214,9 @@ const About = () => {
             variants={cardVariants}
           >
             Currently serving as <span className="font-medium text-foreground">Patient Flow Coordinator at the NHS</span>, 
-            I apply data-driven decision-making to healthcare operations while continuing as 
+            I apply analytical approach to decision-making in supporting healthcare operations while continuing as 
             <span className="font-medium text-accent"> Project Lead for Zinter</span>, where I manage 
-            cross-functional teams delivering enterprise-scale digital transformation.
+            cross-functional teams across 3 time zones delivering enterprise-scale digital transformation to solve bussiness problems.
           </motion.p>
           <motion.p 
             className="text-muted-foreground text-lg leading-relaxed"
