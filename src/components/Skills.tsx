@@ -13,15 +13,14 @@ const technicalPillars: TechnicalPillar[] = [
   {
     title: "IT Governance & Operations",
     icon: Shield,
-    description: "Enterprise-grade project control and operational frameworks",
+    description: "Enterprise-grade project control and B2B2C product strategy",
     skills: [
       "Jira (Admin)",
-      "Confluence",
-      "ITIL Frameworks",
+      "ITIL v4",
       "Agile/Scrum",
-      "MS Project",
-      "Risk Mitigation",
+      "B2B2C Product Strategy",
       "Stakeholder Management",
+      "Risk Mitigation",
       "SDLC Governance"
     ],
     accent: false
@@ -29,32 +28,29 @@ const technicalPillars: TechnicalPillar[] = [
   {
     title: "Cloud & Enterprise Infrastructure",
     icon: Cloud,
-    description: "Multi-cloud proficiency across major platforms",
+    description: "Multi-cloud proficiency and migration expertise",
     skills: [
       "AWS",
       "Microsoft Azure",
       "Google Cloud Platform",
       "Oracle Cloud",
-      "MS Server",
-      "SharePoint Admin",
       "Cloud Migration",
-      "Infrastructure Design"
+      "MS Server",
+      "SharePoint Admin"
     ],
     accent: true
   },
   {
-    title: "Data & Systems Logic",
+    title: "Data & Systems Design",
     icon: Database,
-    description: "From architectural blueprints to data-driven insights",
+    description: "From architectural blueprints to AI implementation",
     skills: [
       "Power BI",
       "SQL",
-      "Advanced Excel",
-      "Revit/AutoCAD",
-      "Systems Architecture",
+      "AI Implementation",
+      "Systems Architecture (Revit/AutoCAD)",
       "Data Flow Mapping",
-      "ETL Processes",
-      "Dashboard Design"
+      "Advanced Excel"
     ],
     accent: false
   }

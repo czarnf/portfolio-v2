@@ -162,4 +162,15 @@
   .methodology-badge:hover {
     @apply border-accent/40 shadow-sm;
   }
+
+  /* Blueprint metric styling - monospaced bold */
+  .metric-highlight {
+    font-family: 'JetBrains Mono', monospace;
+    @apply font-bold text-accent;
+  }
+
+  /* High-impact text emphasis */
+  .impact-bold {
+    @apply font-bold text-foreground;
+  }
 }

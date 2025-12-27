@@ -5,10 +5,9 @@ import Work from "../components/Work";
 import Contact from "../components/Contact";
 import Skills from "../components/Skills";
 import Testimonials from "../components/Testimonials";
-import Methodology from "../components/Methodology";
-import Philosophy from "../components/Philosophy";
 import InsightsStrategy from "../components/InsightsStrategy";
 import TechnicalPMToolkit from "../components/TechnicalPMToolkit";
+import StrategicApproach from "../components/StrategicApproach";
 import SkipLink from "../components/SkipLink";
 
 const Index = () => {
@@ -26,8 +25,7 @@ const Index = () => {
           <Work />
           <InsightsStrategy />
           <TechnicalPMToolkit />
-          <Methodology />
-          <Philosophy />
+          <StrategicApproach />
           <Testimonials />
           <Contact />
         </main>

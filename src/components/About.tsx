@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Globe, Users, Award, Heart, ArrowRightLeft, Building } from "lucide-react";
-import Philosophy from "./Philosophy";
 
 interface TimelineItem {
   period: string;
@@ -15,16 +14,16 @@ const workHistory: TimelineItem[] = [
   {
     period: "Oct 2025 - Present",
     title: "Patient Flow Coordinator",
-    company: "NHS",
-    description: "Coordinating patient flow and bed management across hospital departments. Applying IT and data analysis skills to optimize operational efficiency and support strategic decision-making in a high-pressure healthcare environment.",
+    company: "NHS — Operational Resilience",
+    description: "Managing high-stakes, real-time healthcare data flows across hospital departments. Achieved 30% reduction in data reconciliation through structured governance, standardized clinical reporting, and proactive bottleneck identification.",
     icon: ArrowRightLeft,
     highlight: true
   },
   {
     period: "April 2025 - Oct 2025",
-    title: "Healthcare Support Worker",
+    title: "Operational Discovery Phase",
     company: "NHS",
-    description: "Delivered frontline patient care while strategically transitioning from private sector to public service. Foundation for applying advanced IT expertise within government healthcare operations.",
+    description: "Ground-level analysis of clinical data systems and patient flow operations. Strategic immersion into healthcare IT infrastructure, identifying optimization opportunities that informed subsequent data governance implementations.",
     icon: Heart
   },
   {
@@ -63,7 +62,7 @@ const education: TimelineItem[] = [
     period: "2024",
     title: "MSc Information Technology (Merit)",
     company: "University of the West of England",
-    description: "Specialization in IT systems, digital transformation, cloud computing, and data analysis. Dissertation research on human error factors in healthcare security breaches.",
+    description: "Culmination of a decade of technical evolution. Specialization in IT systems architecture, digital transformation, cloud computing, and data-driven governance. Research focus on security human factors in healthcare.",
     icon: GraduationCap,
     highlight: true
   },
@@ -71,21 +70,22 @@ const education: TimelineItem[] = [
     period: "2022",
     title: "BSc Project Management",
     company: "ESAE University",
-    description: "Comprehensive foundation in project planning, execution, and stakeholder management including operations management, financial controls, and organizational communication.",
+    description: "Strategic foundation in project governance, stakeholder management, operations control, and organizational communication frameworks.",
     icon: GraduationCap
   },
   {
     period: "2018",
     title: "HND Architectural Technology",
     company: "Plymouth University",
-    description: "Systems Design Logic foundation—Revit/AutoCAD expertise in visualizing complex infrastructures before building them. This architectural thinking translates directly to IT systems architecture.",
-    icon: Award
+    description: "Systems Design Logic foundation—I apply architectural blueprinting principles to IT infrastructure, ensuring structural integrity and scalability in digital environments. Revit/AutoCAD expertise in visualizing complex systems before building them.",
+    icon: Award,
+    highlight: true
   },
   {
     period: "2014",
     title: "A-Grade Distinction: Systems Design",
     company: "Foundation Studies",
-    description: "Early mastery of structured systems thinking, data flow diagramming, and logical architecture design—the bedrock of my IT leadership approach.",
+    description: "The bedrock of my IT architecture approach—early mastery of structured systems thinking, data flow diagramming, and logical design. A decade-long bridge to 2024 MSc IT leadership.",
     icon: Award,
     highlight: true
   }
@@ -239,11 +239,11 @@ const About = () => {
             className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            Currently driving dual impact: <span className="font-semibold text-foreground">AI/Cloud Transformation at Zinter</span> (achieving 
-            <span className="font-bold text-accent"> 70%</span> retention improvement, MVP delivered 
-            <span className="font-bold text-accent"> 2 weeks</span> early) and 
+            Currently driving dual impact: <span className="font-semibold text-foreground">Full Platform Transformation at Zinter</span> (achieving 
+            <span className="font-bold text-accent font-mono"> 70%</span> retention improvement, 
+            <span className="font-bold text-accent font-mono"> 40%</span> latency reduction, <span className="font-semibold text-foreground">AI-Driven B2B2C</span> architecture) and 
             <span className="font-semibold text-foreground"> Operational Resilience at NHS</span> (
-            <span className="font-bold text-accent">30%</span> reduction in reconciliation time, standardized clinical reporting).
+            <span className="font-bold text-accent font-mono">30%</span> reduction in reconciliation time, standardized clinical reporting).
           </motion.p>
 
           {/* Cloud Multi-Literacy Badge */}
@@ -264,9 +264,6 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Management Philosophy */}
-        <Philosophy />
 
         {/* Timeline Grid */}
         <div className="grid lg:grid-cols-2 gap-10">
