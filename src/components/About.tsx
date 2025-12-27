@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Globe, Users, Award, Heart, ArrowRightLeft, Building } from "lucide-react";
-import Philosophy from "./Philosophy";
 
 interface TimelineItem {
   period: string;
@@ -15,16 +14,16 @@ const workHistory: TimelineItem[] = [
   {
     period: "Oct 2025 - Present",
     title: "Patient Flow Coordinator",
-    company: "NHS",
-    description: "Coordinating patient flow and bed management across hospital departments. Applying IT and data analysis skills to optimize operational efficiency and support strategic decision-making in a high-pressure healthcare environment.",
+    company: "NHS — Operational Resilience",
+    description: "Managing high-stakes, real-time healthcare data flows across hospital departments. Achieved 30% reduction in data reconciliation through structured governance, standardized clinical reporting, and proactive bottleneck identification.",
     icon: ArrowRightLeft,
     highlight: true
   },
   {
     period: "April 2025 - Oct 2025",
-    title: "Healthcare Support Worker",
+    title: "Operational Discovery Phase",
     company: "NHS",
-    description: "Delivered frontline patient care while strategically transitioning from private sector to public service. Foundation for applying advanced IT expertise within government healthcare operations.",
+    description: "Ground-level analysis of clinical data systems and patient flow operations. Strategic immersion into healthcare IT infrastructure, identifying optimization opportunities that informed subsequent data governance implementations.",
     icon: Heart
   },
   {
@@ -63,7 +62,7 @@ const education: TimelineItem[] = [
     period: "2024",
     title: "MSc Information Technology (Merit)",
     company: "University of the West of England",
-    description: "Specialization in IT systems, digital transformation, cloud computing, and data analysis. Dissertation research on human error factors in healthcare security breaches.",
+    description: "Culmination of a decade of technical evolution. Specialization in IT systems architecture, digital transformation, cloud computing, and data-driven governance. Research focus on security human factors in healthcare.",
     icon: GraduationCap,
     highlight: true
   },
@@ -71,16 +70,33 @@ const education: TimelineItem[] = [
     period: "2022",
     title: "BSc Project Management",
     company: "ESAE University",
-    description: "Comprehensive foundation in project planning, execution, and stakeholder management including operations management, financial controls, and organizational communication.",
+    description: "Strategic foundation in project governance, stakeholder management, operations control, and organizational communication frameworks.",
     icon: GraduationCap
   },
   {
     period: "2018",
     title: "HND Architectural Technology",
     company: "Plymouth University",
-    description: "Grounding in sustainable design principles, environmental technology, and human-centred design methodologies applicable to systems thinking.",
-    icon: Award
+    description: "Systems Design Logic foundation—I apply architectural blueprinting principles to IT infrastructure, ensuring structural integrity and scalability in digital environments. Revit/AutoCAD expertise in visualizing complex systems before building them.",
+    icon: Award,
+    highlight: true
+  },
+  {
+    period: "2014",
+    title: "A-Grade Distinction: Systems Design",
+    company: "Foundation Studies",
+    description: "The bedrock of my IT architecture approach—early mastery of structured systems thinking, data flow diagramming, and logical design. A decade-long bridge to 2024 MSc IT leadership.",
+    icon: Award,
+    highlight: true
   }
+];
+
+const cloudCertifications = [
+  "AWS Cloud Practitioner",
+  "AZ-900 (Azure Fundamentals)",
+  "GCP Foundations",
+  "Oracle Cloud",
+  "ITIL v4 Foundation"
 ];
 
 const About = () => {
@@ -183,8 +199,7 @@ const About = () => {
       <motion.div 
         className="max-w-6xl mx-auto"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        animate="visible"
         variants={containerVariants}
       >
         {/* Section Header */}
@@ -198,37 +213,56 @@ const About = () => {
           </h2>
         </motion.div>
         
-        {/* Bio Section */}
+        {/* Bio Section - Systems Thinking Focus */}
         <div className="mb-12 max-w-4xl">
           <motion.p 
             className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            I am a strategically minded IT professional with a Master's degree in Information Technology 
-            and a proven track record of delivering impactful digital transformation initiatives. My career 
-            reflects a deliberate evolution—from private sector consulting to public service leadership—designed 
-            to leverage advanced technical knowledge within mission-critical government operations.
+            My <span className="font-semibold text-foreground">10+ years of experience</span> represents a deliberate evolution in 
+            <span className="font-medium text-accent"> Systems Thinking</span>—starting from A-grade distinctions in Systems Design, 
+            moving through Architectural Technology (Revit/AutoCAD), and culminating in MSc IT leadership. This foundation enables me 
+            to visualize complex infrastructures before building them.
           </motion.p>
           <motion.p 
             className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            Currently serving as <span className="font-medium text-foreground">Patient Flow Coordinator at the NHS</span>, 
-            I apply analytical approach to decision-making in supporting healthcare operations while continuing as 
-            <span className="font-medium text-accent"> Project Lead for Zinter</span>, where I manage 
-            cross-functional teams across 3 time zones delivering enterprise-scale digital transformation to solve bussiness problems.
+            <span className="font-semibold text-foreground">The Value I Bring:</span> I combine 
+            <span className="font-medium text-accent"> Technical Cloud/Data Rigor</span> with 
+            <span className="font-medium text-accent"> Strategic Stakeholder Communication</span>—a unique blend rooted in 
+            my marketing and copywriting background. This means I don't just architect systems; I translate technical complexity 
+            into business value that executives understand.
           </motion.p>
           <motion.p 
-            className="text-muted-foreground text-lg leading-relaxed"
+            className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            My approach combines rigorous project governance with stakeholder-centric communication, 
-            ensuring technical initiatives align with organizational objectives and deliver measurable outcomes.
+            Currently driving dual impact: <span className="font-semibold text-foreground">Full Platform Transformation at Zinter</span> (achieving 
+            <span className="font-bold text-accent font-mono"> 70%</span> retention improvement, 
+            <span className="font-bold text-accent font-mono"> 40%</span> latency reduction, <span className="font-semibold text-foreground">AI-Driven B2B2C</span> architecture) and 
+            <span className="font-semibold text-foreground"> Operational Resilience at NHS</span> (
+            <span className="font-bold text-accent font-mono">30%</span> reduction in reconciliation time, standardized clinical reporting).
           </motion.p>
-        </div>
 
-        {/* Management Philosophy */}
-        <Philosophy />
+          {/* Cloud Multi-Literacy Badge */}
+          <motion.div 
+            className="mt-6 p-4 bg-accent/5 rounded-lg border border-accent/20"
+            variants={cardVariants}
+          >
+            <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-3">Cloud Multi-Literacy</p>
+            <div className="flex flex-wrap gap-2">
+              {cloudCertifications.map((cert, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1.5 text-xs font-medium bg-card text-foreground rounded-md border border-border"
+                >
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
 
         {/* Timeline Grid */}
         <div className="grid lg:grid-cols-2 gap-10">

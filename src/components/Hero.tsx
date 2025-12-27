@@ -52,7 +52,7 @@ const Hero = () => {
             className="text-accent font-medium text-sm tracking-wide uppercase"
             variants={itemVariants}
           >
-            IT Project Management & Transformation
+            Strategic IT Lead & Systems Architect
           </motion.p>
           
           {/* Name */}
@@ -70,24 +70,33 @@ const Hero = () => {
             variants={itemVariants}
           >
             <p className="text-xl sm:text-2xl text-foreground font-medium leading-relaxed">
-              Bridging the gap between complex technical development and strategic business delivery.
+              Bridging the gap between technical complexity and mission-critical delivery.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              MSc IT professional with a background in NHS clinical flow, AI-driven logistics, 
-              and data governance. Orchestrating IT Transformation & Strategic Systems Analysis.
+              MSc IT professional combining <span className="font-medium text-foreground">Systems Architecture</span> expertise 
+              with <span className="font-medium text-foreground">Cloud & Data Governance</span>. 
+              From A-grade Systems Design to enterprise-scale digital transformation.
             </p>
           </motion.div>
 
-          {/* Current role */}
-          <motion.p 
-            className="text-muted-foreground"
+          {/* Dual Impact Statement */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 sm:gap-8"
             variants={itemVariants}
           >
-            Currently driving operational efficiency at the{" "}
-            <span className="text-foreground font-medium">NHS</span> while leading 
-            digital transformation for{" "}
-            <span className="text-accent font-medium">Zinter</span>.
-          </motion.p>
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-muted-foreground">
+                <span className="font-semibold text-foreground">AI/Cloud Transformation</span> at Zinter
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-muted-foreground">
+                <span className="font-semibold text-foreground">Operational Flow</span> at NHS
+              </span>
+            </div>
+          </motion.div>
           
           {/* CTA Buttons - Primary CTAs: Contact/CV & LinkedIn */}
           <motion.div 

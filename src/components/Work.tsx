@@ -19,40 +19,40 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "AI Logistics Platform Delivery",
+    title: "Full Platform Transformation & AI-Driven B2B2C Migration",
     organization: "Zinter (Netherlands)",
-    challenge: "A Dutch logistics startup required product management leadership for an AI Computer Vision solution to automate logistics estimation processes.",
-    solution: "Orchestrated the end-to-end delivery of an automated logistics estimation engine. Led cross-functional teams through Agile sprints, managed stakeholder expectations, and ensured alignment between technical development and business objectives.",
+    challenge: "Led a total architectural overhaul for a Dutch B2B2C startup, replacing legacy systems with a scalable, cloud-native infrastructure to support high-concurrency traffic across European markets.",
+    solution: "Integrated AI Computer Vision Agents for automated logistics estimation and implemented auto-scaling AWS infrastructure. Managed cross-functional global teams across 3 time zones through structured Agile governance.",
     impact: [
       "70% projected increase in customer retention",
-      "40% reduction in operational bottlenecks",
-      "Real-time visibility across supply chain",
-      "Scalable architecture for European expansion"
+      "40% reduction in platform latency",
+      "Cloud-native B2B2C architecture deployed",
+      "Scalable infrastructure for European expansion"
     ],
     methodology: "Agile/Scrum",
     toolsManaged: ["Jira", "AWS", "Python", "React"],
-    keyResult: "Delivered MVP 2 weeks ahead of schedule",
-    techStackManaged: ["Jira", "Agile/Scrum", "AWS", "AI/ML Pipelines", "Stakeholder Management"],
-    kpiImpact: "Delivered MVP within 12-week timeline; managed cross-functional team of 8",
+    keyResult: "70% retention | 40% latency reduction",
+    techStackManaged: ["AWS Auto-Scaling", "AI Computer Vision", "B2B2C Platform", "Agile Governance", "Multi-Cloud Architecture"],
+    kpiImpact: "70% retention improvement | 40% latency reduction | Global team across 3 time zones",
     icon: TrendingUp,
     projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
   {
-    title: "NHS Operational Resilience",
-    organization: "NHS",
-    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation challenging, impacting clinical efficiency.",
-    solution: "Managed patient flow and clinical IT systems (Band 3). Served as Digital Link for ward-level IT governance and troubleshooting. Coordinated cross-departmental data flows and developed standardized reporting procedures.",
+    title: "Operational Resilience & Healthcare Data Governance",
+    organization: "NHS — Patient Flow Coordinator",
+    challenge: "High-stakes, real-time healthcare data flows across multiple legacy systems created reconciliation bottlenecks and impacted clinical efficiency in a fast-paced hospital environment.",
+    solution: "Established data governance frameworks for clinical IT systems. Managed high-stakes patient flow data, standardized reporting procedures across departments, and implemented protocols achieving significant reconciliation improvements.",
     impact: [
-      "Improved cross-department coordination",
-      "Standardized data reporting procedures",
-      "Enhanced resource allocation visibility",
-      "Reduced manual data reconciliation"
+      "30% reduction in data reconciliation time",
+      "Standardized clinical reporting across 3 departments",
+      "Enhanced real-time patient flow visibility",
+      "Improved cross-department coordination"
     ],
     methodology: "ITIL/Kanban",
     toolsManaged: ["Power BI", "Excel", "NHS Systems"],
-    keyResult: "Reduced data reconciliation time by 30%",
-    techStackManaged: ["NHS Digital Systems", "ITIL", "Information Governance", "Excel/Power BI", "Stakeholder Communication"],
-    kpiImpact: "Streamlined reporting across 3 clinical departments; reduced data reconciliation time by 30%",
+    keyResult: "30% reconciliation reduction",
+    techStackManaged: ["NHS Digital Systems", "ITIL Frameworks", "Power BI", "Data Governance", "Stakeholder Communication"],
+    kpiImpact: "30% reconciliation reduction | 3 departments standardized | Real-time data flow management",
     icon: Target
   },
   {
@@ -122,8 +122,7 @@ const Work = () => {
       <motion.div 
         className="max-w-6xl mx-auto"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        animate="visible"
         variants={containerVariants}
       >
         {/* Section Header */}
