@@ -199,8 +199,7 @@ const About = () => {
       <motion.div 
         className="max-w-6xl mx-auto"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        animate="visible"
         variants={containerVariants}
       >
         {/* Section Header */}
