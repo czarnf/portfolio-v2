@@ -19,40 +19,40 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "AI Adoption & Cloud Migration",
+    title: "Full Platform Transformation & AI-Driven B2B2C Migration",
     organization: "Zinter (Netherlands)",
-    challenge: "A Dutch logistics startup required strategic IT leadership to architect and deliver an AI Computer Vision platform for automated logistics estimation—demanding multi-cloud infrastructure and cross-timezone team coordination.",
-    solution: "Led end-to-end cloud migration and AI platform delivery. Architected scalable AWS infrastructure, managed global cross-functional teams through Agile sprints, and aligned technical development with business objectives across 3 time zones.",
+    challenge: "Led a total architectural overhaul for a Dutch B2B2C startup, replacing legacy systems with a scalable, cloud-native infrastructure to support high-concurrency traffic across European markets.",
+    solution: "Integrated AI Computer Vision Agents for automated logistics estimation and implemented auto-scaling AWS infrastructure. Managed cross-functional global teams across 3 time zones through structured Agile governance.",
     impact: [
       "70% projected increase in customer retention",
-      "MVP delivered 2 weeks ahead of schedule",
-      "Real-time visibility across supply chain",
-      "Scalable architecture for European expansion"
+      "40% reduction in platform latency",
+      "Cloud-native B2B2C architecture deployed",
+      "Scalable infrastructure for European expansion"
     ],
     methodology: "Agile/Scrum",
     toolsManaged: ["Jira", "AWS", "Python", "React"],
-    keyResult: "Delivered MVP 2 weeks ahead of schedule",
-    techStackManaged: ["AWS", "Jira (Admin)", "AI/ML Pipelines", "Agile Governance", "Multi-Cloud Architecture"],
-    kpiImpact: "70% retention improvement | MVP 2 weeks early | 8-person global team managed",
+    keyResult: "70% retention | 40% latency reduction",
+    techStackManaged: ["AWS Auto-Scaling", "AI Computer Vision", "B2B2C Platform", "Agile Governance", "Multi-Cloud Architecture"],
+    kpiImpact: "70% retention improvement | 40% latency reduction | Global team across 3 time zones",
     icon: TrendingUp,
     projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
   {
-    title: "Operational Resilience & Data Governance",
-    organization: "NHS",
-    challenge: "Patient flow data scattered across multiple legacy systems made real-time bed management and resource allocation challenging, impacting clinical efficiency and data integrity.",
-    solution: "Implemented data governance frameworks for clinical IT systems. Served as Digital Link for ward-level IT troubleshooting, standardized reporting procedures across departments, and established data reconciliation protocols.",
+    title: "Operational Resilience & Healthcare Data Governance",
+    organization: "NHS — Patient Flow Coordinator",
+    challenge: "High-stakes, real-time healthcare data flows across multiple legacy systems created reconciliation bottlenecks and impacted clinical efficiency in a fast-paced hospital environment.",
+    solution: "Established data governance frameworks for clinical IT systems. Managed high-stakes patient flow data, standardized reporting procedures across departments, and implemented protocols achieving significant reconciliation improvements.",
     impact: [
       "30% reduction in data reconciliation time",
       "Standardized clinical reporting across 3 departments",
-      "Enhanced resource allocation visibility",
+      "Enhanced real-time patient flow visibility",
       "Improved cross-department coordination"
     ],
     methodology: "ITIL/Kanban",
     toolsManaged: ["Power BI", "Excel", "NHS Systems"],
-    keyResult: "Reduced reconciliation time by 30%",
+    keyResult: "30% reconciliation reduction",
     techStackManaged: ["NHS Digital Systems", "ITIL Frameworks", "Power BI", "Data Governance", "Stakeholder Communication"],
-    kpiImpact: "30% reconciliation reduction | 3 departments standardized | Clinical reporting optimized",
+    kpiImpact: "30% reconciliation reduction | 3 departments standardized | Real-time data flow management",
     icon: Target
   },
   {
