@@ -21,19 +21,29 @@ const Index = () => {
         <main id="main-content" role="main" className="focus:outline-none" tabIndex={-1}>
           <Hero />
           <About />
-          <Skills />
-          <Work />
           <InsightsStrategy />
+          <Work />
+          <Skills />
           <TechnicalPMToolkit />
           <StrategicApproach />
           <Testimonials />
           <Contact />
         </main>
-        <footer role="contentinfo" className="py-12 px-4 bg-muted border-t border-border">
+        <footer role="contentinfo" className="py-16 px-4 bg-muted border-t border-border">
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Assertive Closing */}
+            <div className="mb-8 text-center">
+              <p className="text-lg text-foreground font-medium mb-2">
+                Open to senior technical delivery roles where platform transformation, AI integration, and stakeholder alignment drive measurable business outcomes.
+              </p>
+              <p className="text-sm text-accent font-semibold">
+                UK-based MSc Graduate | Skilled Worker Visa Sponsorship Eligible
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border">
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Emmanuel Chiefson. Strategic IT Leadership.
+                © {new Date().getFullYear()} Emmanuel Chiefson. Technical Project & Platform Transformation Lead.
               </p>
               <div className="flex items-center gap-4">
                 <a
@@ -53,6 +63,15 @@ const Index = () => {
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a
+                  href="https://medium.com/@emmanuelchiefson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label="Medium"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
                 </a>
               </div>
             </div>

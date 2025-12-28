@@ -52,7 +52,7 @@ const Hero = () => {
             className="text-accent font-medium text-sm tracking-wide uppercase"
             variants={itemVariants}
           >
-            Strategic IT Lead & Systems Architect
+            Technical Project & Platform Transformation Lead
           </motion.p>
           
           {/* Name */}
@@ -70,12 +70,12 @@ const Hero = () => {
             variants={itemVariants}
           >
             <p className="text-xl sm:text-2xl text-foreground font-medium leading-relaxed">
-              Bridging the gap between technical complexity and mission-critical delivery.
+              Bridging Technical Complexity & Commercial Growth
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              MSc IT professional combining <span className="font-medium text-foreground">Systems Architecture</span> expertise 
-              with <span className="font-medium text-foreground">Cloud & Data Governance</span>. 
-              From A-grade Systems Design to enterprise-scale digital transformation.
+              I turn technical complexity into commercial clarity. From <span className="font-semibold text-foreground">AI-driven platform overhauls</span> to 
+              <span className="font-semibold text-foreground"> high-stakes healthcare data governance</span>, I lead the transformations 
+              that unlock revenue and operational scale—not just keep the lights on.
             </p>
           </motion.div>
 
@@ -87,13 +87,13 @@ const Hero = () => {
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-muted-foreground">
-                <span className="font-semibold text-foreground">AI/Cloud Transformation</span> at Zinter
+                <span className="font-bold text-foreground">70%</span> Retention at Zinter
               </span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-muted-foreground">
-                <span className="font-semibold text-foreground">Operational Flow</span> at NHS
+                <span className="font-bold text-foreground">30%</span> Data Efficiency at NHS
               </span>
             </div>
           </motion.div>

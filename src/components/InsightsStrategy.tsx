@@ -14,8 +14,8 @@ interface Article {
 const articles: Article[] = [
   {
     title: "The Unstoppable Stream: How Netflix's $82.7B Power Play Just Rewrote Hollywood History",
-    excerpt: "Strategic analysis of how digital transformation is reshaping entertainment industry economics and what it means for future-proofing business models.",
-    strategicValue: "Business Transformation",
+    excerpt: "Analysis of Netflix's $82.7B infrastructure play and its impact on industry economics.",
+    strategicValue: "Market Disruption Strategy",
     date: "Dec 2024",
     readTime: "6 min",
     link: "https://emmanuelchiefson.medium.com/the-unstoppable-stream-how-netflixs-82-7b-power-play-just-rewrote-hollywood-history-e48881f029d7",
@@ -23,8 +23,8 @@ const articles: Article[] = [
   },
   {
     title: "Siemens Mobility Project Management Simulation: A Reflective Report on KPI Development",
-    excerpt: "Practical insights on AI-assisted project management and how technical PMs can leverage simulations for continuous professional development.",
-    strategicValue: "AI Productivity",
+    excerpt: "Reflective insights from Siemens Mobility Project Management simulations, focusing on performance metrics and risk mitigation.",
+    strategicValue: "KPI-Driven Governance",
     date: "Aug 2024",
     readTime: "8 min",
     link: "https://emmanuelchiefson.medium.com/title-siemens-mobility-project-management-simulation-a-reflective-report-on-kpi-development-494f5f2cb158",
@@ -32,8 +32,8 @@ const articles: Article[] = [
   },
   {
     title: "Strategic Considerations for AI Adoption in Construction: A Case Study of Mercury Construction Ltd",
-    excerpt: "Future-proofing technical skills through strategic AI adoption—a framework for industry transformation and competitive advantage.",
-    strategicValue: "Future-Proofing",
+    excerpt: "Strategic considerations for AI integration within the Construction and Infrastructure sectors.",
+    strategicValue: "AI Adoption Frameworks",
     date: "Feb 2024",
     readTime: "10 min",
     link: "https://emmanuelchiefson.medium.com/strategic-considerations-for-ai-adoption-in-construction-a-case-study-of-mercury-construction-ltd-f8b3ac223613",
@@ -77,16 +77,12 @@ const InsightsStrategy = () => {
           className="mb-12"
           variants={cardVariants}
         >
-          <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Thought Leadership</p>
+          <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Knowledge Hub</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-            Insights & Strategy
+            Insights & Thought Leadership
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mb-4">
-            I write about AI Productivity, Future-Proofing Technical Skills, and Digital Transformation 
-            on Medium to share strategic insights with the community.
-          </p>
-          <p className="text-foreground font-medium text-lg max-w-2xl border-l-2 border-accent pl-4">
-            I bridge the gap between emerging AI technologies and practical project execution.
+          <p className="text-muted-foreground text-lg max-w-2xl">
+            Bridging the gap between emerging AI technologies, project governance, and practical business execution.
           </p>
         </motion.div>
 
@@ -138,7 +134,7 @@ const InsightsStrategy = () => {
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-accent text-accent-foreground rounded-md hover:bg-accent/90 transition-colors"
                   >
                     Read on Medium
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -158,9 +154,9 @@ const InsightsStrategy = () => {
             href="https://medium.com/@emmanuelchiefson"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
           >
-            View All Articles on Medium
+            View All Strategic Insights
             <ExternalLink className="w-4 h-4" />
           </a>
         </motion.div>
