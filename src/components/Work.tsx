@@ -7,6 +7,9 @@ interface CaseStudy {
   challenge: string;
   solution: string;
   impact: string[];
+  commercialImpact: string;
+  technicalResult: string;
+  stakeholderValue: string;
   methodology: string;
   toolsManaged: string[];
   keyResult: string;
@@ -29,6 +32,9 @@ const caseStudies: CaseStudy[] = [
       "Cloud-native B2B2C architecture deployed",
       "Scalable infrastructure for European expansion"
     ],
+    commercialImpact: "Protecting recurring revenue and enabling expansion into enterprise accounts",
+    technicalResult: "AWS auto-scaling infrastructure with AI Computer Vision integration",
+    stakeholderValue: "CTO & Board: Revenue protection through customer retention",
     methodology: "Agile/Scrum",
     toolsManaged: ["Jira", "AWS", "Python", "React"],
     keyResult: "70% retention | 40% latency reduction",
@@ -48,6 +54,9 @@ const caseStudies: CaseStudy[] = [
       "Enhanced real-time patient flow visibility",
       "Improved cross-department coordination"
     ],
+    commercialImpact: "Saving thousands of clinical hours and reducing regulatory risk",
+    technicalResult: "Standardized data governance frameworks across NHS systems",
+    stakeholderValue: "Clinicians & Trust Board: Operational efficiency and compliance",
     methodology: "ITIL/Kanban",
     toolsManaged: ["Power BI", "Excel", "NHS Systems"],
     keyResult: "30% reconciliation reduction",
@@ -66,6 +75,9 @@ const caseStudies: CaseStudy[] = [
       "Human factors analysis methodology",
       "Training program enhancement proposals"
     ],
+    commercialImpact: "Reducing breach-related costs and regulatory penalties",
+    technicalResult: "Evidence-based security training framework",
+    stakeholderValue: "NHS Trust Leadership: Risk mitigation and compliance",
     methodology: "Waterfall/Research",
     toolsManaged: ["SPSS", "NVivo", "MS Office"],
     keyResult: "Actionable policy recommendations delivered",
@@ -85,6 +97,9 @@ const caseStudies: CaseStudy[] = [
       "Reproducible analysis framework",
       "Clear documentation of investment thesis"
     ],
+    commercialImpact: "Optimizing capital allocation for improved returns",
+    technicalResult: "Power BI dashboard with SQL-driven analytics",
+    stakeholderValue: "Individual Investors: Data-driven decision making",
     methodology: "Agile/Iterative",
     toolsManaged: ["Power BI", "SQL", "Excel"],
     keyResult: "Optimized resource allocation across 50+ positions",
@@ -199,13 +214,32 @@ const Work = () => {
                     {study.keyResult}
                   </span>
                 </div>
-                <div className="mb-6 p-4 bg-accent/5 rounded-lg border border-accent/10">
-                  <p className="text-xs font-medium text-accent uppercase tracking-wide mb-1">
-                    Key Impact
-                  </p>
-                  <p className="text-foreground font-medium">
-                    {study.kpiImpact}
-                  </p>
+                {/* Commercial Impact, Technical Result, Stakeholder Value */}
+                <div className="grid md:grid-cols-3 gap-4 mb-6">
+                  <div className="p-4 bg-accent/5 rounded-lg border border-accent/10">
+                    <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">
+                      Commercial Impact
+                    </p>
+                    <p className="text-foreground text-sm font-medium">
+                      {study.commercialImpact}
+                    </p>
+                  </div>
+                  <div className="p-4 bg-muted/50 rounded-lg border border-border">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      Technical Result
+                    </p>
+                    <p className="text-foreground text-sm font-medium">
+                      {study.technicalResult}
+                    </p>
+                  </div>
+                  <div className="p-4 bg-muted/50 rounded-lg border border-border">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      Stakeholder Value
+                    </p>
+                    <p className="text-foreground text-sm font-medium">
+                      {study.stakeholderValue}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Content Grid */}

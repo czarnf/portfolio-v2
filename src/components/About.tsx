@@ -15,7 +15,7 @@ const workHistory: TimelineItem[] = [
     period: "Oct 2025 - Present",
     title: "Patient Flow Coordinator",
     company: "NHS — Operational Resilience",
-    description: "Managing high-stakes, real-time healthcare data flows across hospital departments. Achieved 30% reduction in data reconciliation through structured governance, standardized clinical reporting, and proactive bottleneck identification.",
+    description: "30% reduction in data reconciliation — saving thousands of clinical hours and reducing regulatory risk. Managing high-stakes, real-time healthcare data flows across multiple hospital departments.",
     icon: ArrowRightLeft,
     highlight: true
   },
@@ -23,14 +23,14 @@ const workHistory: TimelineItem[] = [
     period: "April 2025 - Oct 2025",
     title: "Operational Discovery Phase",
     company: "NHS",
-    description: "Ground-level analysis of clinical data systems and patient flow operations. Strategic immersion into healthcare IT infrastructure, identifying optimization opportunities that informed subsequent data governance implementations.",
+    description: "Ground-level analysis of clinical data systems and patient flow operations. Strategic immersion identifying optimization opportunities that informed subsequent governance implementations.",
     icon: Heart
   },
   {
     period: "July 2023 - Present",
     title: "IT Project Manager / Acting Project Lead",
     company: "Bayside Consult → Zinter (Netherlands)",
-    description: "Leading end-to-end digital transformation for a Dutch startup using AI to solve logistic challenges. Managing a cross-functional global teams across SDLC phases, stakeholder alignment, and AI-enhanced platform delivery targeting 70% customer retention improvement.",
+    description: "70% retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts. AI-driven B2B2C platform transformation with 40% latency reduction.",
     icon: Globe,
     highlight: true
   },
@@ -209,41 +209,43 @@ const About = () => {
         >
           <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Background</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-            Professional Profile
+            Solving the Structural Language Barrier
           </h2>
         </motion.div>
         
-        {/* Bio Section - Systems Thinking Focus */}
+        {/* Bio Section - Senior Narrative */}
         <div className="mb-12 max-w-4xl">
           <motion.p 
             className="text-muted-foreground text-lg leading-relaxed mb-4"
             variants={cardVariants}
           >
-            My <span className="font-semibold text-foreground">10+ years of experience</span> represents a deliberate evolution in 
-            <span className="font-medium text-accent"> Systems Thinking</span>—starting from A-grade distinctions in Systems Design, 
-            moving through Architectural Technology (Revit/AutoCAD), and culminating in MSc IT leadership. This foundation enables me 
-            to visualize complex infrastructures before building them.
+            I have spent over a decade solving the primary structural problem organizations face: 
+            <span className="font-semibold text-foreground"> technical teams and commercial stakeholders speaking different languages</span>. 
+            My work bridges that gap—translating executive vision into deliverable technical roadmaps 
+            that hold up under rigorous engineering scrutiny.
           </motion.p>
-          <motion.p 
-            className="text-muted-foreground text-lg leading-relaxed mb-4"
+
+          {/* Hybrid Advantage Bullets */}
+          <motion.div 
+            className="grid sm:grid-cols-3 gap-4 mb-6"
             variants={cardVariants}
           >
-            <span className="font-semibold text-foreground">The Value I Bring:</span> I combine 
-            <span className="font-medium text-accent"> Technical Cloud/Data Rigor</span> with 
-            <span className="font-medium text-accent"> Strategic Stakeholder Communication</span>—a unique blend rooted in 
-            my marketing and copywriting background. This means I don't just architect systems; I translate technical complexity 
-            into business value that executives understand.
-          </motion.p>
-          <motion.p 
-            className="text-muted-foreground text-lg leading-relaxed mb-4"
-            variants={cardVariants}
-          >
-            Currently driving dual impact: <span className="font-semibold text-foreground">Full Platform Transformation at Zinter</span> (achieving 
-            <span className="font-bold text-accent font-mono"> 70%</span> retention improvement, 
-            <span className="font-bold text-accent font-mono"> 40%</span> latency reduction, <span className="font-semibold text-foreground">AI-Driven B2B2C</span> architecture) and 
-            <span className="font-semibold text-foreground"> Operational Resilience at NHS</span> (
-            <span className="font-bold text-accent font-mono">30%</span> reduction in reconciliation time, standardized clinical reporting).
-          </motion.p>
+            <div className="p-4 bg-card rounded-lg border border-border">
+              <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">Technical Execution</p>
+              <p className="text-foreground font-medium">MSc Information Technology</p>
+              <p className="text-sm text-muted-foreground">Cloud architecture, AI integration, systems design</p>
+            </div>
+            <div className="p-4 bg-card rounded-lg border border-border">
+              <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">Structured Governance</p>
+              <p className="text-foreground font-medium">BSc Project Management</p>
+              <p className="text-sm text-muted-foreground">Agile delivery, stakeholder alignment, risk mitigation</p>
+            </div>
+            <div className="p-4 bg-card rounded-lg border border-border">
+              <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">Commercial ROI</p>
+              <p className="text-foreground font-medium">Revenue-Driven Outcomes</p>
+              <p className="text-sm text-muted-foreground">Business case development, metric-driven delivery</p>
+            </div>
+          </motion.div>
 
           {/* Cloud Multi-Literacy Badge */}
           <motion.div 
@@ -264,16 +266,21 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Timeline Grid */}
+        {/* Experience & Academic Foundation - Side by Side */}
+        <motion.div className="mb-8" variants={cardVariants}>
+          <h3 className="text-2xl font-semibold text-foreground mb-2">Experience & Academic Foundation</h3>
+          <p className="text-muted-foreground">Parallel growth in professional delivery and academic mastery</p>
+        </motion.div>
+        
         <div className="grid lg:grid-cols-2 gap-10">
           <TimelineSection 
             items={workHistory} 
-            title="Career History" 
+            title="Experience & Impact" 
             accentColor="primary" 
           />
           <TimelineSection 
             items={education} 
-            title="Education" 
+            title="Academic Foundation" 
             accentColor="accent" 
           />
         </div>
