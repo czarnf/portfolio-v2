@@ -17,6 +17,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "About", href: "#about" },
+    { name: "Pi-Shaped Model", href: "#pi-shaped" },
     { name: "Competencies", href: "#competencies" },
     { name: "Case Studies", href: "#case-studies" },
     { name: "Insights", href: "#insights" },

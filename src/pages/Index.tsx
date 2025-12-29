@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import PiShapedAdvantage from "../components/PiShapedAdvantage";
 import Work from "../components/Work";
 import Contact from "../components/Contact";
 import Skills from "../components/Skills";
@@ -21,6 +22,7 @@ const Index = () => {
         <main id="main-content" role="main" className="focus:outline-none" tabIndex={-1}>
           <Hero />
           <About />
+          <PiShapedAdvantage />
           <Skills />
           <Work />
           <InsightsStrategy />
