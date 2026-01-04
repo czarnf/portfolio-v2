@@ -13,44 +13,44 @@ interface TimelineItem {
 const workHistory: TimelineItem[] = [
   {
     period: "Oct 2025 - Present",
-    title: "Patient Flow Coordinator",
-    company: "NHS — Operational Resilience",
-    description: "30% reduction in data reconciliation — saving thousands of clinical hours and reducing regulatory risk. Managing high-stakes, real-time healthcare data flows across multiple hospital departments.",
+    title: "Operational Data & Governance Lead",
+    company: "NHS",
+    description: "Role: Operational Data & Governance Lead. Design and implementation of clinically compliant Excel and Power BI tools. KPI tracking (bed occupancy, throughput, DTOC, reconciliation time). **30%** reduction in data reconciliation — saving thousands of clinical hours and reducing regulatory risk.",
     icon: ArrowRightLeft,
     highlight: true
   },
   {
     period: "April 2025 - Oct 2025",
-    title: "Operational Discovery Phase",
+    title: "Healthcare Data Analyst",
     company: "NHS",
-    description: "Ground-level analysis of clinical data systems and patient flow operations. Strategic immersion identifying optimization opportunities that informed subsequent governance implementations.",
+    description: "Ground-level analysis of clinical data systems and patient flow operations. Data accuracy, escalation logic, and governance in safety-critical systems. Decision-support impact through structured reporting.",
     icon: Heart
   },
   {
     period: "July 2023 - Present",
-    title: "IT Project Manager / Acting Project Lead",
-    company: "Bayside Consult → Zinter (Netherlands)",
-    description: "70% retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts. AI-driven B2B2C platform transformation with 40% latency reduction.",
+    title: "Technical Project Lead",
+    company: "Zinter (Netherlands)",
+    description: "Role: Technical Project Lead / Platform Transformation Owner. **70%** retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts. AI-driven B2B2C platform transformation with **40%** latency reduction.",
     icon: Globe,
     highlight: true
   },
   {
     period: "Jan 2019 - July 2023",
-    title: "Digital Consultant & Strategist",
+    title: "Digital Strategy Consultant",
     company: "Freelance (Fiverr)",
     description: "Delivered digital strategy consulting for SMEs including requirements analysis, UX optimization, and technology recommendations. Focused on translating business objectives into actionable digital roadmaps.",
     icon: Building
   },
   {
     period: "July 2022 - Oct 2023",
-    title: "Community Outreach Support",
+    title: "IT & Communications Coordinator",
     company: "Nigerian Red Cross Society",
     description: "Designed IT awareness campaigns, conducted usability testing for educational tools, and coordinated stakeholder communications during emergency response operations.",
     icon: Users
   },
   {
     period: "May 2017 - Dec 2018",
-    title: "Healthcare Assistant",
+    title: "Healthcare Support Worker",
     company: "Nurseplus, Plymouth",
     description: "Delivered client-focused care in fast-paced healthcare settings, managing sensitive information with GDPR compliance and attention to operational protocols.",
     icon: Briefcase
@@ -62,7 +62,7 @@ const education: TimelineItem[] = [
     period: "2024",
     title: "MSc Information Technology (Merit)",
     company: "University of the West of England",
-    description: "Culmination of a decade of technical evolution. Specialization in IT systems architecture, digital transformation, cloud computing, and data-driven governance. Research focus on security human factors in healthcare.",
+    description: "Built on a decade-long progression in systems design, architecture, and IT governance. Specialization in digital transformation, cloud computing, and data-driven decision-making.",
     icon: GraduationCap,
     highlight: true
   },
@@ -70,14 +70,14 @@ const education: TimelineItem[] = [
     period: "2022",
     title: "BSc Project Management",
     company: "ESAE University",
-    description: "Strategic foundation in project governance, stakeholder management, operations control, and organizational communication frameworks.",
+    description: "Foundation in project governance, stakeholder management, operations control, and organizational communication frameworks.",
     icon: GraduationCap
   },
   {
     period: "2018",
     title: "HND Architectural Technology",
     company: "Plymouth University",
-    description: "Systems Design Logic foundation—I apply architectural blueprinting principles to IT infrastructure, ensuring structural integrity and scalability in digital environments. Revit/AutoCAD expertise in visualizing complex systems before building them.",
+    description: "Systems design logic foundation — applying architectural blueprinting principles to IT infrastructure. Revit/AutoCAD expertise in visualizing complex systems.",
     icon: Award,
     highlight: true
   },
@@ -85,7 +85,7 @@ const education: TimelineItem[] = [
     period: "2014",
     title: "A-Grade Distinction: Systems Design",
     company: "Foundation Studies",
-    description: "The bedrock of my IT architecture approach—early mastery of structured systems thinking, data flow diagramming, and logical design. A decade-long bridge to 2024 MSc IT leadership.",
+    description: "Early mastery of structured systems thinking, data flow diagramming, and logical design principles.",
     icon: Award,
     highlight: true
   }

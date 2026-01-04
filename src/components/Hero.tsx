@@ -47,12 +47,12 @@ const Hero = () => {
         animate="visible"
       >
         <div className="space-y-8">
-          {/* Role identifier */}
+        {/* Role identifier */}
           <motion.p 
             className="text-accent font-medium text-sm tracking-wide uppercase"
             variants={itemVariants}
           >
-            Technical Project & Platform Transformation Lead
+            Technical Project Lead | Digital Transformation & Data Platforms
           </motion.p>
           
           {/* Name */}
@@ -70,12 +70,13 @@ const Hero = () => {
             variants={itemVariants}
           >
             <p className="text-xl sm:text-2xl text-foreground font-medium leading-relaxed">
-              Bridging Technical Complexity & Commercial Growth
+              Bridging Technical Complexity, Data & Commercial Outcomes
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I turn technical complexity into commercial clarity. From <span className="font-semibold text-foreground">AI-driven platform overhauls</span> to 
-              <span className="font-semibold text-foreground"> high-stakes healthcare data governance</span>, I lead the transformations 
-              that unlock revenue and operational scale—not just keep the lights on.
+              I translate technical complexity into operational scale, data clarity, and revenue protection. 
+              From <span className="font-semibold text-foreground">AI-driven platform overhauls</span> to 
+              <span className="font-semibold text-foreground"> healthcare data governance</span>, I lead 
+              transformations that deliver measurable business outcomes.
             </p>
           </motion.div>
 
@@ -87,16 +88,24 @@ const Hero = () => {
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-muted-foreground">
-                <span className="font-bold text-foreground">70%</span> Retention at Zinter
+                <span className="font-bold text-foreground">70%</span> Customer Retention at Zinter
               </span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-muted-foreground">
-                <span className="font-bold text-foreground">30%</span> Data Efficiency at NHS
+                <span className="font-bold text-foreground">30%</span> Data Reconciliation Reduction at NHS
               </span>
             </div>
           </motion.div>
+          
+          {/* Credibility Line */}
+          <motion.p 
+            className="text-xs text-muted-foreground italic"
+            variants={itemVariants}
+          >
+            Metrics validated through operational reporting, system performance tracking, and stakeholder sign-off.
+          </motion.p>
           
           {/* CTA Buttons - Primary CTAs: Contact/CV & LinkedIn */}
           <motion.div 

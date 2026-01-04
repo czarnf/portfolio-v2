@@ -9,6 +9,8 @@ import InsightsStrategy from "../components/InsightsStrategy";
 import TechnicalPMToolkit from "../components/TechnicalPMToolkit";
 import StrategicApproach from "../components/StrategicApproach";
 import SkipLink from "../components/SkipLink";
+import PiShapedSkills from "../components/PiShapedSkills";
+import SponsorshipBanner from "../components/SponsorshipBanner";
 
 const Index = () => {
   return (
@@ -23,9 +25,11 @@ const Index = () => {
           <About />
           <InsightsStrategy />
           <Work />
+          <PiShapedSkills />
           <Skills />
           <TechnicalPMToolkit />
           <StrategicApproach />
+          <SponsorshipBanner />
           <Testimonials />
           <Contact />
         </main>
@@ -34,10 +38,7 @@ const Index = () => {
             {/* Assertive Closing */}
             <div className="mb-8 text-center">
               <p className="text-lg text-foreground font-medium mb-2">
-                Open to senior technical delivery roles where platform transformation, AI integration, and stakeholder alignment drive measurable business outcomes.
-              </p>
-              <p className="text-sm text-accent font-semibold">
-                UK-based MSc Graduate | Skilled Worker Visa Sponsorship Eligible
+                Open to senior technical delivery roles where platform transformation, data governance, and stakeholder alignment drive measurable business outcomes.
               </p>
             </div>
 
