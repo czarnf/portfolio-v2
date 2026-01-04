@@ -191,12 +191,12 @@ const Skills = () => {
               </svg>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-2">Architectural Systems Thinking</h4>
+              <h4 className="font-semibold text-foreground mb-3">Architectural Systems Thinking</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                My background in architectural design trained me in <span className="font-medium text-foreground">systems design logic</span> — the discipline of visualising complex structures, dependencies, and constraints before execution. I apply this thinking directly to digital platforms, data flows, and enterprise systems, enabling clearer architecture decisions, risk reduction, and scalable delivery.
+              </p>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                My Revit/AutoCAD expertise represents <span className="font-medium text-foreground">Systems Design Logic</span>—the 
-                ability to visualize complex infrastructures before building them. This architectural foundation 
-                makes me a better IT Architect, enabling me to blueprint enterprise systems with the same precision 
-                applied to physical structures.
+                This foundation strengthens my work as a technical project lead and digital transformation professional, allowing me to blueprint IT systems with the same precision used in physical infrastructure design — while collaborating effectively with architects, engineers, and data specialists.
               </p>
             </div>
           </div>
