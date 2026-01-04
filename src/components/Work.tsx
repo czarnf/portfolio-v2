@@ -22,45 +22,45 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "Full Platform Transformation & AI-Driven B2B2C Migration",
-    organization: "Zinter (Netherlands)",
-    challenge: "Led a total architectural overhaul for a Dutch B2B2C startup, replacing legacy systems with a scalable, cloud-native infrastructure to support high-concurrency traffic across European markets.",
+    title: "Platform Transformation & AI-Driven B2B2C Migration",
+    organization: "Role: Technical Project Lead / Platform Transformation Owner — Zinter (Netherlands)",
+    challenge: "Led architectural overhaul for a Dutch B2B2C startup, replacing legacy systems with scalable, cloud-native infrastructure to support high-concurrency traffic across European markets.",
     solution: "Integrated AI Computer Vision Agents for automated logistics estimation and implemented auto-scaling AWS infrastructure. Managed cross-functional global teams across 3 time zones through structured Agile governance.",
     impact: [
-      "70% projected increase in customer retention",
-      "40% reduction in platform latency",
+      "**70%** increase in customer retention",
+      "**40%** reduction in platform latency",
       "Cloud-native B2B2C architecture deployed",
       "Scalable infrastructure for European expansion"
     ],
-    commercialImpact: "Protecting recurring revenue and enabling expansion into enterprise accounts",
+    commercialImpact: "**70%** retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts",
     technicalResult: "AWS auto-scaling infrastructure with AI Computer Vision integration",
     stakeholderValue: "CTO & Board: Revenue protection through customer retention",
     methodology: "Agile/Scrum",
     toolsManaged: ["Jira", "AWS", "Python", "React"],
     keyResult: "70% retention | 40% latency reduction",
-    techStackManaged: ["AWS Auto-Scaling", "AI Computer Vision", "B2B2C Platform", "Agile Governance", "Multi-Cloud Architecture"],
-    kpiImpact: "70% retention improvement | 40% latency reduction | Global team across 3 time zones",
+    techStackManaged: ["AWS Auto-Scaling", "AI Computer Vision", "B2B2C Platform", "Agile Governance"],
+    kpiImpact: "70% retention | 40% latency reduction | Global team across 3 time zones",
     icon: TrendingUp,
     projectSpecsLink: "https://github.com/emmanuelchiefson"
   },
   {
-    title: "Operational Resilience & Healthcare Data Governance",
-    organization: "NHS — Patient Flow Coordinator",
-    challenge: "High-stakes, real-time healthcare data flows across multiple legacy systems created reconciliation bottlenecks and impacted clinical efficiency in a fast-paced hospital environment.",
-    solution: "Established data governance frameworks for clinical IT systems. Managed high-stakes patient flow data, standardized reporting procedures across departments, and implemented protocols achieving significant reconciliation improvements.",
+    title: "Healthcare Data Governance & Operational Efficiency",
+    organization: "Role: Operational Data & Governance Lead — NHS",
+    challenge: "High-stakes, real-time healthcare data flows across multiple legacy systems created reconciliation bottlenecks and impacted clinical efficiency.",
+    solution: "Designed and implemented clinically compliant Excel and Power BI tools. Established KPI tracking (bed occupancy, throughput, DTOC, reconciliation time) with data accuracy, escalation logic, and governance in safety-critical systems.",
     impact: [
-      "30% reduction in data reconciliation time",
+      "**30%** reduction in data reconciliation time",
       "Standardized clinical reporting across 3 departments",
       "Enhanced real-time patient flow visibility",
-      "Improved cross-department coordination"
+      "Auditability and regulatory compliance improved"
     ],
-    commercialImpact: "Saving thousands of clinical hours and reducing regulatory risk",
-    technicalResult: "Standardized data governance frameworks across NHS systems",
-    stakeholderValue: "Clinicians & Trust Board: Operational efficiency and compliance",
+    commercialImpact: "**30%** reduction in reconciliation — saving thousands of clinical hours and reducing regulatory risk",
+    technicalResult: "Power BI dashboards and Excel tooling with audit-compliant data governance",
+    stakeholderValue: "Clinicians & Trust Board: Operational efficiency, compliance, and decision-support",
     methodology: "ITIL/Kanban",
     toolsManaged: ["Power BI", "Excel", "NHS Systems"],
     keyResult: "30% reconciliation reduction",
-    techStackManaged: ["NHS Digital Systems", "ITIL Frameworks", "Power BI", "Data Governance", "Stakeholder Communication"],
+    techStackManaged: ["Power BI", "Advanced Excel", "NHS Digital Systems", "ITIL Frameworks", "Data Governance"],
     kpiImpact: "30% reconciliation reduction | 3 departments standardized | Real-time data flow management",
     icon: Target
   },
