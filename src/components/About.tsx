@@ -13,9 +13,9 @@ interface TimelineItem {
 const workHistory: TimelineItem[] = [
   {
     period: "Oct 2025 - Present",
-    title: "Operational Data & Governance Lead",
+    title: "Patient Flow Coordinator",
     company: "NHS",
-    description: "Role: Operational Data & Governance Lead. Design and implementation of clinically compliant Excel and Power BI tools. KPI tracking (bed occupancy, throughput, DTOC, reconciliation time). **30%** reduction in data reconciliation — saving thousands of clinical hours and reducing regulatory risk.",
+    description: "Managing real-time clinical operational efficiency and patient flow. Liaising with NHS Management-level colleagues to facilitate throughput and managing stakeholder expectations in a high-pressure, patient-facing environment.",
     icon: ArrowRightLeft,
     highlight: true
   },
