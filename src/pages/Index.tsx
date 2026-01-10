@@ -7,7 +7,6 @@ import Skills from "../components/Skills";
 import Testimonials from "../components/Testimonials";
 import InsightsStrategy from "../components/InsightsStrategy";
 import TechnicalPMToolkit from "../components/TechnicalPMToolkit";
-import StrategicApproach from "../components/StrategicApproach";
 import SkipLink from "../components/SkipLink";
 import PiShapedSkills from "../components/PiShapedSkills";
 import SponsorshipBanner from "../components/SponsorshipBanner";
@@ -23,12 +22,11 @@ const Index = () => {
         <main id="main-content" role="main" className="focus:outline-none" tabIndex={-1}>
           <Hero />
           <About />
+          <PiShapedSkills />
           <InsightsStrategy />
           <Work />
-          <PiShapedSkills />
           <Skills />
           <TechnicalPMToolkit />
-          <StrategicApproach />
           <SponsorshipBanner />
           <Testimonials />
           <Contact />
