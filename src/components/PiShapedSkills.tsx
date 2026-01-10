@@ -1,35 +1,43 @@
 import { motion } from "framer-motion";
-import { Building2, Cpu, ArrowRightLeft, Zap, Eye, ShieldCheck, GitBranch, Workflow, Database, Settings } from "lucide-react";
+import { Users, Cpu, Database, GitBranch, Workflow, Settings, BarChart3, Zap, Eye, ShieldCheck } from "lucide-react";
 
-interface PillarData {
-  title: string;
-  subtitle: string;
-  icon: React.ElementType;
-  description: string;
-  type: "left" | "right" | "crossbar";
-}
+const horizontalBreadth = {
+  title: "Business & Stakeholder Translation",
+  subtitle: "Horizontal Breadth",
+  skills: [
+    "Executive & technical stakeholder alignment",
+    "Business case development",
+    "Commercial ROI framing",
+    "Product thinking",
+    "Cross-functional communication"
+  ]
+};
 
-const pillars: PillarData[] = [
+const verticalDepths = [
   {
-    title: "Structural Architecture",
-    subtitle: "Left Pillar",
-    icon: Building2,
-    description: "Rooted in a 10+ year foundation of Architectural Technology. I apply blueprint-first logic and architectural dependency mapping to resolve technical risks before execution.",
-    type: "left"
-  },
-  {
-    title: "Digital Systems & IT Governance",
-    subtitle: "Right Pillar",
+    title: "Technical Delivery & Systems",
+    subtitle: "Vertical Depth 1",
     icon: Cpu,
-    description: "MSc Information Technology (Merit). Technical mastery in Cloud Migration (SWOT Analysis), Information Security (NIST/PCI DSS), and IoT Smart Systems. Expert in Data Life-cycle Management (GDPR) to ensure transformations are secure and audit-ready.",
-    type: "right"
+    skills: [
+      "Technical project leadership",
+      "Platform architecture & system integration",
+      "Cloud infrastructure (AWS/Azure)",
+      "API-driven systems",
+      "Agile & SDLC governance"
+    ]
   },
   {
-    title: "Strategic Governance",
-    subtitle: "The Cross-Bar",
-    icon: ArrowRightLeft,
-    description: "I bridge technical engineering and high-pressure human systems. This includes liaising with NHS Management to facilitate operational efficiency and managing C-Suite expectations for Zinter to drive 70% retention and protect revenue. I utilize COCOMO/Effort Estimation and Agile to ensure predictable delivery.",
-    type: "crossbar"
+    title: "Data, Governance & Decision Support",
+    subtitle: "Vertical Depth 2",
+    icon: Database,
+    skills: [
+      "Operational & performance data analysis",
+      "KPI design & tracking",
+      "Power BI & advanced Excel",
+      "Information governance",
+      "NIST & ISO/IEC 27001 awareness",
+      "Data quality, auditability & compliance"
+    ]
   }
 ];
 
@@ -63,7 +71,7 @@ const methodologies = [
     description: "IT service management ensuring reliable, efficient operations."
   },
   {
-    icon: Database,
+    icon: BarChart3,
     title: "Business Intelligence",
     description: "Transforming data into actionable strategic insights."
   },
@@ -92,14 +100,11 @@ const PiShapedSkills = () => {
     }
   };
 
-  const crossbar = pillars.find(p => p.type === "crossbar")!;
-  const verticalPillars = pillars.filter(p => p.type !== "crossbar");
-
   return (
     <section 
       id="pi-skills" 
       className="py-24 px-4 sm:px-6 lg:px-8 bg-background"
-      aria-label="π-Shaped Leadership Model"
+      aria-label="π-Shaped Competency Model"
     >
       <motion.div 
         className="max-w-6xl mx-auto"
@@ -109,19 +114,33 @@ const PiShapedSkills = () => {
         variants={containerVariants}
       >
         {/* Section Header */}
-        <motion.div className="mb-14" variants={cardVariants}>
-          <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Core Competency Model</p>
+        <motion.div className="mb-10" variants={cardVariants}>
+          <p className="text-accent font-medium text-sm tracking-wide uppercase mb-3">Skill Profile</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-            Beyond Generalist: The Pi-Shaped Leadership Model
+            π-Shaped Competency Model
           </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl">
-            Cross-functional governance supported by <span className="font-semibold text-foreground">dual-depth technical expertise</span>
+          <p className="text-muted-foreground text-lg max-w-3xl mb-6">
+            Deep expertise in two vertical domains — <span className="font-semibold text-foreground">Technical Delivery</span> and <span className="font-semibold text-foreground">Data Governance</span> — connected by broad horizontal capability in business translation. This enables me to:
           </p>
+          <ul className="space-y-2 text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1">•</span>
+              <span>Translate business intent into technical systems</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1">•</span>
+              <span>Translate system outputs into executive decisions</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1">•</span>
+              <span>Operate credibly across engineering, data & leadership domains</span>
+            </li>
+          </ul>
         </motion.div>
 
-        {/* π Visual Representation - Executive Navy/Slate Palette */}
+        {/* π Visual Representation */}
         <div className="relative mb-16">
-          {/* Cross-bar (top of π) */}
+          {/* Horizontal Breadth (top of π) */}
           <motion.div 
             className="bg-slate-900 dark:bg-slate-800 rounded-xl border border-slate-700 p-6 mb-6 relative overflow-hidden"
             variants={cardVariants}
@@ -139,32 +158,39 @@ const PiShapedSkills = () => {
             <div className="relative">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center">
-                  <crossbar.icon className="w-6 h-6 text-slate-200" />
+                  <Users className="w-6 h-6 text-slate-200" />
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
-                    {crossbar.subtitle}
+                    {horizontalBreadth.subtitle}
                   </span>
                   <h3 className="text-xl font-semibold text-slate-100">
-                    {crossbar.title}
+                    {horizontalBreadth.title}
                   </h3>
                 </div>
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                {crossbar.description}
-              </p>
+              <div className="flex flex-wrap gap-2">
+                {horizontalBreadth.skills.map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1.5 text-sm bg-slate-700/50 text-slate-200 rounded-md border border-slate-600"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
 
-          {/* Connecting lines from crossbar */}
+          {/* Connecting lines from horizontal bar */}
           <div className="hidden md:flex justify-center gap-[calc(50%-6rem)] mb-0">
             <div className="w-px h-8 bg-slate-600" />
             <div className="w-px h-8 bg-slate-600" />
           </div>
 
-          {/* Vertical pillars of π */}
+          {/* Vertical Depths of π */}
           <div className="grid md:grid-cols-2 gap-6">
-            {verticalPillars.map((pillar, index) => (
+            {verticalDepths.map((depth, index) => (
               <motion.div
                 key={index}
                 className="bg-slate-800/50 dark:bg-slate-900/50 rounded-xl border border-slate-600 p-6 relative overflow-hidden"
@@ -183,20 +209,25 @@ const PiShapedSkills = () => {
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center">
-                      <pillar.icon className="w-6 h-6 text-accent-foreground" />
+                      <depth.icon className="w-6 h-6 text-accent-foreground" />
                     </div>
                     <div>
                       <span className="text-xs font-semibold text-accent uppercase tracking-wide">
-                        {pillar.subtitle}
+                        {depth.subtitle}
                       </span>
                       <h3 className="text-lg font-semibold text-foreground">
-                        {pillar.title}
+                        {depth.title}
                       </h3>
                     </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {pillar.description}
-                  </p>
+                  <ul className="space-y-2">
+                    {depth.skills.map((skill, skillIndex) => (
+                      <li key={skillIndex} className="flex items-start gap-2 text-muted-foreground text-sm">
+                        <span className="text-accent mt-0.5">•</span>
+                        <span>{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}

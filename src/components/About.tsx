@@ -12,27 +12,11 @@ interface TimelineItem {
 
 const workHistory: TimelineItem[] = [
   {
-    period: "Oct 2025 - Present",
-    title: "Patient Flow Coordinator",
-    company: "NHS",
-    description: "Managing real-time clinical operational efficiency and patient flow. Liaising with NHS Management-level colleagues to facilitate throughput and managing stakeholder expectations in a high-pressure, patient-facing environment.",
-    icon: ArrowRightLeft,
-    highlight: true
-  },
-  {
-    period: "April 2025 - Oct 2025",
-    title: "Healthcare Data Analyst",
-    company: "NHS",
-    description: "Ground-level analysis of clinical data systems and patient flow operations. Data accuracy, escalation logic, and governance in safety-critical systems. Decision-support impact through structured reporting.",
-    icon: Heart
-  },
-  {
-    period: "July 2023 - Present",
-    title: "Technical Project Lead",
-    company: "Zinter (Netherlands)",
-    description: "Role: Technical Project Lead / Platform Transformation Owner. **70%** retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts. AI-driven B2B2C platform transformation with **40%** latency reduction.",
-    icon: Globe,
-    highlight: true
+    period: "May 2017 - Dec 2018",
+    title: "Healthcare Support Worker",
+    company: "Bayside Care, Plymouth",
+    description: "Delivered client-focused care in fast-paced healthcare settings, managing sensitive information with GDPR compliance and attention to operational protocols.",
+    icon: Briefcase
   },
   {
     period: "Jan 2019 - July 2023",
@@ -49,11 +33,27 @@ const workHistory: TimelineItem[] = [
     icon: Users
   },
   {
-    period: "May 2017 - Dec 2018",
+    period: "July 2023 - Present",
+    title: "Technical Project Lead",
+    company: "Zinter (Netherlands)",
+    description: "Role: Technical Project Lead / Platform Transformation Owner. **70%** retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts. AI-driven B2B2C platform transformation with **40%** latency reduction.",
+    icon: Globe,
+    highlight: true
+  },
+  {
+    period: "April 2025 - Oct 2025",
     title: "Healthcare Support Worker",
-    company: "Nurseplus, Plymouth",
-    description: "Delivered client-focused care in fast-paced healthcare settings, managing sensitive information with GDPR compliance and attention to operational protocols.",
-    icon: Briefcase
+    company: "NHS",
+    description: "Ground-level analysis of clinical data systems and patient flow operations. Data accuracy, escalation logic, and governance in safety-critical systems. Decision-support impact through structured reporting.",
+    icon: Heart
+  },
+  {
+    period: "Oct 2025 - Present",
+    title: "Patient Flow Coordinator",
+    company: "NHS",
+    description: "Managing real-time clinical operational efficiency and patient flow. Liaising with NHS Management-level colleagues to facilitate throughput and managing stakeholder expectations in a high-pressure, patient-facing environment.",
+    icon: ArrowRightLeft,
+    highlight: true
   }
 ];
 
