@@ -12,32 +12,19 @@ interface TimelineItem {
 
 const workHistory: TimelineItem[] = [
   {
-    period: "May 2017 - Dec 2018",
-    title: "Healthcare Support Worker",
-    company: "Bayside Care, Plymouth",
-    description: "Delivered client-focused care in fast-paced healthcare settings, managing sensitive information with GDPR compliance and attention to operational protocols.",
-    icon: Briefcase
-  },
-  {
-    period: "Jan 2019 - July 2023",
-    title: "Digital Strategy Consultant",
-    company: "Freelance (Fiverr)",
-    description: "Delivered digital strategy consulting for SMEs including requirements analysis, UX optimization, and technology recommendations. Focused on translating business objectives into actionable digital roadmaps.",
-    icon: Building
-  },
-  {
-    period: "July 2022 - Oct 2023",
-    title: "IT & Communications Coordinator",
-    company: "Nigerian Red Cross Society",
-    description: "Designed IT awareness campaigns, conducted usability testing for educational tools, and coordinated stakeholder communications during emergency response operations.",
-    icon: Users
-  },
-  {
     period: "July 2023 - Present",
     title: "Technical Project Lead",
     company: "Zinter (Netherlands)",
     description: "Role: Technical Project Lead / Platform Transformation Owner. **70%** retention improvement — protecting recurring revenue and enabling expansion into enterprise accounts. AI-driven B2B2C platform transformation with **40%** latency reduction.",
     icon: Globe,
+    highlight: true
+  },
+  {
+    period: "Oct 2025 - Present",
+    title: "Patient Flow Coordinator",
+    company: "NHS",
+    description: "Managing real-time clinical operational efficiency and patient flow. Liaising with NHS Management-level colleagues to facilitate throughput and managing stakeholder expectations in a high-pressure, patient-facing environment.",
+    icon: ArrowRightLeft,
     highlight: true
   },
   {
@@ -48,12 +35,25 @@ const workHistory: TimelineItem[] = [
     icon: Heart
   },
   {
-    period: "Oct 2025 - Present",
-    title: "Patient Flow Coordinator",
-    company: "NHS",
-    description: "Managing real-time clinical operational efficiency and patient flow. Liaising with NHS Management-level colleagues to facilitate throughput and managing stakeholder expectations in a high-pressure, patient-facing environment.",
-    icon: ArrowRightLeft,
-    highlight: true
+    period: "July 2022 - Oct 2023",
+    title: "IT & Communications Coordinator",
+    company: "Nigerian Red Cross Society",
+    description: "Designed IT awareness campaigns, conducted usability testing for educational tools, and coordinated stakeholder communications during emergency response operations.",
+    icon: Users
+  },
+  {
+    period: "Jan 2019 - July 2023",
+    title: "Digital Strategy Consultant",
+    company: "Freelance (Fiverr)",
+    description: "Delivered digital strategy consulting for SMEs including requirements analysis, UX optimization, and technology recommendations. Focused on translating business objectives into actionable digital roadmaps.",
+    icon: Building
+  },
+  {
+    period: "May 2017 - Dec 2018",
+    title: "Healthcare Support Worker",
+    company: "Bayside Care, Plymouth",
+    description: "Delivered client-focused care in fast-paced healthcare settings, managing sensitive information with GDPR compliance and attention to operational protocols.",
+    icon: Briefcase
   }
 ];
 
