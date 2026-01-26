@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Shield, Cloud, Database } from "lucide-react";
+import { useRef } from "react";
 
 interface TechnicalPillar {
   title: string;
@@ -57,34 +58,54 @@ const technicalPillars: TechnicalPillar[] = [
 ];
 
 const Skills = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12 }
+      transition: { staggerChildren: 0.15 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 40, rotateX: -10 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+      rotateX: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   const skillVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
+    hidden: { opacity: 0, scale: 0.8, y: 10 },
+    visible: (i: number) => ({
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.25 }
+      y: 0,
+      transition: { 
+        delay: i * 0.05, 
+        duration: 0.3,
+        type: "spring",
+        stiffness: 200
+      }
+    })
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+      transition: { type: "spring", stiffness: 200, damping: 15 }
     }
   };
 
   return (
     <section 
+      ref={sectionRef}
       id="competencies" 
       className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50"
       aria-label="Technical Ecosystem Section"
@@ -92,8 +113,7 @@ const Skills = () => {
       <motion.div 
         className="max-w-6xl mx-auto"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         {/* Section Header */}
@@ -112,16 +132,22 @@ const Skills = () => {
         </motion.div>
 
         {/* Technical Pillars Grid - Blueprint Aesthetic */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6" style={{ perspective: "1000px" }}>
           {technicalPillars.map((pillar, index) => (
             <motion.div
               key={index}
-              className={`relative bg-card rounded-xl border overflow-hidden transition-all hover:shadow-lg ${
+              className={`relative bg-card rounded-xl border overflow-hidden transition-all ${
                 pillar.accent 
                   ? "border-accent/40 hover:border-accent" 
                   : "border-border hover:border-accent/30"
               }`}
               variants={cardVariants}
+              whileHover={{ 
+                y: -10, 
+                scale: 1.02,
+                boxShadow: "0 25px 50px -12px hsl(var(--accent) / 0.15)",
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
             >
               {/* Blueprint grid pattern overlay */}
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -142,13 +168,17 @@ const Skills = () => {
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                    pillar.accent 
-                      ? "bg-accent text-accent-foreground" 
-                      : "bg-accent/10"
-                  }`}>
+                  <motion.div 
+                    className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                      pillar.accent 
+                        ? "bg-accent text-accent-foreground" 
+                        : "bg-accent/10"
+                    }`}
+                    variants={iconVariants}
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                  >
                     <pillar.icon className={`w-6 h-6 ${pillar.accent ? "" : "text-accent"}`} />
-                  </div>
+                  </motion.div>
                   <h3 className="text-lg font-semibold text-foreground">{pillar.title}</h3>
                 </div>
                 
@@ -158,17 +188,25 @@ const Skills = () => {
 
                 <motion.div 
                   className="flex flex-wrap gap-2"
-                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                 >
                   {pillar.skills.map((skill, skillIndex) => (
                     <motion.span
                       key={skillIndex}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-md border transition-colors ${
+                      className={`px-3 py-1.5 text-xs font-medium rounded-md border cursor-default ${
                         pillar.accent
-                          ? "bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
-                          : "bg-muted text-muted-foreground border-border hover:border-accent/30"
+                          ? "bg-accent/10 text-accent border-accent/20"
+                          : "bg-muted text-muted-foreground border-border"
                       }`}
                       variants={skillVariants}
+                      custom={skillIndex}
+                      whileHover={{ 
+                        scale: 1.1, 
+                        y: -3,
+                        transition: { type: "spring", stiffness: 400 }
+                      }}
                     >
                       {skill}
                     </motion.span>
