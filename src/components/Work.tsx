@@ -1,5 +1,6 @@
 import { TrendingUp, Target, Lightbulb, Shield, ExternalLink, FileCode } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface CaseStudy {
   title: string;
@@ -111,25 +112,48 @@ const caseStudies: CaseStudy[] = [
 ];
 
 const Work = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+      scale: 1,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
+  };
+
+  const tagVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: { delay: i * 0.05, duration: 0.3 }
+    })
+  };
+
+  const impactVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.1, duration: 0.4 }
+    })
   };
 
   return (
     <section 
+      ref={sectionRef}
       id="case-studies" 
       className="py-24 px-4 sm:px-6 lg:px-8 bg-background"
       aria-label="Portfolio of Deliveries Section"
@@ -137,7 +161,7 @@ const Work = () => {
       <motion.div 
         className="max-w-6xl mx-auto"
         initial="hidden"
-        animate="visible"
+        animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         {/* Section Header */}
@@ -162,6 +186,11 @@ const Work = () => {
               key={index}
               className="case-study-card bg-card rounded-xl border border-border overflow-hidden hover:border-accent/30 transition-colors"
               variants={cardVariants}
+              whileHover={{ 
+                y: -8, 
+                boxShadow: "0 20px 40px -15px hsl(var(--foreground) / 0.1)",
+                transition: { duration: 0.3 }
+              }}
             >
               <div className="p-6 sm:p-8">
                 {/* Header */}
@@ -203,17 +232,37 @@ const Work = () => {
                 </div>
 
                 {/* Methodology, Tools Managed, Key Result Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1.5 text-xs font-semibold bg-accent/15 text-accent rounded-md border border-accent/20">
+                <motion.div 
+                  className="flex flex-wrap gap-2 mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
+                  <motion.span 
+                    className="px-3 py-1.5 text-xs font-semibold bg-accent/15 text-accent rounded-md border border-accent/20"
+                    variants={tagVariants}
+                    custom={0}
+                    whileHover={{ scale: 1.05 }}
+                  >
                     {study.methodology}
-                  </span>
-                  <span className="px-3 py-1.5 text-xs font-medium bg-muted text-foreground rounded-md border border-border">
+                  </motion.span>
+                  <motion.span 
+                    className="px-3 py-1.5 text-xs font-medium bg-muted text-foreground rounded-md border border-border"
+                    variants={tagVariants}
+                    custom={1}
+                    whileHover={{ scale: 1.05 }}
+                  >
                     Tools: {study.toolsManaged.join(", ")}
-                  </span>
-                  <span className="px-3 py-1.5 text-xs font-semibold bg-green-500/10 text-green-600 dark:text-green-400 rounded-md border border-green-500/20">
+                  </motion.span>
+                  <motion.span 
+                    className="px-3 py-1.5 text-xs font-semibold bg-green-500/10 text-green-600 dark:text-green-400 rounded-md border border-green-500/20"
+                    variants={tagVariants}
+                    custom={2}
+                    whileHover={{ scale: 1.05 }}
+                  >
                     {study.keyResult}
-                  </span>
-                </div>
+                  </motion.span>
+                </motion.div>
                 {/* Commercial Impact, Technical Result, Stakeholder Value */}
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   <div className="p-4 bg-accent/5 rounded-lg border border-accent/10">
@@ -270,17 +319,29 @@ const Work = () => {
                   <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
                     Business Impact / ROI
                   </p>
-                  <div className="grid sm:grid-cols-2 gap-2">
+                  <motion.div 
+                    className="grid sm:grid-cols-2 gap-2"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                  >
                     {study.impact.map((item, impactIndex) => (
-                      <div 
+                      <motion.div 
                         key={impactIndex}
                         className="flex items-center gap-2 text-sm text-foreground"
+                        variants={impactVariants}
+                        custom={impactIndex}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <motion.div 
+                          className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          transition={{ delay: impactIndex * 0.1, type: "spring" }}
+                        />
                         {item}
-                      </div>
+                      </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Tech Stack Managed */}
