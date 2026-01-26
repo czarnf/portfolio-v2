@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { Shield, Cloud, Database } from "lucide-react";
 import { useRef } from "react";
+import { cn } from "@/lib/utils";
 
 interface TechnicalPillar {
   title: string;
@@ -136,16 +137,17 @@ const Skills = () => {
           {technicalPillars.map((pillar, index) => (
             <motion.div
               key={index}
-              className={`relative bg-card rounded-xl border overflow-hidden transition-all ${
+              className={cn(
+                "relative bg-card rounded-xl border overflow-hidden",
+                "transition-all duration-300",
                 pillar.accent 
-                  ? "border-accent/40 hover:border-accent" 
-                  : "border-border hover:border-accent/30"
-              }`}
+                  ? "border-accent/40 hover:border-accent hover:shadow-lg hover:shadow-accent/10" 
+                  : "border-border hover:border-accent/30 hover:shadow-lg hover:shadow-foreground/5"
+              )}
               variants={cardVariants}
               whileHover={{ 
                 y: -10, 
                 scale: 1.02,
-                boxShadow: "0 25px 50px -12px hsl(var(--accent) / 0.15)",
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
             >
@@ -169,15 +171,17 @@ const Skills = () => {
 
                 <div className="flex items-center gap-3 mb-4">
                   <motion.div 
-                    className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                    className={cn(
+                      "w-12 h-12 rounded-lg flex items-center justify-center",
+                      "transition-colors duration-300",
                       pillar.accent 
                         ? "bg-accent text-accent-foreground" 
                         : "bg-accent/10"
-                    }`}
+                    )}
                     variants={iconVariants}
                     whileHover={{ rotate: 10, scale: 1.1 }}
                   >
-                    <pillar.icon className={`w-6 h-6 ${pillar.accent ? "" : "text-accent"}`} />
+                    <pillar.icon className={cn("w-6 h-6", !pillar.accent && "text-accent")} />
                   </motion.div>
                   <h3 className="text-lg font-semibold text-foreground">{pillar.title}</h3>
                 </div>
@@ -195,11 +199,13 @@ const Skills = () => {
                   {pillar.skills.map((skill, skillIndex) => (
                     <motion.span
                       key={skillIndex}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-md border cursor-default ${
+                      className={cn(
+                        "px-3 py-1.5 text-xs font-medium rounded-md border cursor-default",
+                        "transition-all duration-200",
                         pillar.accent
-                          ? "bg-accent/10 text-accent border-accent/20"
-                          : "bg-muted text-muted-foreground border-border"
-                      }`}
+                          ? "bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
+                          : "bg-muted text-muted-foreground border-border hover:bg-accent/10 hover:text-accent hover:border-accent/20"
+                      )}
                       variants={skillVariants}
                       custom={skillIndex}
                       whileHover={{ 

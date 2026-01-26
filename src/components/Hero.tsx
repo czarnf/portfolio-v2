@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, FileText, Linkedin } from "lucide-react";
 import { useRef } from "react";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -36,23 +37,15 @@ const Hero = () => {
     }
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden"
+      className={cn(
+        "min-h-screen flex items-center justify-center pt-16",
+        "px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden"
+      )}
     >
-      {/* Animated geometric pattern */}
+      {/* Animated geometric pattern with Tailwind opacity */}
       <motion.div 
         className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none"
         style={{ y: backgroundY }}
@@ -65,20 +58,34 @@ const Hero = () => {
         </svg>
       </motion.div>
       
-      {/* Animated floating accent orbs */}
+      {/* Floating orbs with Tailwind blur and colors */}
       <motion.div 
-        className="absolute top-20 right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"
-        variants={floatingVariants}
-        animate="animate"
+        className="absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl pointer-events-none bg-accent/10"
+        animate={{ 
+          y: [0, -15, 0],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{ 
+          duration: 5, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
       />
       <motion.div 
-        className="absolute bottom-40 left-10 w-48 h-48 bg-accent/5 rounded-full blur-2xl pointer-events-none"
-        variants={floatingVariants}
-        animate="animate"
-        style={{ animationDelay: "2s" }}
+        className="absolute bottom-40 left-10 w-48 h-48 rounded-full blur-2xl pointer-events-none bg-accent/5"
+        animate={{ 
+          y: [0, -12, 0],
+          scale: [1, 1.03, 1],
+        }}
+        transition={{ 
+          duration: 4, 
+          repeat: Infinity, 
+          ease: "easeInOut",
+          delay: 1 
+        }}
       />
       
-      {/* Gradient accent */}
+      {/* Gradient accent using Tailwind */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/5 via-transparent to-transparent pointer-events-none" />
       
       <motion.div 
@@ -149,14 +156,21 @@ const Hero = () => {
             Metrics validated through operational reporting, system performance tracking, and stakeholder sign-off.
           </motion.p>
           
-          {/* CTA Buttons - Primary CTAs: Contact/CV & LinkedIn */}
+          {/* CTA Buttons with enhanced Tailwind styling */}
           <motion.div 
             className="flex flex-wrap gap-4 pt-4"
             variants={itemVariants}
           >
             <motion.a
               href="#contact"
-              className="inline-flex items-center px-7 py-3.5 bg-foreground text-background text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
+              className={cn(
+                "inline-flex items-center px-7 py-3.5",
+                "bg-foreground text-background text-sm font-semibold",
+                "rounded-lg shadow-lg",
+                "hover:shadow-xl hover:shadow-foreground/20",
+                "transition-all duration-300 ease-out",
+                "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              )}
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -167,7 +181,12 @@ const Hero = () => {
               href="https://linkedin.com/in/emmanuelchiefson"
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-primary inline-flex items-center px-6 py-3 bg-accent text-accent-foreground text-sm font-medium rounded-lg"
+              className={cn(
+                "cta-primary inline-flex items-center px-6 py-3",
+                "bg-accent text-accent-foreground text-sm font-medium",
+                "rounded-lg transition-all duration-300",
+                "hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/25"
+              )}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -176,7 +195,12 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="#case-studies"
-              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-lg transition-colors hover:border-accent hover:text-accent"
+              className={cn(
+                "inline-flex items-center px-6 py-3",
+                "border border-border text-foreground text-sm font-medium",
+                "rounded-lg transition-all duration-300",
+                "hover:border-accent hover:text-accent hover:bg-accent/5"
+              )}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
