@@ -1,6 +1,7 @@
 import { TrendingUp, Target, Lightbulb, Shield, ExternalLink, FileCode } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { cn } from "@/lib/utils";
 
 interface CaseStudy {
   title: string;
@@ -184,12 +185,15 @@ const Work = () => {
           {caseStudies.map((study, index) => (
             <motion.article
               key={index}
-              className="case-study-card bg-card rounded-xl border border-border overflow-hidden hover:border-accent/30 transition-colors"
+              className={cn(
+                "bg-card rounded-xl border border-border overflow-hidden",
+                "transition-all duration-300 ease-out",
+                "hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5"
+              )}
               variants={cardVariants}
               whileHover={{ 
                 y: -8, 
-                boxShadow: "0 20px 40px -15px hsl(var(--foreground) / 0.1)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3, ease: "easeOut" }
               }}
             >
               <div className="p-6 sm:p-8">
@@ -212,7 +216,13 @@ const Work = () => {
                         href={study.projectSpecsLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground border border-border rounded-lg hover:bg-muted transition-colors"
+                        className={cn(
+                          "inline-flex items-center gap-2 px-4 py-2",
+                          "text-sm font-medium text-foreground",
+                          "border border-border rounded-lg",
+                          "transition-all duration-200",
+                          "hover:bg-muted hover:border-accent/30"
+                        )}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -221,7 +231,13 @@ const Work = () => {
                       </motion.a>
                     )}
                     <motion.button
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent border border-accent/30 rounded-lg hover:bg-accent/10 transition-colors"
+                      className={cn(
+                        "inline-flex items-center gap-2 px-4 py-2",
+                        "text-sm font-medium text-accent",
+                        "border border-accent/30 rounded-lg",
+                        "transition-all duration-200",
+                        "hover:bg-accent/10 hover:border-accent"
+                      )}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
