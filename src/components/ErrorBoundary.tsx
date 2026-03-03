@@ -22,8 +22,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log the error to an error reporting service
-    console.error("Uncaught error:", error, errorInfo);
+    if (import.meta.env.DEV) {
+      console.error("Uncaught error:", error, errorInfo);
+    }
   }
 
   render() {

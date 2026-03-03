@@ -28,10 +28,6 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
   // Ensure image path has leading slash
   const imagePath = tool.icon.startsWith('/') ? tool.icon : `/${tool.icon}`;
   
-  // Log image path for debugging
-  useEffect(() => {
-    console.log(`Loading image for ${tool.name}: ${imagePath}`);
-  }, [tool.name, imagePath]);
 
   return (
     <TooltipProvider>
@@ -78,10 +74,8 @@ const ToolItem = ({ tool, index }: ToolItemProps) => {
                   onLoad={() => {
                     setIsImageLoaded(true);
                     setImageError(false);
-                    console.log(`Successfully loaded image for ${tool.name}: ${imagePath}`);
                   }}
-                  onError={(e) => {
-                    console.error(`Failed to load image for ${tool.name}: ${imagePath}`);
+                  onError={() => {
                     setImageError(true);
                     setIsImageLoaded(true);
                   }}

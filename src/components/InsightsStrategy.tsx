@@ -90,7 +90,7 @@ async function fetchFeed(feedUrl: string, source: "medium" | "substack"): Promis
       };
     });
   } catch (err) {
-    console.warn(`Failed to fetch ${source} feed:`, err);
+    if (import.meta.env.DEV) console.warn(`Failed to fetch ${source} feed:`, err);
     return [];
   }
 }
