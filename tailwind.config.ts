@@ -59,6 +59,15 @@ export default {
         navy: "hsl(var(--navy))",
         slate: "hsl(var(--slate))",
         charcoal: "hsl(var(--charcoal))",
+        proof: {
+          bg: "hsl(var(--proof-bg))",
+          card: "hsl(var(--proof-card))",
+          "card-border": "hsl(var(--proof-card-border))",
+          muted: "hsl(var(--proof-muted))",
+          pill: "hsl(var(--proof-pill))",
+          complete: "hsl(var(--proof-complete))",
+          pending: "hsl(var(--proof-pending))",
+        },
       },
       keyframes: {
         fadeIn: {

@@ -34,6 +34,15 @@
     --charcoal: 220 15% 30%;
     --testimonial-bg: 210 25% 96%;
     --methodology-bg: 215 30% 94%;
+
+    /* Body of Proof tokens */
+    --proof-bg: 222 47% 11%;
+    --proof-card: 217 33% 17%;
+    --proof-card-border: 216 28% 24%;
+    --proof-muted: 215 20% 78%;
+    --proof-pill: 217 31% 20%;
+    --proof-complete: 142 70% 45%;
+    --proof-pending: 217 15% 45%;
   }
 
   .dark {
@@ -64,6 +73,15 @@
     --charcoal: 220 15% 70%;
     --testimonial-bg: 220 25% 10%;
     --methodology-bg: 220 20% 14%;
+
+    /* Body of Proof tokens */
+    --proof-bg: 222 47% 11%;
+    --proof-card: 217 33% 17%;
+    --proof-card-border: 216 28% 24%;
+    --proof-muted: 215 20% 78%;
+    --proof-pill: 217 31% 20%;
+    --proof-complete: 142 70% 45%;
+    --proof-pending: 217 15% 45%;
   }
 
   * {
