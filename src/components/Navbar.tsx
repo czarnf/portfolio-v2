@@ -16,11 +16,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Competencies", href: "#competencies" },
-    { name: "Case Studies", href: "#case-studies" },
-    { name: "Insights", href: "#insights" },
-    { name: "Methodology", href: "#methodology" },
+    { name: "About", href: "/#about" },
+    { name: "Competencies", href: "/#competencies" },
+    { name: "Case Studies", href: "/#case-studies" },
+    { name: "Body of Proof", href: "/body-of-proof" },
+    { name: "Insights", href: "/#insights" },
+    { name: "Methodology", href: "/#methodology" },
   ];
 
   return (
@@ -35,7 +36,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <a 
-            href="#" 
+            href="/" 
             className="text-lg font-semibold text-foreground hover:text-accent transition-colors"
           >
             EC<span className="text-accent">.</span>
@@ -80,7 +81,7 @@ const Navbar = () => {
             
             {/* CTA Button */}
             <a
-              href="#contact"
+              href="/#contact"
               className="cta-primary ml-2 inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-all duration-300 hover:bg-accent/90"
             >
               <FileText className="w-4 h-4" />
@@ -149,7 +150,7 @@ const Navbar = () => {
               </div>
               
               <a
-                href="#contact"
+                href="/#contact"
                 className="block px-4 py-3 mt-2 bg-accent text-accent-foreground rounded-lg font-medium text-center"
                 onClick={() => setIsOpen(false)}
               >
