@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 type DeliverableStatus = "COMPLETE" | "IN PROGRESS" | "PENDING";
@@ -9,6 +10,7 @@ interface Deliverable {
   techniques: string;
   summary: string;
   tags: string[];
+  pdfUrl?: string;
 }
 
 interface Sprint {
@@ -38,6 +40,7 @@ const sprints: Sprint[] = [
         summary:
           "Competency audit mapping π-shaped professional profile against BCS BA framework. Applied across a healthtech regulatory context requiring clinical, technical, and commercial stakeholder alignment.",
         tags: ["HealthTech", "Strategy", "Self-Assessment"],
+        pdfUrl: "/docs/week1-ba-role-self-assessment.pdf",
       },
       {
         week: "Week 2",
@@ -47,6 +50,7 @@ const sprints: Sprint[] = [
         summary:
           "Strategic environment analysis for MediCore AI's market entry — examining regulatory, technological, and competitive forces shaping the AI-assisted triage product landscape.",
         tags: ["HealthTech", "Strategy", "PESTLE", "VMOST"],
+        pdfUrl: "/docs/week2-strategic-analysis.pdf",
       },
     ],
   },
@@ -99,6 +103,12 @@ const sprints: Sprint[] = [
 ];
 
 const BodyOfProof = () => {
+  const [openPdf, setOpenPdf] = useState<string | null>(null);
+
+  const togglePdf = (key: string) => {
+    setOpenPdf((prev) => (prev === key ? null : key));
+  };
+
   return (
     <div className="min-h-screen bg-proof-bg text-foreground">
       <header role="banner">
@@ -145,39 +155,78 @@ const BodyOfProof = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {sprint.deliverables.map((deliverable) => (
-                  <article
-                    key={`${sprint.sprint}-${deliverable.week}`}
-                    className="rounded-2xl border border-proof-card-border bg-proof-card p-6 space-y-4 shadow-sm"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-medium text-proof-muted">{deliverable.week}</span>
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${statusStyles[deliverable.status]}`}
-                      >
-                        {deliverable.status}
-                      </span>
-                    </div>
+                {sprint.deliverables.map((deliverable) => {
+                  const cardKey = `${sprint.sprint}-${deliverable.week}`;
+                  const isOpen = openPdf === cardKey;
 
-                    <div>
-                      <h3 className="text-xl text-foreground">{deliverable.title}</h3>
-                      <p className="text-sm text-accent mt-1">{deliverable.techniques}</p>
-                    </div>
-
-                    <p className="text-proof-muted leading-relaxed">{deliverable.summary}</p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {deliverable.tags.map((tag) => (
+                  return (
+                    <article
+                      key={cardKey}
+                      className="rounded-2xl border border-proof-card-border bg-proof-card p-6 space-y-4 shadow-sm"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-sm font-medium text-proof-muted">{deliverable.week}</span>
                         <span
-                          key={tag}
-                          className="px-2.5 py-1 rounded-full text-xs font-medium bg-proof-pill border border-proof-card-border text-proof-muted"
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${statusStyles[deliverable.status]}`}
                         >
-                          {tag}
+                          {deliverable.status}
                         </span>
-                      ))}
-                    </div>
-                  </article>
-                ))}
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl text-foreground">{deliverable.title}</h3>
+                        <p className="text-sm text-accent mt-1">{deliverable.techniques}</p>
+                      </div>
+
+                      <p className="text-proof-muted leading-relaxed">{deliverable.summary}</p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {deliverable.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2.5 py-1 rounded-full text-xs font-medium bg-proof-pill border border-proof-card-border text-proof-muted"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {deliverable.pdfUrl && (
+                        <div className="pt-2 space-y-3">
+                          <button
+                            onClick={() => togglePdf(cardKey)}
+                            className="px-4 py-2 rounded-lg text-sm font-medium border border-accent/40 text-accent hover:bg-accent/10 transition-colors duration-200"
+                          >
+                            {isOpen ? "Close Document" : "View Document"}
+                          </button>
+
+                          {isOpen && (
+                            <div className="space-y-2 animate-fadeIn">
+                              <div className="rounded-xl overflow-hidden border border-proof-card-border">
+                                <iframe
+                                  src={deliverable.pdfUrl}
+                                  className="w-full bg-white"
+                                  style={{ height: "600px" }}
+                                  title={`${deliverable.title} — PDF`}
+                                />
+                              </div>
+                              <p className="text-center">
+                                <a
+                                  href={deliverable.pdfUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-xs text-proof-muted hover:text-accent transition-colors border-b border-dashed border-proof-muted"
+                                >
+                                  PDF not loading? Open in new tab →
+                                </a>
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
               </div>
             </section>
           ))}
