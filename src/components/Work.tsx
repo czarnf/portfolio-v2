@@ -1,4 +1,4 @@
-import { TrendingUp, Target, Lightbulb, Shield, ExternalLink, FileCode } from "lucide-react";
+import { TrendingUp, Target, Lightbulb, Shield, ExternalLink, FileCode, Activity, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface CaseStudy {
@@ -18,6 +18,26 @@ interface CaseStudy {
 }
 
 const caseStudies: CaseStudy[] = [
+  {
+    title: "Flow Intelligence: Real-Time Operations Dashboard",
+    organization: "Independent Build · Live Demo",
+    challenge: "Operational teams tracking service flow across multiple units often rely on static spreadsheets that go stale within the hour, making it hard to see where pressure is building while it still matters.",
+    solution: "Designed and built a live operations board: KPI tiles with change-on-shift, an arrivals-versus-departures chart, occupancy pressure per unit, and a streaming event feed filterable by unit. Data is synthetic and generated in-browser. Light and dark themes, keyboard-accessible, responsive to phone width.",
+    impact: [
+      "Live board in place of static status spreadsheets",
+      "Occupancy pressure surfaced per unit at a glance",
+      "Streaming event feed, filterable by unit",
+      "Deployed publicly on Vercel with continuous deployment from GitHub"
+    ],
+    methodology: "Agile/Iterative",
+    toolsManaged: ["Next.js", "TypeScript", "Vercel"],
+    keyResult: "Shipped and deployed live",
+    techStackManaged: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Vercel"],
+    kpiImpact: "Real-time, accessible dashboard; synthetic-data demo deployed live with CI",
+    icon: Activity,
+    projectSpecsLink: "https://github.com/czarnf/flow-intelligence-dashboard",
+    liveDemoLink: "https://flow-intelligence-dashboard.vercel.app"
+  },
   {
     title: "Full Platform Transformation & AI-Driven B2B2C Migration",
     organization: "Zinter (Netherlands)",
@@ -163,6 +183,19 @@ const Work = () => {
                     </div>
                   </div>
                   <div className="flex gap-2 flex-shrink-0">
+                    {study.liveDemoLink && (
+                      <motion.a
+                        href={study.liveDemoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent border border-accent/30 rounded-lg hover:bg-accent/10 transition-colors"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Globe className="w-4 h-4" />
+                        Live Demo
+                      </motion.a>
+                    )}
                     {study.projectSpecsLink && (
                       <motion.a
                         href={study.projectSpecsLink}
