@@ -31,16 +31,16 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       return this.props.fallback ? (
         this.props.fallback
       ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-red-50 text-red-800 p-4">
-          <AlertTriangle className="w-16 h-16 mb-4 text-red-500" />
-          <h1 className="text-2xl font-bold mb-2">Something went wrong</h1>
-          <p className="text-center">
-            We're sorry, but an unexpected error occurred. 
-            Please try refreshing the page or contact support.
+        <div className="wrap flex min-h-[60vh] flex-col items-start justify-center py-24">
+          <AlertTriangle size={32} strokeWidth={1.5} className="mb-4 text-ink-3" aria-hidden="true" />
+          <h1 className="mb-2 text-[28px] font-bold">Something went wrong</h1>
+          <p className="prose-col text-ink-2">
+            The page hit an unexpected error. Reloading usually fixes it.
           </p>
           <button 
             onClick={() => window.location.reload()}
-            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            type="button"
+            className="btn btn-primary mt-6"
           >
             Reload Page
           </button>

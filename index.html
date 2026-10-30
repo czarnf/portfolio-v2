@@ -1,35 +1,43 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lovable Portfolio</title>
-    
-    <!-- Performance and SEO Improvements -->
-    <meta name="description" content="portfolio website built by me using Ai">
-    <link rel="preload" href="/src/main.tsx" as="script">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Accessibility Enhancements -->
-    <meta name="theme-color" content="#9b87f5">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Performance Optimization -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <meta property="og:title" content="Lovable Portfolio">
-  <meta name="twitter:title" content="Lovable Portfolio">
-  <meta property="og:description" content="portfolio website built by me using Ai">
-  <meta name="twitter:description" content="portfolio website built by me using Ai">
-  <meta name="twitter:card" content="summary">
-  <meta property="og:type" content="website">
-</head>
+    <title>Emmanuel Chiefson: digital delivery and business analysis</title>
+    <meta
+      name="description"
+      content="Delivery lead and business analyst in Bristol. I translate between frontline operations and the teams who build the systems. Case studies with evidence."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f6f7f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1016" media="(prefers-color-scheme: dark)" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Emmanuel Chiefson: digital delivery and business analysis" />
+    <meta
+      property="og:description"
+      content="I translate between frontline operations and the teams who build the systems. Case studies with evidence."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply the saved or system theme before first paint to avoid a flash.
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("ec-theme"); } catch (e) {}
+        var dark = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+  </head>
   <body>
     <div id="root"></div>
-    <!-- Lovable script for enabling Select feature -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
