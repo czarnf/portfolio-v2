@@ -27,7 +27,10 @@ export function ProcessStrip() {
   return (
     <section className="wrap py-16 md:py-24" aria-labelledby="how-title">
       <SectionHead id="how" eyebrow="How I work" title="Four steps, in this order" />
-      <ol className="grid gap-x-10 border-t border-line md:grid-cols-4">
+      <Reveal className="relative h-px bg-line" aria-hidden="true">
+        <span className="draw-line absolute inset-0 block bg-accent" />
+      </Reveal>
+      <ol className="grid gap-x-10 md:grid-cols-4">
         {PROCESS.map((p, i) => (
           <Reveal as="li" key={p.n} delay={i} className="border-b border-line py-6 md:border-b-0 md:pr-2">
             <span className="mono text-[13px] text-accent">{p.n}</span>
@@ -219,10 +222,10 @@ export function Contact() {
           </h2>
           <p className="prose-col mt-5 text-ink-2">Email is the quickest way to reach me.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={`mailto:${LINKS.email}`} className="btn btn-primary">
+            <a href={`mailto:${LINKS.email}`} className="btn btn-primary magnetic">
               {LINKS.email}
             </a>
-            <a href={LINKS.cvRequest} className="btn btn-secondary">
+            <a href={LINKS.cvRequest} className="btn btn-secondary magnetic">
               Request my CV
             </a>
           </div>

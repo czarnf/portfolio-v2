@@ -135,14 +135,21 @@ Paragraph width max 68ch; case study reading column 680px. All numbers in metric
 - No stock photos, no AI-generated people or scenes, no vendor logo walls (they imply endorsement and certifications not held).
 - Headshot (optional): natural light, plain background, 1:1, about 160px in About only.
 
-## 11. Motion
+## 11. Motion (v1.1, 30 Oct 2026: richer motion layer, owner's decision)
 
-One approach: CSS only, no animation library.
+CSS and small vanilla scripts only, no animation library. Every effect has a job, uses transform or opacity only, is switched off under `prefers-reduced-motion: reduce`, and every pointer effect is switched off on touch screens (`hover: none` or `pointer: coarse`).
 - Curves: glide `cubic-bezier(0.16, 1, 0.3, 1)`; in-out `cubic-bezier(0.65, 0, 0.35, 1)`.
-- Section reveal: opacity 0 to 1 and translateY(12px) to 0, 450ms glide, once, IntersectionObserver, stagger 60ms, max four items.
-- Press: 80ms. Scroll-spy marker slide: 300ms in-out. Mobile sheet: 300ms glide.
-- Animate transform and opacity only. Nothing loops. No parallax, no cursor-reactive type, no scroll-jacking, no counters that tick up.
-- `prefers-reduced-motion: reduce`: no transforms, content visible immediately.
+- **Hero headline:** words rise in one after another on load (800ms glide, 45ms stagger). Screen readers get the full sentence via `aria-label`.
+- **Hero diagram ("bridge"):** frontline nodes, a central Requirements and Evidence node, build nodes. Filled packets travel in (need), hollow packets travel back (evidence), via SVG `animateMotion`. Layers drift with the pointer by depth (4, 8, 14px). Paused under reduced motion. Desktop only.
+- **Cursor follower:** a 32px accent ring trails the native cursor (lerp 0.22) and grows over links and buttons. The native cursor is never hidden.
+- **Spotlight:** cards and artefact frames with `.spot` show a soft accent glow that follows the pointer.
+- **Magnetic buttons:** primary and secondary CTAs with `.magnetic` lean towards the pointer by 35% of the offset, capped at 10px, and spring back on leave.
+- **Score bars:** before and after bars grow from the old score to the new one when the table enters view, with the after figure counting up (ease-out cubic, 1.4s). Tabular figures throughout.
+- **Section reveal:** opacity 0 to 1 and translateY(12px) to 0, 450ms glide, once, stagger 60ms, max four items.
+- **Scroll progress:** 2px accent bar at the very top of the viewport.
+- **Process line:** the accent rule above How I work draws left to right when revealed.
+- Press 80ms, scroll-spy marker 300ms in-out, mobile sheet 300ms glide.
+- Still out: parallax backgrounds, scroll-jacking, looping decoration outside the hero diagram, custom cursors that replace the system cursor.
 
 ## 12. Voice
 
@@ -164,7 +171,7 @@ One approach: CSS only, no animation library.
 
 ## 14. Remove from the current sites
 
-Chatbot with canned answers, dark neumorphism, ambient blur blobs, purple theme (Lovable default), cursor-reactive headlines, skill bars and vendor logo walls, inline PDF accordions on the homepage (move BCS and PRINCE2 documents to Proof links in the register).
+Chatbot with canned answers, dark neumorphism, ambient blur blobs, purple theme (Lovable default), skill bars and vendor logo walls, inline PDF accordions on the homepage (move BCS and PRINCE2 documents to Proof links in the register).
 
 ## 15. Acceptance checklist (run before every deploy)
 
@@ -175,6 +182,6 @@ Chatbot with canned answers, dark neumorphism, ambient blur blobs, purple theme 
 5. Keyboard: visible focus on every interactive element; skip link present; logical tab order.
 6. Touch targets 44px or larger.
 7. 360px width: no horizontal scroll; table stacks.
-8. Reduced-motion path checked.
+8. Reduced-motion path checked: nothing moves, nothing is hidden, the hero diagram is paused. Touch devices show no cursor ring.
 9. Every external link resolves (GitHub `czarnf`, the confirmed LinkedIn handle, live demos).
 10. Footer "Last updated" date is today's.

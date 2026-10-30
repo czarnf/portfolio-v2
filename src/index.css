@@ -210,3 +210,132 @@
     }
   }
 }
+
+/* ---------- Motion layer (DESIGN.md section 11, v1.1) ---------- */
+@layer components {
+  :root {
+    --spot: rgba(11, 102, 86, 0.08);
+  }
+  :root.dark {
+    --spot: rgba(94, 209, 184, 0.09);
+  }
+
+  /* Cursor follower: the native cursor stays; this ring trails it and grows over controls. */
+  .cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 70;
+    opacity: 0;
+    transition: opacity 200ms var(--ease-in-out);
+    will-change: transform;
+  }
+  .cursor-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 1.5px solid var(--accent);
+    transform: scale(0.55);
+    transition: transform 300ms var(--ease-glide), background-color 300ms var(--ease-glide);
+  }
+  .cursor-ring[data-hover="true"]::after {
+    transform: scale(1.35);
+    background: var(--spot);
+  }
+
+  /* Spotlight that follows the pointer inside a card. */
+  .spot {
+    position: relative;
+  }
+  .spot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(280px circle at var(--mx, -999px) var(--my, -999px), var(--spot), transparent 70%);
+    transition: opacity 300ms var(--ease-in-out);
+  }
+  .spot:hover::after {
+    opacity: 1;
+  }
+
+  .magnetic {
+    transition: transform 500ms var(--ease-glide), background-color 150ms var(--ease-in-out),
+      border-color 150ms var(--ease-in-out);
+  }
+
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: 60;
+    pointer-events: none;
+  }
+
+  /* Headline: words rise in one after another on load. */
+  .word {
+    display: inline-block;
+    animation: word-in 800ms var(--ease-glide) both;
+  }
+  @keyframes word-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.45em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Hero diagram depth: layers drift with the pointer by their own depth. */
+  .bridge-layer {
+    transform: translate(calc(var(--px, 0) * var(--depth, 0px)), calc(var(--py, 0) * var(--depth, 0px)));
+    transition: transform 600ms var(--ease-glide);
+  }
+
+  /* Lines and bars that draw in when their section is revealed. */
+  .draw-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1200ms var(--ease-glide) 150ms;
+  }
+  .reveal.is-in .draw-line,
+  .is-in .draw-line {
+    transform: scaleX(1);
+  }
+  .bar-fill {
+    transform-origin: left;
+    transition: transform 1100ms var(--ease-glide);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .word,
+    .bridge-layer,
+    .draw-line,
+    .bar-fill,
+    .magnetic {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+    .draw-line {
+      transform: scaleX(1) !important;
+    }
+    .scroll-progress,
+    .spot::after {
+      display: none;
+    }
+  }
+}
