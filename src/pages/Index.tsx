@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { CASE_STUDIES } from "@/data/site";
 import { Hero } from "@/components/site/Hero";
-import { WorkRow } from "@/components/site/WorkRow";
+import { WorkSwitcher } from "@/components/site/WorkSwitcher";
 import { SectionHead } from "@/components/site/SectionHead";
 import { About, Contact, EvidenceRegister, ProcessStrip, QuoteBand, WritingList } from "@/components/site/Sections";
 
@@ -22,13 +22,9 @@ export default function Index() {
       <Hero />
       <section id="work" className="wrap scroll-mt-20 pt-8 md:pt-16" aria-labelledby="work-title">
         <SectionHead id="work" eyebrow="Selected work" title="Five pieces of work," accent="with the evidence.">
-          <p>Each one opens into a full case study: context, constraints, what I did, the result and how you can check it.</p>
+          <p>Pick one to see the result and the proof. Each has a full case study: context, constraints, what I did and how you can check it.</p>
         </SectionHead>
-        <div className="border-b border-line">
-          {CASE_STUDIES.map((cs, i) => (
-            <WorkRow key={cs.slug} cs={cs} index={i} />
-          ))}
-        </div>
+        <WorkSwitcher items={CASE_STUDIES} />
       </section>
       <ProcessStrip />
       <EvidenceRegister />

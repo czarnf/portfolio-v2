@@ -208,6 +208,33 @@
   .band .accent-text {
     color: var(--band-accent);
   }
+  /* Work switcher: panel swap and phone accordion. */
+  .work-panel-in {
+    animation: panel-in 450ms var(--ease-glide) both;
+  }
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .work-acc summary::-webkit-details-marker {
+    display: none;
+  }
+  .work-acc[open] > div {
+    animation: panel-in 350ms var(--ease-glide) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .work-panel-in,
+    .work-acc[open] > div {
+      animation: none;
+    }
+  }
+
   .band-rule {
     border-color: var(--band-line);
   }

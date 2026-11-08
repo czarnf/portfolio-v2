@@ -4,8 +4,9 @@ import type { CaseStudy } from "@/data/site";
 type Row = { label: string; from: string; to: string };
 
 // Counts a percentage up from the "before" value to the "after" value (ease-out cubic, about 1.4s).
+// Shows the true final value until it actually runs, so a printed, unscrolled or collapsed table never shows a wrong figure.
 function CountUp({ from, to, run }: { from: number; to: number; run: boolean }) {
-  const [v, setV] = useState(from);
+  const [v, setV] = useState(to);
   useEffect(() => {
     if (!run) {
       setV(to);
@@ -46,7 +47,7 @@ function ScoreTable({ rows }: { rows: Row[] }) {
           io.disconnect();
         }
       },
-      { threshold: 0.35 },
+      { threshold: 0, rootMargin: "0px 0px -12% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();

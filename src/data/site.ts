@@ -143,7 +143,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         { label: "My role", value: "Delivery and product lead" },
         { label: "Key decision", value: "AI model chosen for data residency" },
         { label: "Integration", value: "Dutch Chamber of Commerce registry (KYC)" },
-        { label: "Status", value: "Live in production, Aug 2026" },
+        { label: "Status", value: "Live in production as of Aug 2026" },
       ],
     },
     sections: {
