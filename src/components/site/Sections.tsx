@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { EVIDENCE, LINKS, PROCESS, WRITING, type Status } from "@/data/site";
+import { EVIDENCE, LINKS, PROCESS, TESTIMONIAL, WRITING, type Status } from "@/data/site";
 import { StatusChip } from "./StatusChip";
 import { SectionHead } from "./SectionHead";
 import { Reveal } from "./Reveal";
@@ -25,20 +25,58 @@ function ProofLink({ label, href }: { label: string; href?: string }) {
 
 export function ProcessStrip() {
   return (
-    <section className="wrap py-16 md:py-24" aria-labelledby="how-title">
-      <SectionHead id="how" eyebrow="How I work" title="Four steps, in this order" />
-      <Reveal className="relative h-px bg-line" aria-hidden="true">
-        <span className="draw-line absolute inset-0 block bg-accent" />
+    <section className="band py-20 md:py-28" aria-labelledby="how-title">
+      <div className="wrap">
+        <Reveal className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-6">
+            <p className="label" style={{ color: "var(--band-text-2)" }}>How I work</p>
+            <h2 id="how-title" className="mt-3 text-[30px] font-bold leading-[1.1] tracking-[-0.02em] md:text-[44px]">
+              Steady in the incident. <span className="accent-text">Rigorous after it.</span>
+            </h2>
+          </div>
+          <p className="prose-col self-end text-[17px] leading-[1.6] lg:col-span-6" style={{ color: "var(--band-text-2)" }}>
+            I work where pressure is live: patient flow in a busy acute hospital. When something goes wrong I keep things
+            moving, then I find the cause and fix the system so it does not happen twice.
+          </p>
+        </Reveal>
+        <Reveal className="relative mt-14 h-px" aria-hidden="true">
+          <span className="absolute inset-0 block" style={{ background: "var(--band-line)" }} />
+          <span className="draw-line absolute inset-0 block" style={{ background: "var(--band-accent)" }} />
+        </Reveal>
+        <ol className="grid gap-x-10 md:grid-cols-4">
+          {PROCESS.map((p, i) => (
+            <Reveal
+              as="li"
+              key={p.n}
+              delay={i}
+              className="band-rule border-b py-6 md:border-b-0 md:pr-2"
+            >
+              <span className="mono text-[13px]" style={{ color: "var(--band-accent)" }}>{p.n}</span>
+              <h3 className="mt-2 text-[20px] font-semibold leading-[1.3]">{p.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.6]" style={{ color: "var(--band-text-2)" }}>{p.body}</p>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+// Pull-quote from the ward manager's letter. Renders only once the author has agreed (TESTIMONIAL.approved).
+export function QuoteBand() {
+  if (!TESTIMONIAL.approved) return null;
+  return (
+    <section className="wrap py-16 md:py-24" aria-label="What my manager says">
+      <Reveal as="figure" className="mx-auto max-w-[880px] border-l-0 text-center">
+        <span aria-hidden="true" className="mono block text-[48px] leading-none text-accent">“</span>
+        <blockquote className="mt-2 text-[22px] font-semibold leading-[1.4] tracking-[-0.01em] text-ink md:text-[28px]">
+          {TESTIMONIAL.quote}
+        </blockquote>
+        <figcaption className="mt-6 text-[15px] text-ink-2">
+          <span className="font-semibold text-ink">{TESTIMONIAL.attribution}</span>
+          <span className="mono ml-2 text-[13px] text-ink-3">{TESTIMONIAL.context}</span>
+        </figcaption>
       </Reveal>
-      <ol className="grid gap-x-10 md:grid-cols-4">
-        {PROCESS.map((p, i) => (
-          <Reveal as="li" key={p.n} delay={i} className="border-b border-line py-6 md:border-b-0 md:pr-2">
-            <span className="mono text-[13px] text-accent">{p.n}</span>
-            <h3 className="mt-2 text-[20px] font-semibold leading-[1.3]">{p.title}</h3>
-            <p className="mt-2 text-[15px] leading-[1.6] text-ink-2">{p.body}</p>
-          </Reveal>
-        ))}
-      </ol>
     </section>
   );
 }
@@ -201,7 +239,7 @@ export function About() {
             , a data and software venture for batch manufacturers.
           </p>
           <p>
-            I hold an MSc in Information Technology (Merit) from UWE Bristol and a BSc in Project Management, and I hold
+            I hold an MSc in Information Technology (Merit) from UWE Bristol and a BSc in Project Management (2:1), and I hold
             NHS England digital clinical safety training (DCB 0129 and DCB 0160). I am looking for digital delivery and
             business analysis roles in health, government and SaaS.
           </p>
@@ -213,7 +251,7 @@ export function About() {
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-20 bg-sunken py-20 md:py-24" aria-labelledby="contact-title">
+    <section id="contact" className="contact-band scroll-mt-20 py-20 md:py-24" aria-labelledby="contact-title">
       <div className="wrap">
         <Reveal>
           <p className="label text-ink-3">Contact</p>

@@ -4,7 +4,7 @@ import { CASE_STUDIES } from "@/data/site";
 import { Hero } from "@/components/site/Hero";
 import { WorkRow } from "@/components/site/WorkRow";
 import { SectionHead } from "@/components/site/SectionHead";
-import { About, Contact, EvidenceRegister, ProcessStrip, WritingList } from "@/components/site/Sections";
+import { About, Contact, EvidenceRegister, ProcessStrip, QuoteBand, WritingList } from "@/components/site/Sections";
 
 export default function Index() {
   const { hash } = useLocation();
@@ -21,7 +21,7 @@ export default function Index() {
     <>
       <Hero />
       <section id="work" className="wrap scroll-mt-20 pt-8 md:pt-16" aria-labelledby="work-title">
-        <SectionHead id="work" eyebrow="Selected work" title="Five pieces of work, with the evidence">
+        <SectionHead id="work" eyebrow="Selected work" title="Five pieces of work," accent="with the evidence.">
           <p>Each one opens into a full case study: context, constraints, what I did, the result and how you can check it.</p>
         </SectionHead>
         <div className="border-b border-line">
@@ -34,6 +34,7 @@ export default function Index() {
       <EvidenceRegister />
       <WritingList />
       <About />
+      <QuoteBand />
       <Contact />
     </>
   );

@@ -62,9 +62,9 @@ Light is the primary theme. Dark is designed, not inverted. Define both on `:roo
 | `status-progress` | #875000 on #F6ECDB | #E3B266 on #34280F | In progress chip |
 | `status-concept` | #5A6370 on #ECEEEA | #9AA4B0 on #1C232C | Concept chip |
 
-Surface changes: the page stays on `canvas`. Case study artefacts and the evidence table sit on `surface` with a 1px `border`. The contact band and footer sit on `surface-sunken`. No full-bleed dark bands in light mode.
+Surface changes (v1.2, 8 Nov 2026): the page sits on `canvas`, with two deliberate breaks for rhythm. "How I work" is a full-bleed dark band (`band-bg` #0f1f1b light / #13251f dark, text #eef3f1, secondary #aebdb8, accent #5ed1b8, rules #2e4a43; all text pairs 8:1 or better). The contact section sits on a mint band (`contact-bg` #e1f0ec light / #12302b dark; control borders #7a827c light / #8a95a2 dark, 3.4:1 and 4.65:1). Case study artefacts and the evidence table sit on `surface` with a 1px `border`. The footer sits on `surface-sunken`. No other full-bleed bands.
 
-Accent discipline: accent appears on actions, links, the focus ring and Verified chips only. Never on headings, icons or backgrounds.
+Accent discipline: accent appears on actions, links, the focus ring and Verified chips, plus accent phrases in at most three headings: the hero (the two sides of the bridge, "frontline operations" and "build the systems."), the Selected work heading and the How I work band. Never on icons or backgrounds.
 
 **Contrast, checked by script on 30 Oct 2026 (WCAG 2.x formula):**
 - Light: text 16.8:1 on canvas; text-2 7.8:1; text-3 5.7:1; accent 6.4:1; white on accent 6.9:1; border-strong 3.7:1 on canvas, 3.4:1 on sunken.
@@ -121,10 +121,11 @@ Paragraph width max 68ch; case study reading column 680px. All numbers in metric
 
 1. **Hero:** mono eyebrow ("Digital delivery · Business analysis · Bristol"), H1 positioning line, two-line subhead, primary "See the work" and secondary "Download CV", then a proof strip of three Verified or Built items with chips.
 2. **Selected work:** four or five work rows (see the content audit for the list and statuses).
-3. **How I work:** the process strip.
+3. **How I work:** dark band with the line "Steady in the incident. Rigorous after it." and the four-step process strip.
 4. **Evidence register.**
 5. **Writing.**
 6. **About:** short, pi-shaped story in plain words; optional headshot.
+6a. **Quote band:** one exact quote from a real letter, attributed by role only, shown only once the author has agreed (`TESTIMONIAL.approved`).
 7. **Contact:** email first, then LinkedIn and GitHub.
 
 ## 10. Imagery and icons

@@ -96,7 +96,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       did: [
         "Reframed the problem as a capacity and demand mismatch, and evidenced it with audits broken down by role, shift and documentation category.",
         "Ran the project as Plan, Do, Study, Act cycles, with the Practice Development Nurse as accountable officer.",
-        "Benchmarked practice and drafted a responsibility matrix so each part of the record had a clear owner.",
+        "Benchmarked practice and introduced a responsibility matrix, which the ward manager credits with improving accountability, role clarity and ownership across the team.",
         "Built automated audit tooling in Excel and Office Scripts so the team could track scores without manual collation.",
         "Proposed a protected documentation window to close the capacity gap at peak times.",
       ],
@@ -107,6 +107,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
       evidence: [
         { label: "Audit results held by the unit; verified figures quoted above" },
+        { label: "Ward manager's letter (Sep 2026) attesting to the work: available on request" },
         { label: "Recognition from Digital Services and the Digital Matron: references on request" },
       ],
       next: [
@@ -359,7 +360,7 @@ export type EvidenceItem = {
 };
 
 export const EVIDENCE: EvidenceItem[] = [
-  { item: "Documentation compliance QI project", detail: "Audit scores 35% to 56% and 41% to 56%", type: "Project", status: "verified", date: "May 2026", proof: { label: "Case study", href: "/work/documentation-compliance" } },
+  { item: "Documentation compliance QI project", detail: "Audit scores 35% to 56% and 41% to 56%; attested by ward manager letter", type: "Project", status: "verified", date: "May 2026", proof: { label: "Case study", href: "/work/documentation-compliance" } },
   { item: "Hospital-wide Digital Link", detail: "First point of contact for colleagues on clinical systems", type: "Project", status: "verified", date: "Current" },
   { item: "Cannula check audit workbook", detail: "Logs 12-hourly checks for governance; used by ward management", type: "Project", status: "verified", date: "Current" },
   { item: "Medical equipment usage tracker", detail: "Made life-critical equipment use auditable", type: "Project", status: "verified", date: "2025" },
@@ -369,7 +370,7 @@ export const EVIDENCE: EvidenceItem[] = [
   { item: "margin-variance-kit", detail: "CIMA variances, 14 tests, MIT", type: "Project", status: "built", date: "2026", proof: { label: "GitHub", href: "https://github.com/czarnf/margin-variance-kit" } },
   { item: "Flow Intelligence dashboard", detail: "Live demo on synthetic data", type: "Project", status: "built", date: "Oct 2026", proof: { label: "Live demo", href: "https://flow-intelligence-dashboard.vercel.app" } },
   { item: "Sponsor Job Finder", detail: "Open Claude skill, version 1.1", type: "Project", status: "built", date: "Oct 2026", proof: { label: "GitHub", href: "https://github.com/czarnf/sponsor-job-finder" } },
-  { item: "Acute medical triage improvement group", detail: "Power BI data-integrity audit, A3 and PDSA proposals", type: "Project", status: "progress", date: "Sep 2026" },
+  { item: "Acute medical triage improvement project", detail: "Ward observational study, Power BI data-integrity audit and A3 analysis; attested by ward manager letter", type: "Project", status: "verified", date: "Sep 2026", proof: { label: "Letter on request" } },
   { item: "Essentials of Digital Clinical Safety", detail: "NHS England; digital clinical safety training (DCB 0129 / DCB 0160)", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
   { item: "Digital Clinical Safety: Intermediate", detail: "NHS England", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
   { item: "Clinical Risk Management Training: Refresher", detail: "NHS England", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
@@ -432,3 +433,13 @@ export const PROCESS = [
   { n: "03", title: "Ship the smallest useful change", body: "One change, tested in a short cycle, with a named owner and a measure agreed up front." },
   { n: "04", title: "Measure and hand over", body: "Show what changed with evidence, then leave tools and documentation the team can run without me." },
 ];
+
+// Quote from the ward manager's letter (25 Sep 2026). Exact wording only.
+// approved stays false until the author agrees to it being shown publicly.
+export const TESTIMONIAL = {
+  approved: false,
+  quote:
+    "His ability to analyse data, support service improvement programmes, engage stakeholders and help embed sustainable change has been highly valued by the ward and wider operational teams.",
+  attribution: "Ward Manager, NHS acute hospital",
+  context: "Letter, September 2026",
+};

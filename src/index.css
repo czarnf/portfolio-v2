@@ -26,6 +26,13 @@
     --concept-fg: #5a6370;
     --concept-bg: #eceeea;
     --overlay-shadow: 0 12px 32px rgba(17, 23, 31, 0.16);
+    --band-bg: #0f1f1b;
+    --band-text: #eef3f1;
+    --band-text-2: #aebdb8;
+    --band-accent: #5ed1b8;
+    --band-line: #2e4a43;
+    --contact-bg: #e1f0ec;
+    --contact-border: #7a827c;
 
     --ease-glide: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -53,6 +60,9 @@
     --concept-fg: #9aa4b0;
     --concept-bg: #1c232c;
     --overlay-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    --band-bg: #13251f;
+    --contact-bg: #12302b;
+    --contact-border: #8a95a2;
   }
 
   html {
@@ -186,6 +196,26 @@
   }
   .btn-secondary:hover {
     background: var(--surface-sunken);
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+  .band {
+    background: var(--band-bg);
+    color: var(--band-text);
+  }
+  .band .accent-text {
+    color: var(--band-accent);
+  }
+  .band-rule {
+    border-color: var(--band-line);
+  }
+  .contact-band {
+    background: var(--contact-bg);
+  }
+  .contact-band .btn-secondary {
+    border-color: var(--contact-border);
   }
 
   .prose-col {

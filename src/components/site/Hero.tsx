@@ -6,6 +6,8 @@ import { Reveal } from "./Reveal";
 import { BridgeDiagram } from "./motion/BridgeDiagram";
 
 const HEADLINE = "I translate between frontline operations and the teams who build the systems.";
+// "frontline operations" and "build the systems." mirror the two sides of the bridge diagram.
+const ACCENT_WORDS = new Set([3, 4, 9, 10, 11]);
 
 const PROOF = [
   { status: "verified" as const, title: "Documentation compliance", detail: "Audit scores 35% to 56%", to: "/work/documentation-compliance" },
@@ -28,7 +30,10 @@ export function Hero() {
       >
         {HEADLINE.split(" ").map((w, i) => (
           <span key={i} aria-hidden="true">
-            <span className="word" style={{ animationDelay: `${120 + i * 45}ms` }}>
+            <span
+              className={`word ${ACCENT_WORDS.has(i) ? "accent-text" : ""}`}
+              style={{ animationDelay: `${120 + i * 45}ms` }}
+            >
               {w}
             </span>{" "}
           </span>
