@@ -235,6 +235,24 @@
     }
   }
 
+  /* Hero scenes: labels and caption fade in on each scene change. */
+  .scene-in {
+    animation: scene-in 500ms var(--ease-glide) both;
+  }
+  @keyframes scene-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scene-in {
+      animation: none;
+    }
+  }
+
   .band-rule {
     border-color: var(--band-line);
   }

@@ -42,8 +42,8 @@ export function Hero() {
       <Reveal delay={2}>
         <div className="mt-8 h-px w-full max-w-[680px] bg-line" aria-hidden="true" />
         <p className="prose-col mt-6 text-[17px] text-ink-2 md:text-[19px] md:leading-[1.55]">
-          Delivery lead and business analyst with an MSc in IT. I have run a measurable improvement project inside a
-          large NHS hospital, led a European logistics platform rebuild, and I build the data tools I recommend.
+          Delivery lead and business analyst with an MSc in IT. I have delivered in clinical and commercial settings
+          across four countries: the UK, the Netherlands, the US and Nigeria. And I build the data tools I recommend.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={LINKS.emailRole} className="btn btn-primary magnetic">
@@ -55,7 +55,7 @@ export function Hero() {
         </div>
       </Reveal>
       </div>
-      <Reveal delay={2} className="hidden lg:col-span-5 lg:block">
+      <Reveal delay={2} className="mx-auto hidden w-full max-w-[520px] md:block lg:col-span-5 lg:max-w-none">
         <BridgeDiagram />
       </Reveal>
       </div>
