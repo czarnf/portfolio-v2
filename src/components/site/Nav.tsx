@@ -98,8 +98,8 @@ export function Nav() {
           >
             {mode === "dark" ? <Sun size={20} strokeWidth={1.5} /> : <Moon size={20} strokeWidth={1.5} />}
           </button>
-          <a href={LINKS.cvRequest} className="btn btn-secondary ml-2">
-            CV
+          <a href={LINKS.emailRole} className="btn btn-secondary ml-2">
+            Get in touch
           </a>
         </div>
 
@@ -159,8 +159,8 @@ export function Nav() {
               </li>
             ))}
             <li className="pt-5">
-              <a href={LINKS.cvRequest} className="btn btn-primary w-full">
-                Request my CV
+              <a href={LINKS.emailRole} className="btn btn-primary w-full">
+                Email me
               </a>
             </li>
           </ul>

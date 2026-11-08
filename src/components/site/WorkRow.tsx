@@ -5,9 +5,9 @@ import { StatusChip } from "./StatusChip";
 import { Artefact } from "./Artefact";
 import { Reveal } from "./Reveal";
 
-// Alternating showcase row: meta column (5/12) and narrative column (7/12).
+// Showcase row: meta column (5/12) and narrative column (7/12), same order every row so short rows stay balanced.
 export function WorkRow({ cs, index }: { cs: CaseStudy; index: number }) {
-  const flip = index % 2 === 1;
+  const flip = false;
   return (
     <Reveal as="article" className="border-t border-line py-12 md:py-16" >
       <Link to={`/work/${cs.slug}`} className="group grid gap-8 lg:grid-cols-12 lg:gap-12" aria-label={`${cs.title}: read the case study`}>
@@ -39,23 +39,16 @@ export function WorkRow({ cs, index }: { cs: CaseStudy; index: number }) {
         </div>
 
         <div className={`min-w-0 lg:col-span-7 ${flip ? "lg:order-1" : ""}`}>
-          <div className="prose-col space-y-4 text-ink-2">
-            <p>
-              <span className="font-semibold text-ink">Problem. </span>
-              {cs.summary.problem}
-            </p>
-            <p>
-              <span className="font-semibold text-ink">What I did. </span>
-              {cs.summary.did}
-            </p>
-            <p>
-              <span className="font-semibold text-ink">Result. </span>
-              {cs.summary.result}
-            </p>
-          </div>
-          <div className="mt-6">
-            <Artefact artefact={cs.artefact} />
-          </div>
+          <p className="prose-col text-[17px] leading-[1.6] text-ink-2">
+            <span className="font-semibold text-ink">Result. </span>
+            {cs.summary.result}
+          </p>
+          {/* Home page shows visual proof only (score bars, code); fact tables live on the case study page. */}
+          {cs.artefact.kind !== "facts" && (
+            <div className="mt-6">
+              <Artefact artefact={cs.artefact} />
+            </div>
+          )}
           <span className="mt-5 inline-flex items-center gap-1 font-semibold text-accent underline-offset-[3px] group-hover:underline">
             Read the case study
             <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />

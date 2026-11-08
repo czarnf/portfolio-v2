@@ -17,6 +17,8 @@ export const LINKS = {
   github: "https://github.com/czarnf",
   substack: "https://emmanuelchiefson.substack.com",
   talos: "https://talosintelligentsystems.com",
+  emailRole:
+    "mailto:emmanuelchiefson@gmail.com?subject=Role%20enquiry&body=Hi%20Emmanuel%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk%20about%20a%20role.",
   cvRequest:
     "mailto:emmanuelchiefson@gmail.com?subject=CV%20request&body=Hi%20Emmanuel%2C%20could%20you%20send%20me%20your%20CV%3F",
 };
@@ -357,25 +359,26 @@ export type EvidenceItem = {
   status: Status;
   date: string;
   proof?: Proof;
+  key?: boolean; // shown before "Show all"
 };
 
 export const EVIDENCE: EvidenceItem[] = [
-  { item: "Documentation compliance QI project", detail: "Audit scores 35% to 56% and 41% to 56%; attested by ward manager letter", type: "Project", status: "verified", date: "May 2026", proof: { label: "Case study", href: "/work/documentation-compliance" } },
+  { key: true, item: "Documentation compliance QI project", detail: "Audit scores 35% to 56% and 41% to 56%; attested by ward manager letter", type: "Project", status: "verified", date: "May 2026", proof: { label: "Case study", href: "/work/documentation-compliance" } },
   { item: "Hospital-wide Digital Link", detail: "First point of contact for colleagues on clinical systems", type: "Project", status: "verified", date: "Current" },
   { item: "Cannula check audit workbook", detail: "Logs 12-hourly checks for governance; used by ward management", type: "Project", status: "verified", date: "Current" },
   { item: "Medical equipment usage tracker", detail: "Made life-critical equipment use auditable", type: "Project", status: "verified", date: "2025" },
   { item: "Medication safety and governance workbook", detail: "Designed; flags repeat errors in a rolling six months", type: "Project", status: "built", date: "Sep 2026" },
   { item: "Daily flow dashboard and history workbook", detail: "Designed in Excel 365 with 7-day rolling averages", type: "Project", status: "built", date: "Sep 2026" },
-  { item: "Zinter platform rebuild", detail: "Live in production as of Aug 2026", type: "Project", status: "built", date: "Jul 2026", proof: { label: "Case study", href: "/work/zinter-platform" } },
-  { item: "margin-variance-kit", detail: "CIMA variances, 14 tests, MIT", type: "Project", status: "built", date: "2026", proof: { label: "GitHub", href: "https://github.com/czarnf/margin-variance-kit" } },
-  { item: "Flow Intelligence dashboard", detail: "Live demo on synthetic data", type: "Project", status: "built", date: "Oct 2026", proof: { label: "Live demo", href: "https://flow-intelligence-dashboard.vercel.app" } },
-  { item: "Sponsor Job Finder", detail: "Open Claude skill, version 1.1", type: "Project", status: "built", date: "Oct 2026", proof: { label: "GitHub", href: "https://github.com/czarnf/sponsor-job-finder" } },
-  { item: "Acute medical triage improvement project", detail: "Ward observational study, Power BI data-integrity audit and A3 analysis; attested by ward manager letter", type: "Project", status: "verified", date: "Sep 2026", proof: { label: "Letter on request" } },
-  { item: "Essentials of Digital Clinical Safety", detail: "NHS England; digital clinical safety training (DCB 0129 / DCB 0160)", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
+  { key: true, item: "Zinter platform rebuild", detail: "Live in production as of Aug 2026", type: "Project", status: "built", date: "Jul 2026", proof: { label: "Case study", href: "/work/zinter-platform" } },
+  { key: true, item: "margin-variance-kit", detail: "CIMA variances, 14 tests, MIT", type: "Project", status: "built", date: "2026", proof: { label: "GitHub", href: "https://github.com/czarnf/margin-variance-kit" } },
+  { key: true, item: "Flow Intelligence dashboard", detail: "Live demo on synthetic data", type: "Project", status: "built", date: "Oct 2026", proof: { label: "Live demo", href: "https://flow-intelligence-dashboard.vercel.app" } },
+  { key: true, item: "Sponsor Job Finder", detail: "Open Claude skill, version 1.1", type: "Project", status: "built", date: "Oct 2026", proof: { label: "GitHub", href: "https://github.com/czarnf/sponsor-job-finder" } },
+  { key: true, item: "Acute medical triage improvement project", detail: "Ward observational study, Power BI data-integrity audit and A3 analysis; attested by ward manager letter", type: "Project", status: "verified", date: "Sep 2026", proof: { label: "Letter on request" } },
+  { key: true, item: "Essentials of Digital Clinical Safety", detail: "NHS England; digital clinical safety training (DCB 0129 / DCB 0160)", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
   { item: "Digital Clinical Safety: Intermediate", detail: "NHS England", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
   { item: "Clinical Risk Management Training: Refresher", detail: "NHS England", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
   { item: "Statistical process control training", detail: "Patients First badge", type: "Credential", status: "verified", date: "Oct 2026" },
-  { item: "MSc Information Technology (Merit)", detail: "UWE Bristol; dissertation on human error and cybersecurity in healthcare", type: "Credential", status: "verified", date: "2024" },
+  { key: true, item: "MSc Information Technology (Merit)", detail: "UWE Bristol; dissertation on human error and cybersecurity in healthcare", type: "Credential", status: "verified", date: "2024" },
   { item: "BSc Project Management (2:1)", detail: "ESAE University", type: "Credential", status: "verified", date: "2022" },
   { item: "Certificate of Higher Education", detail: "Architectural Technology and the Environment, University of Plymouth", type: "Credential", status: "verified", date: "2018" },
   { item: "Project Manager job simulation", detail: "Siemens Mobility, via Forage", type: "Credential", status: "verified", date: "Aug 2025" },

@@ -90,7 +90,11 @@ const FILTERS: { key: "all" | Status; label: string }[] = [
 
 export function EvidenceRegister() {
   const [filter, setFilter] = useState<"all" | Status>("all");
-  const rows = useMemo(() => (filter === "all" ? EVIDENCE : EVIDENCE.filter((e) => e.status === filter)), [filter]);
+  const [showAll, setShowAll] = useState(false);
+  const matching = useMemo(() => (filter === "all" ? EVIDENCE : EVIDENCE.filter((e) => e.status === filter)), [filter]);
+  // Default view: the strongest items only. Picking a filter or "Show all" lists everything that matches.
+  const collapsed = filter === "all" && !showAll;
+  const rows = collapsed ? matching.filter((e) => e.key) : matching;
 
   return (
     <section id="evidence" className="wrap scroll-mt-20 py-16" aria-labelledby="evidence-title">
@@ -98,8 +102,8 @@ export function EvidenceRegister() {
         <p>
           <strong className="font-semibold text-ink">Verified</strong> means measured or independently attested.{" "}
           <strong className="font-semibold text-ink">Built</strong> means a working artefact exists.{" "}
-          <strong className="font-semibold text-ink">In progress</strong> means under way. Nothing here is claimed as
-          held unless it is.
+          <strong className="font-semibold text-ink">In progress</strong> means under way. Showing the strongest{" "}
+          {EVIDENCE.filter((e) => e.key).length} first.
         </p>
       </SectionHead>
 
@@ -112,7 +116,10 @@ export function EvidenceRegister() {
               key={f.key}
               type="button"
               aria-pressed={on}
-              onClick={() => setFilter(f.key)}
+              onClick={() => {
+                setFilter(f.key);
+                if (f.key !== "all") setShowAll(true);
+              }}
               className={`inline-flex min-h-[44px] items-center gap-2 rounded-md border px-4 text-[15px] transition-colors duration-150 ${
                 on ? "border-ink bg-ink text-canvas" : "border-line-strong text-ink hover:bg-sunken"
               }`}
@@ -170,6 +177,13 @@ export function EvidenceRegister() {
           </tbody>
         </table>
       </div>
+      {collapsed && (
+        <div className="mt-4 flex justify-center">
+          <button type="button" onClick={() => setShowAll(true)} className="btn btn-secondary">
+            Show all {EVIDENCE.length} items
+          </button>
+        </div>
+      )}
     </section>
   );
 }
@@ -187,7 +201,7 @@ export function WritingList() {
         </p>
       </SectionHead>
       <ul className="border-t border-line">
-        {WRITING.map((a, i) => (
+        {WRITING.slice(0, 4).map((a, i) => (
           <Reveal as="li" key={a.href} delay={i} className="border-b border-line">
             <a
               href={a.href}
@@ -208,6 +222,11 @@ export function WritingList() {
           </Reveal>
         ))}
       </ul>
+      <p className="mt-6">
+        <a href={LINKS.substack} className="link" target="_blank" rel="noopener noreferrer">
+          All {WRITING.length} pieces and more on Substack
+        </a>
+      </p>
     </section>
   );
 }

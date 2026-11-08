@@ -46,11 +46,11 @@ export function Hero() {
           large NHS hospital, led a European logistics platform rebuild, and I build the data tools I recommend.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href="#work" className="btn btn-primary magnetic">
-            See the work
+          <a href={LINKS.emailRole} className="btn btn-primary magnetic">
+            Email me
           </a>
-          <a href={LINKS.cvRequest} className="btn btn-secondary magnetic">
-            Request my CV
+          <a href="#work" className="btn btn-secondary magnetic">
+            See the work
           </a>
         </div>
       </Reveal>
