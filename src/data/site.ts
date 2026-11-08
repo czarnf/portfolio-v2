@@ -21,7 +21,7 @@ export const LINKS = {
     "mailto:emmanuelchiefson@gmail.com?subject=CV%20request&body=Hi%20Emmanuel%2C%20could%20you%20send%20me%20your%20CV%3F",
 };
 
-export const LAST_UPDATED = "30 October 2026";
+export const LAST_UPDATED = "8 November 2026";
 
 export type Proof = { label: string; href?: string };
 
@@ -128,15 +128,15 @@ export const CASE_STUDIES: CaseStudy[] = [
       problem:
         "Zinter needed its platform rebuilt for scale, with cloud infrastructure, real-time business verification and AI inside the user flow.",
       did:
-        "I led delivery end to end: scoping workshops, requirements, user stories and specifications, solution decisions, UAT sign-off and release, with a team of five across three countries.",
+        "I led delivery end to end: scoping workshops, requirements, user stories and specifications, solution decisions, UAT sign-off and release, with a team of six across three countries.",
       result:
-        "The rebuilt platform has been live in production since August 2026.",
+        "The rebuilt platform is live in production (as of August 2026).",
     },
     artefact: {
       kind: "facts",
       caption: "Delivery at a glance",
       rows: [
-        { label: "Team", value: "5 people, Nigeria, the Netherlands, UK" },
+        { label: "Team", value: "6 people, Nigeria, the Netherlands, UK" },
         { label: "My role", value: "Delivery and product lead" },
         { label: "Key decision", value: "AI model chosen for data residency" },
         { label: "Integration", value: "Dutch Chamber of Commerce registry (KYC)" },
@@ -163,11 +163,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         "Ran weekly stand-ups, kept RAID logs and risk registers, and managed the design workstream through to handover to the frontend engineers.",
       ],
       result: [
-        "The rebuilt platform went live in production and has been running since August 2026.",
+        "The rebuilt platform is live in production, as of August 2026.",
         "Delivery records (RAID logs, risk registers, specifications) were kept audit-ready throughout.",
       ],
       evidence: [
-        { label: "Platform live in production since Aug 2026" },
+        { label: "Platform live in production as of Aug 2026" },
         { label: "Reference from Zinter's CEO: on request" },
       ],
       next: [
@@ -365,7 +365,7 @@ export const EVIDENCE: EvidenceItem[] = [
   { item: "Medical equipment usage tracker", detail: "Made life-critical equipment use auditable", type: "Project", status: "verified", date: "2025" },
   { item: "Medication safety and governance workbook", detail: "Designed; flags repeat errors in a rolling six months", type: "Project", status: "built", date: "Sep 2026" },
   { item: "Daily flow dashboard and history workbook", detail: "Designed in Excel 365 with 7-day rolling averages", type: "Project", status: "built", date: "Sep 2026" },
-  { item: "Zinter platform rebuild", detail: "Live in production since Aug 2026", type: "Project", status: "built", date: "Jul 2026", proof: { label: "Case study", href: "/work/zinter-platform" } },
+  { item: "Zinter platform rebuild", detail: "Live in production as of Aug 2026", type: "Project", status: "built", date: "Jul 2026", proof: { label: "Case study", href: "/work/zinter-platform" } },
   { item: "margin-variance-kit", detail: "CIMA variances, 14 tests, MIT", type: "Project", status: "built", date: "2026", proof: { label: "GitHub", href: "https://github.com/czarnf/margin-variance-kit" } },
   { item: "Flow Intelligence dashboard", detail: "Live demo on synthetic data", type: "Project", status: "built", date: "Oct 2026", proof: { label: "Live demo", href: "https://flow-intelligence-dashboard.vercel.app" } },
   { item: "Sponsor Job Finder", detail: "Open Claude skill, version 1.1", type: "Project", status: "built", date: "Oct 2026", proof: { label: "GitHub", href: "https://github.com/czarnf/sponsor-job-finder" } },
@@ -375,8 +375,8 @@ export const EVIDENCE: EvidenceItem[] = [
   { item: "Clinical Risk Management Training: Refresher", detail: "NHS England", type: "Credential", status: "verified", date: "Held", proof: { label: "Certificate on request" } },
   { item: "Statistical process control training", detail: "Patients First badge", type: "Credential", status: "verified", date: "Oct 2026" },
   { item: "MSc Information Technology (Merit)", detail: "UWE Bristol; dissertation on human error and cybersecurity in healthcare", type: "Credential", status: "verified", date: "2024" },
-  { item: "BSc Project Management", detail: "ESAE University", type: "Credential", status: "verified", date: "2022" },
-  { item: "HND Architectural Technology", detail: "University of Plymouth", type: "Credential", status: "verified", date: "2018" },
+  { item: "BSc Project Management (2:1)", detail: "ESAE University", type: "Credential", status: "verified", date: "2022" },
+  { item: "Certificate of Higher Education", detail: "Architectural Technology and the Environment, University of Plymouth", type: "Credential", status: "verified", date: "2018" },
   { item: "Project Manager job simulation", detail: "Siemens Mobility, via Forage", type: "Credential", status: "verified", date: "Aug 2025" },
   { item: "ILM Level 2 Award in Leadership and Team Skills", type: "Credential", status: "progress", date: "Started Sep 2026" },
   { item: "PRINCE2 Agile", detail: "Working towards", type: "Credential", status: "progress", date: "Current" },

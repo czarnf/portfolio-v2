@@ -9,7 +9,7 @@ const HEADLINE = "I translate between frontline operations and the teams who bui
 
 const PROOF = [
   { status: "verified" as const, title: "Documentation compliance", detail: "Audit scores 35% to 56%", to: "/work/documentation-compliance" },
-  { status: "built" as const, title: "Logistics platform rebuild", detail: "Live in production since Aug 2026", to: "/work/zinter-platform" },
+  { status: "built" as const, title: "Logistics platform rebuild", detail: "Live in production as of Aug 2026", to: "/work/zinter-platform" },
   { status: "built" as const, title: "margin-variance-kit", detail: "Open source, tested", to: "/work/margin-variance-kit" },
 ];
 

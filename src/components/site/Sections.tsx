@@ -187,10 +187,10 @@ export function About() {
             the tools myself. The useful part is the bridge between the two.
           </p>
           <p>
-            I started in architectural technology, then spent seven years building websites and online shops for small
-            businesses in the US while I studied. I have worked in health and care since 2017, and today I coordinate
-            patient flow in a large acute NHS hospital, where I am also a Digital Link for colleagues who struggle with
-            clinical systems.
+            I started in architectural technology, then spent six years building websites and online shops for small
+            businesses in the US while I studied. I first worked in care in 2017, and today I coordinate patient flow in
+            a large acute NHS hospital, where I am also a Digital Link for colleagues who struggle with clinical
+            systems.
           </p>
           <p>
             Alongside that I led delivery of a logistics platform rebuild for a Dutch start-up through Bayside Consult,
