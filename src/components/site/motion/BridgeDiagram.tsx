@@ -70,12 +70,33 @@ const RETURNS = [
   { d: back(2, 1), dur: 4.6, begin: 3.0 },
 ];
 
+// Phones: the same bridge stood on end. Frontline across the top, the bridge in the middle, build across the bottom.
+const VX = [56, 180, 304];
+const vRoute = (from: number, to: number) =>
+  `M${VX[from]} 76 C ${VX[from]} 113, 180 113, 180 150 L180 230 C 180 267, ${VX[to]} 267, ${VX[to]} 304`;
+const vBack = (from: number, to: number) =>
+  `M${VX[from]} 304 C ${VX[from]} 267, 180 267, 180 230 L180 150 C 180 113, ${VX[to]} 113, ${VX[to]} 76`;
+const V_FLOWS = [
+  { d: vRoute(0, 1), dur: 3.2, begin: 0 },
+  { d: vRoute(1, 2), dur: 3.6, begin: 0.9 },
+  { d: vRoute(2, 0), dur: 3.4, begin: 1.8 },
+  { d: vRoute(0, 2), dur: 4.0, begin: 2.6 },
+];
+const V_RETURNS = [
+  { d: vBack(1, 0), dur: 4.2, begin: 1.2 },
+  { d: vBack(2, 1), dur: 4.6, begin: 3.0 },
+];
+// Two-word labels go on two lines so the phone boxes can stay a third of the width.
+const lines = (l: string) => {
+  const i = l.indexOf(" ");
+  return i > 0 && l.length > 10 ? [l.slice(0, i), l.slice(i + 1)] : [l];
+};
+
 const describe = (s: Scene) =>
   `${s.setting}, ${s.sector.toLowerCase()}, ${s.country}, ${s.dates}: ${s.left.join(", ")}, through requirements and evidence, to ${s.right.join(", ")}.`;
 
 export function BridgeDiagram() {
   const wrap = useRef<HTMLDivElement | null>(null);
-  const svg = useRef<SVGSVGElement | null>(null);
   const [scene, setScene] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [held, setHeld] = useState(false); // hover or keyboard focus inside
@@ -87,9 +108,10 @@ export function BridgeDiagram() {
     const apply = () => {
       setCalm(mq.matches);
       if (mq.matches) setPlaying(false);
-      if (!svg.current) return;
-      if (mq.matches) svg.current.pauseAnimations();
-      else svg.current.unpauseAnimations();
+      wrap.current?.querySelectorAll("svg").forEach((el) => {
+        if (mq.matches) el.pauseAnimations();
+        else el.unpauseAnimations();
+      });
     };
     apply();
     mq.addEventListener("change", apply);
@@ -152,8 +174,8 @@ export function BridgeDiagram() {
       role="group"
       aria-roledescription="carousel"
       aria-label="Where I have delivered"
-      onMouseEnter={() => setHeld(true)}
-      onMouseLeave={() => setHeld(false)}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setHeld(true)}
+      onPointerLeave={(e) => e.pointerType === "mouse" && setHeld(false)}
       onFocus={() => setHeld(true)}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node)) setHeld(false);
@@ -162,20 +184,18 @@ export function BridgeDiagram() {
       {/* Scene caption */}
       {/* Two fixed rows so the diagram never jumps when a longer caption arrives. */}
       <div className="flex flex-col items-center gap-1.5 text-center">
-        <div className="flex items-center gap-3 whitespace-nowrap">
-          <span className="mono text-[12px] text-ink-3 tabular">
-            {String(scene + 1).padStart(2, "0")} / {String(SCENES.length).padStart(2, "0")}
+        <span key={`cap${scene}`} className="scene-in label whitespace-nowrap rounded-sm px-2 py-1" style={{ color: "var(--verified-fg)", background: "var(--verified-bg)" }}>
+          {s.setting} · {s.country}
+        </span>
+        <span className="mono whitespace-nowrap text-[12px] text-ink-3 tabular">
+          {String(scene + 1).padStart(2, "0")} / {String(SCENES.length).padStart(2, "0")} ·{" "}
+          <span key={`d${scene}`} className="scene-in">
+            {s.sector} · {s.dates}
           </span>
-          <span key={`cap${scene}`} className="scene-in label rounded-sm px-2 py-1" style={{ color: "var(--verified-fg)", background: "var(--verified-bg)" }}>
-            {s.setting} · {s.country}
-          </span>
-        </div>
-        <span key={`d${scene}`} className="scene-in mono text-[12px] text-ink-3">
-          {s.sector} · {s.dates}
         </span>
       </div>
 
-      <svg ref={svg} viewBox="0 20 460 340" className="mt-2 block h-auto w-full overflow-visible" aria-hidden="true">
+      <svg viewBox="0 20 460 340" className="mt-2 hidden h-auto w-full overflow-visible md:block" aria-hidden="true">
         <defs>
           <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="1" style={{ fill: "var(--border)" }} />
@@ -236,6 +256,54 @@ export function BridgeDiagram() {
           <text x="230" y="208" textAnchor="middle" style={{ ...text, fontSize: 13 }}>Requirements</text>
           <text x="230" y="226" textAnchor="middle" style={{ ...text, fontSize: 13 }}>Evidence</text>
         </g>
+      </svg>
+
+      <svg viewBox="0 0 360 388" className="mx-auto mt-4 block h-auto w-full max-w-[400px] overflow-visible md:hidden" aria-hidden="true">
+        <text x="0" y="12" style={mono}>FRONTLINE</text>
+        <text x="0" y="384" style={mono}>BUILD</text>
+        {VX.map((x) => (
+          <g key={`vp${x}`}>
+            <path d={`M${x} 76 C ${x} 113, 180 113, 180 150`} fill="none" style={{ stroke: "var(--border-strong)" }} strokeWidth="1" />
+            <path d={`M180 230 C 180 267, ${x} 267, ${x} 304`} fill="none" style={{ stroke: "var(--border-strong)" }} strokeWidth="1" />
+          </g>
+        ))}
+        {VX.map((x) => (
+          <g key={`vb${x}`}>
+            <rect x={x - 56} y="24" width="112" height="52" rx="8" style={box} />
+            <rect x={x - 56} y="304" width="112" height="52" rx="8" style={box} />
+          </g>
+        ))}
+        <g key={`vlabels${scene}`} className="scene-in">
+          {[s.left, s.right].map((side, row) =>
+            side.map((l, i) => {
+              const ls = lines(l);
+              const top = row ? 304 : 24;
+              return (
+                <text key={`v${row}${i}`} x={VX[i]} y={top + (ls.length > 1 ? 21 : 31)} textAnchor="middle" style={{ ...text, fontSize: 14 }}>
+                  {ls.map((t, k) => (
+                    <tspan key={k} x={VX[i]} dy={k ? 17 : 0}>{t}</tspan>
+                  ))}
+                </text>
+              );
+            }),
+          )}
+        </g>
+        {V_FLOWS.map((f, i) => (
+          <circle key={`vf${i}`} r="4" style={{ fill: "var(--accent)" }} opacity="0">
+            <animateMotion dur={`${f.dur}s`} begin={`${f.begin}s`} repeatCount="indefinite" path={f.d} keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" />
+            <animate attributeName="opacity" dur={`${f.dur}s`} begin={`${f.begin}s`} repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.08;0.9;1" />
+          </circle>
+        ))}
+        {V_RETURNS.map((f, i) => (
+          <circle key={`vr${i}`} r="3.5" style={{ fill: "var(--surface)", stroke: "var(--accent)" }} strokeWidth="1.5" opacity="0">
+            <animateMotion dur={`${f.dur}s`} begin={`${f.begin}s`} repeatCount="indefinite" path={f.d} keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" />
+            <animate attributeName="opacity" dur={`${f.dur}s`} begin={`${f.begin}s`} repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.08;0.9;1" />
+          </circle>
+        ))}
+        <rect x="100" y="150" width="160" height="80" rx="12" style={{ fill: "var(--verified-bg)", stroke: "var(--accent)" }} strokeWidth="1.5" />
+        <text x="180" y="174" textAnchor="middle" style={{ ...mono, fill: "var(--accent)", fontSize: 10 }}>BRIDGE</text>
+        <text x="180" y="196" textAnchor="middle" style={{ ...text, fontSize: 14 }}>Requirements</text>
+        <text x="180" y="215" textAnchor="middle" style={{ ...text, fontSize: 14 }}>Evidence</text>
       </svg>
 
       {/* Screen readers: the scene in words; announced only when the visitor changes it. */}

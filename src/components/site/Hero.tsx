@@ -55,7 +55,7 @@ export function Hero() {
         </div>
       </Reveal>
       </div>
-      <Reveal delay={2} className="mx-auto hidden w-full max-w-[520px] md:block lg:col-span-5 lg:max-w-none">
+      <Reveal delay={2} className="mx-auto w-full max-w-[520px] lg:col-span-5 lg:max-w-none">
         <BridgeDiagram />
       </Reveal>
       </div>
